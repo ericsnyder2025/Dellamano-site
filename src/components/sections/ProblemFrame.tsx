@@ -1,4 +1,5 @@
 import { AlertTriangle, Clock, MessageSquareWarning, Users } from "lucide-react";
+import BlueprintBackdrop from "@/components/ui/BlueprintBackdrop";
 
 /**
  * ProblemFrame — pain-point section that sits BEFORE the services catalog.
@@ -32,8 +33,9 @@ export default function ProblemFrame() {
   ];
 
   return (
-    <section className="section-primary bg-white">
-      <div className="mx-auto max-w-5xl px-6 lg:px-8">
+    <section className="section-primary bg-white relative overflow-hidden">
+      <BlueprintBackdrop tone="light" intensity={1.1} />
+      <div className="relative mx-auto max-w-5xl px-6 lg:px-8">
         <div className="text-center mb-12">
           <p className="eyebrow mb-3">Why most projects go wrong</p>
           <h2 className="section-h2">The real reason renovations run late</h2>
