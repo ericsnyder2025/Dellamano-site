@@ -25,12 +25,12 @@ export default function ReviewedBy({
       className="bg-white border-b border-gray-200"
       aria-label="Content attribution and licenses"
     >
-      <div className="mx-auto max-w-5xl px-6 py-5 text-center">
-        <p className="text-gray-600 text-[14px]">
+      <div className="mx-auto max-w-5xl px-6 py-5 flex flex-col items-center text-center">
+        <p className="text-gray-600 text-[14px] text-center w-full">
           Reviewed by{" "}
           <Link
             href={AUTHOR_URL}
-            className="font-semibold text-brand-dark hover:underline"
+            className="font-semibold text-brand-accent hover:text-brand-accent-700 hover:underline transition-colors"
           >
             {AUTHOR.name}
           </Link>
@@ -44,7 +44,7 @@ export default function ReviewedBy({
         </p>
 
         {AUTHOR.licenses.length > 0 && (
-          <ul className="mt-3 flex flex-wrap justify-center gap-x-6 gap-y-2 text-[13px] text-gray-600">
+          <ul className="mt-3 flex flex-wrap justify-center gap-x-6 gap-y-2 text-[13px] text-gray-600 mx-auto">
             {AUTHOR.licenses.map((license) => {
               const short = license.name
                 .replace(/^Certified\s+/i, "")
@@ -56,10 +56,10 @@ export default function ReviewedBy({
                     href={license.verificationUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-brand-dark hover:underline transition-colors"
+                    className="text-brand-accent hover:text-brand-accent-700 hover:underline transition-colors"
                   >
                     FL #{license.number}
-                    <span className="text-gray-400"> ({short})</span>
+                    <span className="text-brand-accent/70"> ({short})</span>
                   </a>
                 </li>
               );
@@ -68,10 +68,10 @@ export default function ReviewedBy({
         )}
 
         {showEditorialLink && (
-          <p className="mt-3 text-[12px] text-gray-500">
+          <p className="mt-3 text-[12px] text-gray-500 text-center">
             <Link
               href={EDITORIAL_POLICY_URL}
-              className="hover:text-brand-dark hover:underline transition-colors"
+              className="text-brand-accent hover:text-brand-accent-700 hover:underline transition-colors"
             >
               Editorial policy →
             </Link>
