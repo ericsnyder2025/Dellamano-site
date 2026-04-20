@@ -128,10 +128,10 @@ export default function Footer() {
 
             {/* Social column — right of sitemap on desktop, full row on mobile */}
             <div className="col-span-2 lg:col-span-3 text-center md:text-left">
-              <p className="text-white text-[12px] font-bold uppercase tracking-[0.12em] mb-5">
+              <p className="text-white text-[12px] font-bold uppercase tracking-[0.12em] mb-8">
                 Follow Us
               </p>
-              <div className="pb-5">
+              <div className="pb-8">
                 <SocialLinks />
               </div>
             </div>

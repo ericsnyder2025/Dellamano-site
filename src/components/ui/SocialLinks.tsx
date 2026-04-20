@@ -69,7 +69,7 @@ export default function SocialLinks({
 
   return (
     <ul
-      className={`grid grid-cols-3 gap-5 w-full justify-items-center ${className}`}
+      className={`grid grid-cols-3 gap-8 w-full justify-items-center ${className}`}
     >
       {PLATFORMS.map(({ key, label, path }) => {
         const href = (SOCIAL_LINKS as Record<string, string>)[key];
