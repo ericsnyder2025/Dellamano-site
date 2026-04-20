@@ -8,6 +8,7 @@ import ProblemFrame from "@/components/sections/ProblemFrame";
 import RecentProjects from "@/components/sections/RecentProjects";
 import ReviewedBy from "@/components/ReviewedBy";
 import ContactForm from "@/components/ContactForm";
+import StatsBand from "@/components/sections/StatsBand";
 import BlueprintBackdrop from "@/components/ui/BlueprintBackdrop";
 import { getGoogleReviews } from "@/lib/google-reviews";
 import {
@@ -96,6 +97,8 @@ export default async function HomePage() {
       />
 
       <ReviewedBy />
+
+      <StatsBand />
 
       <ProblemFrame />
 

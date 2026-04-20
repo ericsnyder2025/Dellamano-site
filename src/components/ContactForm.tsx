@@ -26,7 +26,6 @@ export default function ContactForm() {
       email: String(data.get("email") ?? ""),
       phone: String(data.get("phone") ?? ""),
       service: String(data.get("service") ?? ""),
-      message: String(data.get("message") ?? ""),
       hp: String(data.get("hp") ?? ""),
       source_url: typeof window !== "undefined" ? window.location.href : "",
     };
@@ -122,18 +121,6 @@ export default function ContactForm() {
             <option value="Electrical / Plumbing">Electrical / Plumbing</option>
             <option value="Other">Other — explain below</option>
           </select>
-        </div>
-
-        <div>
-          <label className="block text-[12px] font-semibold text-gray-700 mb-1.5 tracking-wide uppercase">
-            Message <span className="font-normal text-gray-400 normal-case">(optional)</span>
-          </label>
-          <textarea
-            name="message"
-            rows={3}
-            placeholder="Scope, timeline, anything we should know…"
-            className="w-full px-3 py-2.5 rounded-[0.625rem] bg-gray-50 border border-gray-200 text-[14px] text-brand-dark placeholder:text-gray-400 focus:outline-none focus:border-brand-accent focus:bg-white transition-colors resize-y"
-          />
         </div>
 
         {/* Honeypot — real users leave this empty */}
