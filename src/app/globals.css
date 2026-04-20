@@ -31,6 +31,17 @@
   --color-brand-accent-200: #9FB9E8;
   --color-brand-accent-50: #EEF3FC;
 
+  /* ─── Warm editorial palette — for magazine-style sections ─────
+     Architectural-magazine feel. Cream + warm charcoal + aged brass.
+     Scoped to sections opted-in via the warm-editorial variant. */
+  --color-warm-cream: #F4EEE4;       /* section background */
+  --color-warm-cream-deep: #EBE3D4;  /* cards / secondary surfaces */
+  --color-warm-ink: #1E1C18;         /* body text — charcoal w/ warm undertone */
+  --color-warm-ink-soft: #5B544A;    /* muted editorial body copy */
+  --color-warm-brass-900: #6E4F2C;
+  --color-warm-brass: #A07A4E;       /* primary warm accent — aged brass */
+  --color-warm-brass-soft: #D4BC96;  /* decorative accent */
+
   /* ─── Neutral grays ──────────────────────────────────────────── */
   --color-gray-50: #F7F7F8;
   --color-gray-100: #EEEEEF;
@@ -57,6 +68,7 @@
   --font-display: var(--font-montserrat), system-ui, sans-serif;
   --font-heading: var(--font-montserrat), system-ui, sans-serif;
   --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-editorial: var(--font-fraunces), "Iowan Old Style", "Apple Garamond", Georgia, serif;
 }
 
 @media (prefers-reduced-motion: no-preference) {
