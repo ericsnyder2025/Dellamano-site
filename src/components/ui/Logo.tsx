@@ -37,19 +37,19 @@ export default function Logo({ className = "", showTagline = false, size = "md" 
         <path
           d="M60 2 L115 36 L108 36 L60 8 L12 36 L5 36 Z"
           fill="currentColor"
-          className="text-brand-primary"
+          className="text-brand-primary-400"
         />
       </svg>
 
       <span
-        className={`font-heading font-bold tracking-[0.15em] text-brand-primary leading-none ${s.textSize}`}
+        className={`font-heading font-bold tracking-[0.15em] text-brand-primary-400 leading-none ${s.textSize}`}
       >
         {displayName}
       </span>
 
       {showTagline && BUSINESS_TAGLINE && (
         <span
-          className={`text-brand-primary-400 tracking-[0.2em] uppercase italic mt-1.5 ${s.tagSize}`}
+          className={`text-brand-primary-200 tracking-[0.2em] uppercase italic mt-1.5 ${s.tagSize}`}
         >
           {BUSINESS_TAGLINE}
         </span>

@@ -131,7 +131,9 @@ export default function Footer() {
               <p className="text-white text-[12px] font-bold uppercase tracking-[0.12em] mb-5">
                 Follow Us
               </p>
-              <SocialLinks />
+              <div className="pb-5">
+                <SocialLinks />
+              </div>
             </div>
           </div>
         </div>
