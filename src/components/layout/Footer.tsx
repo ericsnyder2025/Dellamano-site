@@ -199,7 +199,7 @@ export default function Footer() {
               </div>
 
               {/* Right column — map iframe */}
-              <div className="relative min-h-[280px] lg:border-l border-t lg:border-t-0 border-white/10">
+              <div className="relative h-[320px] lg:h-auto lg:min-h-[320px] lg:border-l border-t lg:border-t-0 border-white/10">
                 {/* Gradient fade from left edge into map — softens the seam */}
                 <div
                   aria-hidden="true"
@@ -207,13 +207,11 @@ export default function Footer() {
                 />
                 <iframe
                   src="https://maps.google.com/maps?q=Dellamano+Construction+Inc,+Parkland,+FL&t=m&z=12&output=embed"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, display: "block", minHeight: 280 }}
+                  style={{ border: 0, display: "block" }}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title={`${BUSINESS_NAME} on Google Maps`}
-                  className="w-full h-full"
+                  className="absolute inset-0 w-full h-full"
                 />
               </div>
             </div>
