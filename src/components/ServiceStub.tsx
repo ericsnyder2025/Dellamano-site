@@ -57,7 +57,7 @@ export default function ServiceStub({ slug }: { slug: string }) {
         <div className="mx-auto max-w-3xl px-6 text-center">
           <h1 className="section-h2">Service not found</h1>
           <p className="text-gray-600 mt-4">
-            <Link href="/services" className="text-brand-primary hover:underline">
+            <Link href="/services" className="text-brand-accent hover:text-brand-accent-700 hover:underline transition-colors">
               View all services
             </Link>
           </p>

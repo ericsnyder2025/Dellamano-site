@@ -58,7 +58,7 @@ export default function AuthorBio() {
             )}
             <Link
               href={AUTHOR_URL}
-              className="text-blue-600 text-sm font-semibold hover:underline"
+              className="text-brand-accent hover:text-brand-accent-700 text-sm font-semibold hover:underline transition-colors"
             >
               View full credentials →
             </Link>
