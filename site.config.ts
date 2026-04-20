@@ -189,7 +189,7 @@ export const SOCIAL_LINKS = {
 // ─────────────────────────────────────────────────────────────────
 // BRAND / VISUAL
 // ─────────────────────────────────────────────────────────────────
-export const OG_IMAGE_PATH = "/images/og-default.webp";
+export const OG_IMAGE_PATH = "/images/og-default.jpg";
 export const LOGO_PATH = "/images/logo.png";
 export const FAVICON_PATH = "/favicon.ico";
 
@@ -280,6 +280,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "stone and stucco finishes",
         "electrical and gas rough-in",
       ],
+      image: "/images/outdoor-kitchens.jpg",
     },
     "kitchen-remodeling": {
       name: "Kitchen Remodeling",
@@ -293,6 +294,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "permit and HOA coordination",
         "timeline and phasing",
       ],
+      image: "/images/kitchen-remodeling.jpg",
     },
     "general-contractor": {
       name: "General Contractor",
@@ -306,6 +308,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "project management",
         "licensed trade oversight",
       ],
+      image: "/images/general-contractor.jpg",
     },
     "home-remodeling": {
       name: "Home Remodeling",
@@ -319,6 +322,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "structural and MEP upgrades",
         "finish selection",
       ],
+      image: "/images/home-remodeling.jpg",
     },
     "generator-installation": {
       name: "Whole-House Generator Installation",
@@ -332,6 +336,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "gas line routing",
         "hurricane readiness",
       ],
+      image: "/images/generator.jpg",
     },
     "custom-homes": {
       name: "Custom Home Builder",
@@ -345,6 +350,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "HVHZ construction",
         "finish and fixture selection",
       ],
+      image: "/images/custom-homes.jpg",
     },
   },
 };
