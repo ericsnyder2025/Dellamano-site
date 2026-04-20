@@ -45,7 +45,7 @@ export default function Footer() {
             <p className="text-gray-300 text-[14px] leading-[1.7] mt-5 max-w-sm mx-auto md:mx-0">
               {BUSINESS_SHORT_DESCRIPTION}
             </p>
-            <div className="flex flex-col gap-3 mt-6 items-center md:items-start">
+            <div className="flex flex-col gap-3 mt-6 items-start">
               <a
                 href={`tel:${PHONE_E164}`}
                 className="inline-flex items-center gap-3 text-gray-300 hover:text-white transition-colors text-[14px] group"
@@ -131,9 +131,7 @@ export default function Footer() {
               <p className="text-white text-[12px] font-bold uppercase tracking-[0.12em] mb-5">
                 Follow Us
               </p>
-              <div className="flex justify-center md:justify-start">
-                <SocialLinks />
-              </div>
+              <SocialLinks />
             </div>
           </div>
         </div>

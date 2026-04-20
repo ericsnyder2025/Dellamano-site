@@ -44,8 +44,8 @@ interface Props {
 const VARIANTS = {
   dark: {
     active:
-      "bg-white/5 border-white/15 text-brand-primary-400 hover:bg-brand-primary-400/15 hover:border-brand-primary-400 hover:text-brand-primary-200",
-    disabled: "bg-white/5 border-white/10 text-brand-primary-400/40 cursor-not-allowed",
+      "bg-white/5 border-white/15 text-brand-primary hover:bg-brand-primary/20 hover:border-brand-primary hover:text-brand-primary-400",
+    disabled: "bg-white/5 border-white/10 text-brand-primary/40 cursor-not-allowed",
   },
   light: {
     active:
@@ -69,7 +69,7 @@ export default function SocialLinks({
 
   return (
     <ul
-      className={`grid grid-cols-3 gap-3 ${className}`}
+      className={`grid grid-cols-3 gap-3 w-full justify-items-center ${className}`}
     >
       {PLATFORMS.map(({ key, label, path }) => {
         const href = (SOCIAL_LINKS as Record<string, string>)[key];
