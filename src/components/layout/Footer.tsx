@@ -38,15 +38,17 @@ export default function Footer() {
         {/* Main grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10 mb-16">
           {/* Brand block */}
-          <div className="md:col-span-2 lg:col-span-4">
-            <Logo size="sm" showTagline />
-            <p className="text-gray-300 text-[14px] leading-[1.7] mt-5 max-w-sm">
+          <div className="md:col-span-2 lg:col-span-4 text-center md:text-left">
+            <div className="flex justify-center md:justify-start">
+              <Logo size="sm" showTagline />
+            </div>
+            <p className="text-gray-300 text-[14px] leading-[1.7] mt-5 max-w-sm mx-auto md:mx-0">
               {BUSINESS_SHORT_DESCRIPTION}
             </p>
-            <div className="flex flex-col gap-3 mt-6">
+            <div className="flex flex-col gap-3 mt-6 items-center md:items-start">
               <a
                 href={`tel:${PHONE_E164}`}
-                className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors text-[14px] group"
+                className="inline-flex items-center gap-3 text-gray-300 hover:text-white transition-colors text-[14px] group"
               >
                 <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-brand-primary/20 group-hover:border-brand-primary/30 transition-colors">
                   <Phone size={14} aria-hidden="true" />
@@ -55,7 +57,7 @@ export default function Footer() {
               </a>
               <a
                 href={`mailto:${EMAIL}`}
-                className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors text-[14px] group"
+                className="inline-flex items-center gap-3 text-gray-300 hover:text-white transition-colors text-[14px] group"
               >
                 <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-brand-primary/20 group-hover:border-brand-primary/30 transition-colors">
                   <Mail size={14} aria-hidden="true" />
@@ -63,11 +65,11 @@ export default function Footer() {
                 {EMAIL}
               </a>
               {ADDRESS.hasStorefront && (
-                <div className="flex items-start gap-3 text-gray-300 text-[14px]">
+                <div className="inline-flex items-start gap-3 text-gray-300 text-[14px]">
                   <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center mt-0.5">
                     <MapPin size={14} aria-hidden="true" />
                   </span>
-                  <span className="leading-[1.5]">
+                  <span className="leading-[1.5] text-left">
                     {ADDRESS.street}
                     <br />
                     {ADDRESS.city}, {ADDRESS.state} {ADDRESS.zip}
@@ -83,7 +85,7 @@ export default function Footer() {
             {NAV_PRIMARY.filter((m) => m.items && m.items.length > 0)
               .slice(0, 2)
               .map((menu) => (
-                <div key={menu.href} className="lg:col-span-3">
+                <div key={menu.href} className="lg:col-span-3 text-center md:text-left">
                   <p className="text-white text-[12px] font-bold uppercase tracking-[0.12em] mb-5">
                     {menu.label}
                   </p>
@@ -106,7 +108,7 @@ export default function Footer() {
               ))}
 
             {/* Company column */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 text-center md:text-left">
               <p className="text-white text-[12px] font-bold uppercase tracking-[0.12em] mb-5">
                 Company
               </p>
@@ -125,11 +127,13 @@ export default function Footer() {
             </div>
 
             {/* Social column — right of sitemap on desktop, full row on mobile */}
-            <div className="col-span-2 lg:col-span-3">
+            <div className="col-span-2 lg:col-span-3 text-center md:text-left">
               <p className="text-white text-[12px] font-bold uppercase tracking-[0.12em] mb-5">
                 Follow Us
               </p>
-              <SocialLinks />
+              <div className="flex justify-center md:justify-start">
+                <SocialLinks />
+              </div>
             </div>
           </div>
         </div>
@@ -155,8 +159,8 @@ export default function Footer() {
 
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.8fr]">
               {/* Left column — NAP block */}
-              <div className="relative p-10 lg:p-12 flex flex-col justify-center">
-                <span className="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full border border-white/15 bg-white/5 self-start">
+              <div className="relative p-10 lg:p-12 flex flex-col justify-center items-center md:items-start text-center md:text-left">
+                <span className="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full border border-white/15 bg-white/5">
                   <MapPin size={13} className="text-brand-primary" aria-hidden="true" />
                   <span className="text-white text-[11px] font-bold uppercase tracking-[0.14em]">
                     Find Us
@@ -173,7 +177,7 @@ export default function Footer() {
                   {ADDRESS.city}, {ADDRESS.state} {ADDRESS.zip}
                 </address>
 
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex flex-col sm:flex-row gap-3 items-center">
                   <a
                     href="https://www.google.com/maps/dir/?api=1&destination=Dellamano+Construction+Inc,+Parkland,+FL"
                     target="_blank"

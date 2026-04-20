@@ -53,10 +53,10 @@ export default function CTABanner({
                 </Link>
                 <a
                   href={`tel:${PHONE_E164}`}
-                  className="inline-flex items-center justify-center gap-2 text-brand-primary-400 hover:text-brand-primary-200 text-[14px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded px-2 py-1"
+                  className="inline-flex items-center justify-center gap-2 bg-white/10 text-white font-semibold text-[14px] tracking-[0.02em] h-[3rem] px-5 rounded-[0.625rem] border border-white/15 hover:bg-white/15 hover:border-white/25 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
                 >
                   <Phone size={14} aria-hidden="true" />
-                  or call {PHONE_NUMBER}
+                  {PHONE_NUMBER}
                 </a>
               </div>
             </div>

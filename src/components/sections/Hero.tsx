@@ -84,7 +84,7 @@ export default function Hero({
               </Link>
               <a
                 href={`tel:${PHONE_E164}`}
-                className="inline-flex items-center justify-center gap-2 text-gray-300 hover:text-white text-[14px] font-medium transition-colors px-4 h-[3.5rem] touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded"
+                className="inline-flex items-center justify-center gap-2 bg-white/10 text-white font-semibold text-[14px] tracking-[0.02em] h-[3.5rem] px-6 rounded-[0.75rem] border border-white/15 hover:bg-white/15 hover:border-white/25 transition-colors touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
               >
                 <Phone size={16} aria-hidden="true" />
                 {PHONE_NUMBER}
