@@ -25,7 +25,7 @@ export default function CTABanner({
             className="absolute inset-0 opacity-40"
             style={{
               background:
-                "radial-gradient(circle at 90% 50%, rgba(74,124,155,0.3) 0%, transparent 60%)",
+                "radial-gradient(circle at 90% 50%, rgba(196,30,36,0.3) 0%, transparent 60%)",
             }}
             aria-hidden="true"
           />
@@ -47,7 +47,7 @@ export default function CTABanner({
               <div className="flex flex-col gap-3 lg:items-end">
                 <Link
                   href={ctaHref}
-                  className="inline-flex items-center justify-center bg-brand-primary text-white font-bold text-[14px] tracking-[0.04em] uppercase h-[3.5rem] px-8 rounded-[0.75rem] hover:opacity-90 transition-opacity shadow-[0_4px_16px_rgba(74,124,155,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark"
+                  className="inline-flex items-center justify-center bg-brand-primary text-white font-bold text-[14px] tracking-[0.04em] uppercase h-[3.5rem] px-8 rounded-[0.75rem] hover:opacity-90 transition-opacity shadow-[0_4px_16px_rgba(196,30,36,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark"
                 >
                   {ctaLabel}
                 </Link>

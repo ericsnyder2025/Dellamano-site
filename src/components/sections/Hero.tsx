@@ -47,7 +47,7 @@ export default function Hero({
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(105deg, rgba(26,35,50,0.92) 0%, rgba(26,35,50,0.85) 45%, rgba(26,35,50,0.65) 100%)",
+            "linear-gradient(105deg, rgba(15,15,16,0.94) 0%, rgba(15,15,16,0.82) 45%, rgba(15,15,16,0.55) 100%)",
         }}
         aria-hidden="true"
       />
@@ -55,7 +55,7 @@ export default function Hero({
         className="absolute inset-0 opacity-30"
         style={{
           background:
-            "radial-gradient(ellipse at 80% 20%, rgba(74,124,155,0.35) 0%, transparent 60%)",
+            "radial-gradient(ellipse at 80% 20%, rgba(196,30,36,0.35) 0%, transparent 60%)",
         }}
         aria-hidden="true"
       />
@@ -78,7 +78,7 @@ export default function Hero({
             <div className="flex flex-wrap gap-4 mb-8">
               <Link
                 href={ctaHref}
-                className="inline-flex items-center justify-center bg-brand-primary text-white font-bold text-[14px] tracking-[0.04em] uppercase h-[3.5rem] px-8 rounded-[0.75rem] hover:opacity-90 transition-opacity shadow-[0_4px_16px_rgba(74,124,155,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark"
+                className="inline-flex items-center justify-center bg-brand-primary text-white font-bold text-[14px] tracking-[0.04em] uppercase h-[3.5rem] px-8 rounded-[0.75rem] hover:opacity-90 transition-opacity shadow-[0_4px_16px_rgba(196,30,36,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark"
               >
                 {ctaLabel}
               </Link>

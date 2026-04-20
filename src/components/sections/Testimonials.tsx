@@ -24,7 +24,7 @@ export default function Testimonials({
         className="absolute inset-0 opacity-30"
         style={{
           background:
-            "radial-gradient(circle at 20% 50%, rgba(74,124,155,0.2) 0%, transparent 50%)",
+            "radial-gradient(circle at 20% 50%, rgba(196,30,36,0.2) 0%, transparent 50%)",
         }}
         aria-hidden="true"
       />

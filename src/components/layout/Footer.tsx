@@ -30,7 +30,7 @@ export default function Footer() {
         className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full opacity-20 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse, rgba(74,124,155,0.3) 0%, transparent 70%)",
+            "radial-gradient(ellipse, rgba(196,30,36,0.3) 0%, transparent 70%)",
         }}
       />
 
@@ -55,7 +55,7 @@ export default function Footer() {
             </a>
             <Link
               href="#free-estimate"
-              className="inline-flex items-center justify-center gap-2 bg-brand-primary text-white font-bold text-[14px] tracking-[0.04em] uppercase h-[3rem] px-6 rounded-[0.625rem] hover:bg-brand-primary-700 transition-colors shadow-[0_4px_16px_rgba(74,124,155,0.35)]"
+              className="inline-flex items-center justify-center gap-2 bg-brand-primary text-white font-bold text-[14px] tracking-[0.04em] uppercase h-[3rem] px-6 rounded-[0.625rem] hover:bg-brand-primary-700 transition-colors shadow-[0_4px_16px_rgba(196,30,36,0.35)]"
             >
               Free Estimate
               <ArrowRight size={16} aria-hidden="true" />
