@@ -106,101 +106,140 @@ export default function Footer() {
           </div>
 
           {/* Sitemap columns */}
-          <div className="md:col-span-2 lg:col-span-8 flex flex-col gap-8">
-            <div className="grid grid-cols-2 lg:grid-cols-8 gap-8">
-              {/* Service categories from NAV_PRIMARY (shows up to 2 with items) */}
-              {NAV_PRIMARY.filter((m) => m.items && m.items.length > 0)
-                .slice(0, 2)
-                .map((menu) => (
-                  <div key={menu.href} className="lg:col-span-3">
-                    <p className="text-white text-[12px] font-bold uppercase tracking-[0.12em] mb-5">
-                      {menu.label}
-                    </p>
-                    <ul className="space-y-3">
-                      {menu.items!.map((item) => (
-                        <li key={item.href}>
-                          <Link
-                            href={item.href}
-                            className="text-gray-300 hover:text-white transition-colors text-[14px] inline-flex items-center gap-1 group"
-                          >
-                            <span className="text-brand-primary/60 group-hover:text-brand-primary transition-colors">
-                              ›
-                            </span>
-                            {item.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+          <div className="md:col-span-2 lg:col-span-8 grid grid-cols-2 lg:grid-cols-8 gap-8">
+            {/* Service categories from NAV_PRIMARY (shows up to 2 with items) */}
+            {NAV_PRIMARY.filter((m) => m.items && m.items.length > 0)
+              .slice(0, 2)
+              .map((menu) => (
+                <div key={menu.href} className="lg:col-span-3">
+                  <p className="text-white text-[12px] font-bold uppercase tracking-[0.12em] mb-5">
+                    {menu.label}
+                  </p>
+                  <ul className="space-y-3">
+                    {menu.items!.map((item) => (
+                      <li key={item.href}>
+                        <Link
+                          href={item.href}
+                          className="text-gray-300 hover:text-white transition-colors text-[14px] inline-flex items-center gap-1 group"
+                        >
+                          <span className="text-brand-primary/60 group-hover:text-brand-primary transition-colors">
+                            ›
+                          </span>
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+
+            {/* Company column */}
+            <div className="lg:col-span-2">
+              <p className="text-white text-[12px] font-bold uppercase tracking-[0.12em] mb-5">
+                Company
+              </p>
+              <ul className="space-y-3">
+                {FOOTER_COMPANY_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-gray-300 hover:text-white transition-colors text-[14px]"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
                 ))}
-
-              {/* Company column */}
-              <div className="lg:col-span-2">
-                <p className="text-white text-[12px] font-bold uppercase tracking-[0.12em] mb-5">
-                  Company
-                </p>
-                <ul className="space-y-3">
-                  {FOOTER_COMPANY_LINKS.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="text-gray-300 hover:text-white transition-colors text-[14px]"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Mobile-only social cell */}
-              <div className="lg:hidden flex items-start justify-end">
-                <SocialLinks />
-              </div>
+              </ul>
             </div>
 
-            {/* Desktop social row */}
-            <div className="hidden lg:flex justify-center pt-4 border-t border-white/5">
+            {/* Social column — right of sitemap on desktop, full row on mobile */}
+            <div className="col-span-2 lg:col-span-3">
+              <p className="text-white text-[12px] font-bold uppercase tracking-[0.12em] mb-5">
+                Follow Us
+              </p>
               <SocialLinks />
             </div>
           </div>
         </div>
 
-        {/* Google Business Profile map embed */}
-        <div className="mb-12">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6 items-start">
-            <div>
-              <p className="text-white text-[12px] font-bold uppercase tracking-[0.12em] mb-3">
-                Find Us
-              </p>
-              <p className="text-gray-300 text-[14px] leading-[1.7] mb-4">
-                {BUSINESS_NAME}
-                <br />
-                {ADDRESS.street}
-                <br />
-                {ADDRESS.city}, {ADDRESS.state} {ADDRESS.zip}
-              </p>
-              <a
-                href="https://share.google/IuFPaZFHhN0vhNxZb"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-gray-300 hover:text-white text-[13px] font-semibold transition-colors"
-              >
-                <MapPin size={14} aria-hidden="true" />
-                View on Google Maps
-              </a>
-            </div>
-            <div className="rounded-[1rem] overflow-hidden border border-white/10 shadow-[var(--shadow-xl)]">
-              <iframe
-                src="https://maps.google.com/maps?q=Dellamano+Construction+Inc,+Parkland,+FL&t=m&z=12&output=embed"
-                width="100%"
-                height="280"
-                style={{ border: 0, display: "block" }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title={`${BUSINESS_NAME} on Google Maps`}
-                className="w-full"
-              />
+        {/* Google Business Profile map embed — glowing card with gradient frame */}
+        <div className="relative mb-12">
+          {/* Ambient blue glow behind the card — soft accent, not surface */}
+          <div
+            aria-hidden="true"
+            className="absolute -inset-x-6 -inset-y-10 opacity-60 blur-3xl pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(ellipse at 30% 50%, rgba(37,87,191,0.18) 0%, transparent 55%), radial-gradient(ellipse at 85% 50%, rgba(255,255,255,0.04) 0%, transparent 60%)",
+            }}
+          />
+
+          <div className="relative rounded-[1.5rem] overflow-hidden border border-white/10 bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-transparent backdrop-blur-sm shadow-[var(--shadow-2xl)]">
+            {/* Top hairline accent */}
+            <div
+              aria-hidden="true"
+              className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-brand-primary/40 to-transparent"
+            />
+
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.8fr]">
+              {/* Left column — NAP block */}
+              <div className="relative p-8 lg:p-10 flex flex-col justify-center">
+                <span className="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full border border-white/15 bg-white/5 self-start">
+                  <MapPin size={13} className="text-brand-primary" aria-hidden="true" />
+                  <span className="text-white text-[11px] font-bold uppercase tracking-[0.14em]">
+                    Find Us
+                  </span>
+                </span>
+
+                <h3 className="font-display text-white text-[22px] font-bold leading-tight mb-3 tracking-tight">
+                  {BUSINESS_NAME}
+                </h3>
+
+                <address className="not-italic text-gray-300 text-[15px] leading-[1.7] mb-6">
+                  {ADDRESS.street}
+                  <br />
+                  {ADDRESS.city}, {ADDRESS.state} {ADDRESS.zip}
+                </address>
+
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=Dellamano+Construction+Inc,+Parkland,+FL"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 bg-brand-primary text-white font-bold text-[13px] tracking-[0.04em] uppercase h-[2.75rem] px-5 rounded-[0.625rem] hover:bg-brand-primary-700 transition-colors shadow-[0_4px_16px_rgba(139,30,34,0.35)]"
+                  >
+                    <MapPin size={14} aria-hidden="true" />
+                    Get Directions
+                  </a>
+                  <a
+                    href="https://share.google/IuFPaZFHhN0vhNxZb"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 text-gray-300 hover:text-white text-[13px] font-semibold transition-colors px-3"
+                  >
+                    View on Google
+                  </a>
+                </div>
+              </div>
+
+              {/* Right column — map iframe */}
+              <div className="relative min-h-[280px] lg:border-l border-t lg:border-t-0 border-white/10">
+                {/* Gradient fade from left edge into map — softens the seam */}
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-y-0 left-0 w-16 z-10 bg-gradient-to-r from-black/30 to-transparent pointer-events-none hidden lg:block"
+                />
+                <iframe
+                  src="https://maps.google.com/maps?q=Dellamano+Construction+Inc,+Parkland,+FL&t=m&z=12&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, display: "block", minHeight: 280 }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title={`${BUSINESS_NAME} on Google Maps`}
+                  className="w-full h-full"
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -44,36 +44,38 @@ interface Props {
 const VARIANTS = {
   dark: {
     active:
-      "bg-white/10 border-white/20 text-white hover:bg-brand-primary/30 hover:border-brand-primary hover:text-white",
-    disabled: "bg-white/10 border-white/15 text-white/80 cursor-not-allowed",
+      "bg-white/5 border-white/15 text-brand-primary hover:bg-brand-primary/15 hover:border-brand-primary hover:text-brand-primary-400",
+    disabled: "bg-white/5 border-white/10 text-brand-primary/40 cursor-not-allowed",
   },
   light: {
     active:
-      "bg-white border-gray-200 text-brand-dark hover:border-brand-primary hover:bg-gray-50 hover:text-brand-primary",
-    disabled: "bg-gray-50 border-gray-200 text-gray-500 cursor-not-allowed",
+      "bg-white border-gray-200 text-brand-primary hover:border-brand-primary hover:bg-gray-50 hover:text-brand-primary-700",
+    disabled: "bg-gray-50 border-gray-200 text-gray-400 cursor-not-allowed",
   },
 } as const;
 
 /**
- * Social profile icon row. Platforms with empty/null URLs render as disabled
- * placeholders so the row is in place now and lights up when you add URLs.
+ * Social profile icon grid. Platforms with empty/null URLs render as disabled
+ * placeholders so the grid is in place now and lights up when you add URLs.
+ * Renders as a 3-column grid across all breakpoints with generously-sized
+ * tap targets.
  */
 export default function SocialLinks({
   className = "",
-  size = 22,
+  size = 28,
   variant = "dark",
 }: Props) {
   const styles = VARIANTS[variant];
 
   return (
     <ul
-      className={`grid grid-cols-2 lg:grid-cols-5 gap-3 w-max ${className}`}
+      className={`grid grid-cols-3 gap-3 ${className}`}
     >
       {PLATFORMS.map(({ key, label, path }) => {
         const href = (SOCIAL_LINKS as Record<string, string>)[key];
         const isValidUrl = href && href.startsWith("http");
         const commonClass =
-          "flex items-center justify-center w-11 h-11 rounded-full border transition-colors";
+          "flex items-center justify-center w-16 h-16 sm:w-[4.25rem] sm:h-[4.25rem] rounded-2xl border transition-colors";
         const iconSvg = (
           <svg
             width={size}
