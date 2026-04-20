@@ -23,7 +23,7 @@ export default function FAQ({ heading, items, eyebrow = "Common Questions" }: FA
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="section-primary bg-brand-primary-50">
+    <section className="section-primary bg-gray-50">
       <div className="mx-auto max-w-3xl px-6 lg:px-8">
         <div className="text-center mb-12">
           <p className="eyebrow mb-3">{eyebrow}</p>

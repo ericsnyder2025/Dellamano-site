@@ -30,7 +30,7 @@ export default function Footer() {
         className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full opacity-20 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse, rgba(196,30,36,0.3) 0%, transparent 70%)",
+            "radial-gradient(ellipse, rgba(255,255,255,0.08) 0%, transparent 70%)",
         }}
       />
 
@@ -55,7 +55,7 @@ export default function Footer() {
             </a>
             <Link
               href="#free-estimate"
-              className="inline-flex items-center justify-center gap-2 bg-brand-primary text-white font-bold text-[14px] tracking-[0.04em] uppercase h-[3rem] px-6 rounded-[0.625rem] hover:bg-brand-primary-700 transition-colors shadow-[0_4px_16px_rgba(196,30,36,0.35)]"
+              className="inline-flex items-center justify-center gap-2 bg-brand-primary text-white font-bold text-[14px] tracking-[0.04em] uppercase h-[3rem] px-6 rounded-[0.625rem] hover:bg-brand-primary-700 transition-colors shadow-[0_4px_16px_rgba(139,30,34,0.35)]"
             >
               Free Estimate
               <ArrowRight size={16} aria-hidden="true" />
@@ -162,6 +162,45 @@ export default function Footer() {
             {/* Desktop social row */}
             <div className="hidden lg:flex justify-center pt-4 border-t border-white/5">
               <SocialLinks />
+            </div>
+          </div>
+        </div>
+
+        {/* Google Business Profile map embed */}
+        <div className="mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6 items-start">
+            <div>
+              <p className="text-white text-[12px] font-bold uppercase tracking-[0.12em] mb-3">
+                Find Us
+              </p>
+              <p className="text-gray-300 text-[14px] leading-[1.7] mb-4">
+                {BUSINESS_NAME}
+                <br />
+                {ADDRESS.street}
+                <br />
+                {ADDRESS.city}, {ADDRESS.state} {ADDRESS.zip}
+              </p>
+              <a
+                href="https://share.google/IuFPaZFHhN0vhNxZb"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-gray-300 hover:text-white text-[13px] font-semibold transition-colors"
+              >
+                <MapPin size={14} aria-hidden="true" />
+                View on Google Maps
+              </a>
+            </div>
+            <div className="rounded-[1rem] overflow-hidden border border-white/10 shadow-[var(--shadow-xl)]">
+              <iframe
+                src="https://maps.google.com/maps?q=Dellamano+Construction+Inc,+Parkland,+FL&t=m&z=12&output=embed"
+                width="100%"
+                height="280"
+                style={{ border: 0, display: "block" }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title={`${BUSINESS_NAME} on Google Maps`}
+                className="w-full"
+              />
             </div>
           </div>
         </div>

@@ -49,7 +49,7 @@ const VARIANTS = {
   },
   light: {
     active:
-      "bg-white border-gray-200 text-brand-dark hover:border-brand-primary hover:bg-brand-primary-50 hover:text-brand-primary",
+      "bg-white border-gray-200 text-brand-dark hover:border-brand-primary hover:bg-gray-50 hover:text-brand-primary",
     disabled: "bg-gray-50 border-gray-200 text-gray-500 cursor-not-allowed",
   },
 } as const;

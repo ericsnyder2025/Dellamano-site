@@ -16,7 +16,7 @@ interface TrustSignalsProps {
  */
 export default function TrustSignals({ signals }: TrustSignalsProps) {
   return (
-    <section className="bg-brand-primary-50 border-y border-brand-primary-100">
+    <section className="bg-gray-50 border-y border-gray-200">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-5">
         <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
           {signals.map((signal) => {
