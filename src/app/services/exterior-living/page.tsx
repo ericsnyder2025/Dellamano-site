@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Hero from "@/components/sections/Hero";
 import CTABanner from "@/components/sections/CTABanner";
 import ReviewedBy from "@/components/ReviewedBy";
+import PillarSubServices from "@/components/sections/PillarSubServices";
 import { BUSINESS_NAME, SITE_URL, OG_IMAGE_PATH } from "@/../site.config";
 
 // Placeholder pillar — pillar_writer agent will replace the body content later.
@@ -38,6 +39,13 @@ export default function ExteriorLivingPillar() {
       />
 
       <ReviewedBy />
+
+      <PillarSubServices
+        pillar="exterior-living"
+        eyebrow="Exterior Living services"
+        heading="What we build outside the house"
+        subheading="Outdoor kitchens, pergolas, hardscapes, and pool construction — engineered for South Florida sun, salt, and hurricane wind loads."
+      />
 
       <section className="section-primary bg-white">
         <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
