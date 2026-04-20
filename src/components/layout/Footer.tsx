@@ -34,9 +34,9 @@ export default function Footer() {
         }}
       />
 
-      <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-8 pt-16 pb-8">
+      <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-10 pt-20 lg:pt-24 pb-10">
         {/* Top CTA strip */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-12 mb-12 border-b border-white/10">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-14 mb-16 border-b border-white/10">
           <div className="text-center sm:text-left">
             <h3 className="font-display text-[22px] sm:text-[26px] font-bold text-white leading-tight tracking-tight mb-1">
               Ready to start your project?
@@ -64,7 +64,7 @@ export default function Footer() {
         </div>
 
         {/* Main grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10 mb-16">
           {/* Brand block */}
           <div className="md:col-span-2 lg:col-span-4">
             <Logo size="sm" showTagline />
@@ -106,7 +106,7 @@ export default function Footer() {
           </div>
 
           {/* Sitemap columns */}
-          <div className="md:col-span-2 lg:col-span-8 grid grid-cols-2 lg:grid-cols-8 gap-8">
+          <div className="md:col-span-2 lg:col-span-8 grid grid-cols-2 lg:grid-cols-8 gap-10 lg:gap-12">
             {/* Service categories from NAV_PRIMARY (shows up to 2 with items) */}
             {NAV_PRIMARY.filter((m) => m.items && m.items.length > 0)
               .slice(0, 2)
@@ -163,7 +163,7 @@ export default function Footer() {
         </div>
 
         {/* Google Business Profile map embed — glowing card with gradient frame */}
-        <div className="relative mb-12">
+        <div className="relative mb-16">
           {/* Ambient blue glow behind the card — soft accent, not surface */}
           <div
             aria-hidden="true"
@@ -183,7 +183,7 @@ export default function Footer() {
 
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.8fr]">
               {/* Left column — NAP block */}
-              <div className="relative p-8 lg:p-10 flex flex-col justify-center">
+              <div className="relative p-10 lg:p-12 flex flex-col justify-center">
                 <span className="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full border border-white/15 bg-white/5 self-start">
                   <MapPin size={13} className="text-brand-primary" aria-hidden="true" />
                   <span className="text-white text-[11px] font-bold uppercase tracking-[0.14em]">
@@ -245,7 +245,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+        <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <div className="text-gray-400 text-[12px] space-y-1">
             <p>
               &copy; {currentYear} {BUSINESS_NAME}. All rights reserved.
