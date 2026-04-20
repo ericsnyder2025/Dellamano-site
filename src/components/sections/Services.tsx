@@ -36,7 +36,7 @@ export default function Services({
           <p className="section-lead mt-3 max-w-xl mx-auto">{subheading}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {cards.map((card) => (
             <Link
               key={card.href}
@@ -48,7 +48,7 @@ export default function Services({
                   src={card.imageUrl}
                   alt={card.imageAlt}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover object-center motion-safe:group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
