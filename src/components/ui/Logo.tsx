@@ -49,7 +49,7 @@ export default function Logo({ className = "", showTagline = false, size = "md" 
 
       {showTagline && BUSINESS_TAGLINE && (
         <span
-          className={`text-brand-primary-200 tracking-[0.2em] uppercase italic mt-1.5 ${s.tagSize}`}
+          className={`text-brand-primary-400 tracking-[0.2em] uppercase italic mt-1.5 ${s.tagSize}`}
         >
           {BUSINESS_TAGLINE}
         </span>
