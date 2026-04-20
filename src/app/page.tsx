@@ -4,6 +4,11 @@ import Hero from "@/components/sections/Hero";
 import TrustSignals from "@/components/sections/TrustSignals";
 import Services from "@/components/sections/Services";
 import CTABanner from "@/components/sections/CTABanner";
+import GoogleReviews from "@/components/sections/GoogleReviews";
+import ProblemFrame from "@/components/sections/ProblemFrame";
+import RecentProjects from "@/components/sections/RecentProjects";
+import ReviewedBy from "@/components/ReviewedBy";
+import { getGoogleReviews } from "@/lib/google-reviews";
 import {
   BUSINESS_NAME,
   BUSINESS_SHORT_DESCRIPTION,
@@ -12,6 +17,7 @@ import {
   OG_IMAGE_PATH,
   getServiceCards,
   AUTHOR,
+  RECENT_PROJECTS,
 } from "@/../site.config";
 
 // Homepage canonical: absolute URL with trailing slash. See references/01.
@@ -42,17 +48,21 @@ export const revalidate = 3600;
 
 const gcLicense = AUTHOR.licenses.find((l) => l.number.startsWith("CGC"));
 
-export default function HomePage() {
+export default async function HomePage() {
+  const reviews = await getGoogleReviews();
+
   return (
     <>
       <Hero
         eyebrow="Broward + Palm Beach County"
-        heading="South Florida General Contractor — Built In-House"
-        subheading="Full-service renovations, custom homes, and outdoor living across Broward and Palm Beach Counties. One GC for every trade — mechanical, electrical, and plumbing self-performed in-house."
-        ctaLabel="Get a Free Estimate"
+        heading="South Florida General Contractor. Every Trade, One License Holder."
+        subheading="Full-service renovations, custom homes, and outdoor living across Broward and Palm Beach Counties. Mechanical, electrical, and plumbing handled by the same licensed team running your project — not three different subs on three different schedules."
+        ctaLabel="Request a Free Estimate"
         ctaHref="/contact"
         backgroundImageUrl="/images/hero.webp"
       />
+
+      <ReviewedBy />
 
       <TrustSignals
         signals={[
@@ -67,6 +77,8 @@ export default function HomePage() {
           { icon: "check", label: "Free estimates" },
         ]}
       />
+
+      <ProblemFrame />
 
       <Services
         eyebrow="What We Do"
@@ -125,6 +137,10 @@ export default function HomePage() {
           </ul>
         </div>
       </section>
+
+      <RecentProjects projects={RECENT_PROJECTS} />
+
+      {reviews && <GoogleReviews data={reviews} />}
 
       <CTABanner
         eyebrow="Free Estimate"

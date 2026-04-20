@@ -179,7 +179,7 @@ export const HOURS = {
 // ─────────────────────────────────────────────────────────────────
 export const SOCIAL_LINKS = {
   linkedin: "",
-  facebook: "",
+  facebook: "https://www.facebook.com/dellamanoconstruction/",
   instagram: "",
   youtube: "",
   twitter: "",
@@ -222,11 +222,20 @@ export const NAV_PRIMARY: Array<{
     href: "/services",
     items: [
       { label: "General Contractor", href: "/services/general-contractor" },
-      { label: "Home Remodeling", href: "/services/home-remodeling" },
-      { label: "Kitchen Remodeling", href: "/services/kitchen-remodeling" },
-      { label: "Custom Home Builder", href: "/services/custom-homes" },
-      { label: "Whole House Generator", href: "/services/generator-installation" },
+      { label: "— Exterior Living —", href: "/services/exterior-living" },
       { label: "Outdoor Kitchens", href: "/services/outdoor-kitchens" },
+      { label: "Pergolas", href: "/services/pergolas" },
+      { label: "Hardscapes & Pavers", href: "/services/hardscapes" },
+      { label: "Pool Construction", href: "/services/pool-construction" },
+      { label: "— Interior Renovation —", href: "/services/interior-renovation" },
+      { label: "Kitchen Remodeling", href: "/services/kitchen-remodeling" },
+      { label: "Home Remodeling", href: "/services/home-remodeling" },
+      { label: "Home Additions", href: "/services/home-additions" },
+      { label: "Custom Home Builder", href: "/services/custom-homes" },
+      { label: "— Home Systems —", href: "/services/home-systems" },
+      { label: "Whole-House Generator", href: "/services/generator-installation" },
+      { label: "Electrical", href: "/services/electrical" },
+      { label: "Plumbing", href: "/services/plumbing" },
     ],
   },
   {
@@ -264,6 +273,10 @@ export type ServiceEntry = {
   tagline: string;
   key_topics: string[];
   image?: string;
+  /** Show on the homepage services grid. Defaults to false. */
+  homepage?: boolean;
+  /** Which pillar this service rolls up to (for NAV grouping + pillar page listings). */
+  pillar?: "exterior-living" | "interior-renovation" | "home-systems";
 };
 
 export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
@@ -281,6 +294,8 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "electrical and gas rough-in",
       ],
       image: "/images/outdoor-kitchens.jpg",
+      homepage: true,
+      pillar: "exterior-living",
     },
     "kitchen-remodeling": {
       name: "Kitchen Remodeling",
@@ -295,6 +310,8 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "timeline and phasing",
       ],
       image: "/images/kitchen-remodeling.jpg",
+      homepage: true,
+      pillar: "interior-renovation",
     },
     "general-contractor": {
       name: "General Contractor",
@@ -309,6 +326,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "licensed trade oversight",
       ],
       image: "/images/general-contractor.jpg",
+      homepage: true,
     },
     "home-remodeling": {
       name: "Home Remodeling",
@@ -323,6 +341,8 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "finish selection",
       ],
       image: "/images/home-remodeling.jpg",
+      homepage: true,
+      pillar: "interior-renovation",
     },
     "generator-installation": {
       name: "Whole-House Generator Installation",
@@ -337,6 +357,8 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "hurricane readiness",
       ],
       image: "/images/generator.jpg",
+      homepage: true,
+      pillar: "home-systems",
     },
     "custom-homes": {
       name: "Custom Home Builder",
@@ -351,12 +373,147 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "finish and fixture selection",
       ],
       image: "/images/custom-homes.jpg",
+      homepage: true,
+      pillar: "interior-renovation",
+    },
+
+    // ─── Exterior Living additions ─────────────────────────────────
+    pergolas: {
+      name: "Pergola Builder",
+      short_name: "Pergolas",
+      primary_keyword: "pergola builder",
+      tagline:
+        "Custom pergolas and shade structures engineered for South Florida wind loads and permit code.",
+      key_topics: [
+        "aluminum vs wood vs PVC framing",
+        "wind-load engineering for HVHZ",
+        "permit path for attached vs freestanding",
+        "integrated lighting and fans",
+      ],
+      homepage: false,
+      pillar: "exterior-living",
+    },
+    hardscapes: {
+      name: "Hardscapes & Paver Patios",
+      short_name: "Hardscapes",
+      primary_keyword: "paver patio installation",
+      tagline:
+        "Paver patios, driveways, and hardscape design — base prep and drainage engineered for FL rainfall.",
+      key_topics: [
+        "paver vs concrete vs natural stone",
+        "base prep and drainage",
+        "sealing and long-term maintenance",
+        "integration with pool deck and patio",
+      ],
+      homepage: false,
+      pillar: "exterior-living",
+    },
+    "pool-construction": {
+      name: "Pool Construction",
+      short_name: "Pools",
+      primary_keyword: "pool builder",
+      tagline:
+        "In-ground pool design and construction — full GC coordination including deck, MEP, and permit.",
+      key_topics: [
+        "pool shell design and rebar",
+        "screen enclosure engineering",
+        "pool equipment and electrical",
+        "permit and code compliance",
+      ],
+      homepage: false,
+      pillar: "exterior-living",
+    },
+
+    // ─── Interior Renovation additions ─────────────────────────────
+    "home-additions": {
+      name: "Home Additions",
+      short_name: "Additions",
+      primary_keyword: "home addition",
+      tagline:
+        "Single-room and multi-room additions — structural, MEP, and finish work by one licensed team.",
+      key_topics: [
+        "setback and zoning review",
+        "foundation and structural tie-in",
+        "MEP extension under one permit",
+        "roof tie-in and drainage",
+      ],
+      homepage: false,
+      pillar: "interior-renovation",
+    },
+
+    // ─── Home Systems additions ────────────────────────────────────
+    electrical: {
+      name: "Electrical Contractor",
+      short_name: "Electrical",
+      primary_keyword: "electrical contractor",
+      tagline:
+        "Licensed residential electrical work — panel upgrades, service changes, and full rewires by your GC.",
+      key_topics: [
+        "panel and service upgrades",
+        "whole-home rewire",
+        "code compliance and permit",
+        "generator and EV integration",
+      ],
+      homepage: false,
+      pillar: "home-systems",
+    },
+    plumbing: {
+      name: "Plumbing Contractor",
+      short_name: "Plumbing",
+      primary_keyword: "plumbing contractor",
+      tagline:
+        "Licensed residential plumbing — repipes, fixture replacement, and new construction rough-in.",
+      key_topics: [
+        "whole-home repipe",
+        "fixture and drain replacement",
+        "tankless water heater installation",
+        "gas line work",
+      ],
+      homepage: false,
+      pillar: "home-systems",
     },
   },
 };
 
+// ─────────────────────────────────────────────────────────────────
+// RECENT PROJECTS (homepage proof section)
+// Fill in 3 real completed projects once photos + scope details
+// are available. While this array is empty, the section auto-hides
+// on the homepage — intentional so we don't ship fabricated proof.
+//
+// Guidance per project:
+//   - title: scope line in contractor-speak ("10,000 SF medical office buildout")
+//   - summary: one sentence covering the unusual/hard part of the job
+//   - location: "City, County" — keeps it local-SEO relevant
+//   - trades: visible chips of what was self-performed
+//   - image: /images/projects/{slug}.jpg — real photo, not stock
+// ─────────────────────────────────────────────────────────────────
+export type RecentProject = {
+  slug: string;
+  title: string;
+  summary: string;
+  location: string;
+  trades: string[];
+  image: string;
+};
+
+export const RECENT_PROJECTS: RecentProject[] = [
+  // Example shape — delete this comment block + populate with real completed jobs.
+  // {
+  //   slug: "coral-springs-medical-office",
+  //   title: "10,000 SF medical office buildout",
+  //   summary:
+  //     "Full MEP coordination for a five-suite medical office including dedicated generator feed, medical-grade plumbing fixtures, and separate zoned HVAC per exam room.",
+  //   location: "Coral Springs, Broward County",
+  //   trades: ["General", "Mechanical", "Plumbing", "Electrical"],
+  //   image: "/images/projects/coral-springs-medical-office.jpg",
+  // },
+];
+
 // Flat helper: used by the Services section to build cards.
-export function getServiceCards(): Array<{
+// Only services flagged `homepage: true` appear on the homepage grid — other
+// services are still routable and show up in nav + pillar pages.
+export function getServiceCards(opts: { homepageOnly?: boolean } = { homepageOnly: true }): Array<{
   title: string;
   description: string;
   href: string;
@@ -372,6 +529,7 @@ export function getServiceCards(): Array<{
   }> = [];
   for (const [vertical, services] of Object.entries(SERVICES)) {
     for (const [slug, svc] of Object.entries(services)) {
+      if (opts.homepageOnly && !svc.homepage) continue;
       cards.push({
         title: svc.name,
         description: svc.tagline,
@@ -382,4 +540,27 @@ export function getServiceCards(): Array<{
     }
   }
   return cards;
+}
+
+// Helper: list all services under a given pillar (for pillar page sub-service lists).
+export function getServicesByPillar(pillar: NonNullable<ServiceEntry["pillar"]>): Array<{
+  slug: string;
+  name: string;
+  tagline: string;
+  href: string;
+}> {
+  const out: Array<{ slug: string; name: string; tagline: string; href: string }> = [];
+  for (const [vertical, services] of Object.entries(SERVICES)) {
+    for (const [slug, svc] of Object.entries(services)) {
+      if (svc.pillar === pillar) {
+        out.push({
+          slug,
+          name: svc.name,
+          tagline: svc.tagline,
+          href: `/${vertical}/${slug}`,
+        });
+      }
+    }
+  }
+  return out;
 }
