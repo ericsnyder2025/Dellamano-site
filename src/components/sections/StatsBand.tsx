@@ -22,7 +22,7 @@ const STATS: Stat[] = [
 
 export default function StatsBand() {
   return (
-    <section className="relative bg-brand-dark text-white overflow-hidden border-t border-b border-white/5">
+    <section className="relative bg-gradient-to-br from-brand-dark via-[#0B1223] to-[#060B18] text-white overflow-hidden border-t border-b border-white/5">
       <BlueprintBackdrop tone="dark" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 py-12 lg:py-14">

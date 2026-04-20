@@ -110,7 +110,7 @@ export default async function HomePage() {
       />
 
       {/* "Why Dellamano" differentiator — dark rhythm break with architectural overlay */}
-      <section className="section-primary bg-brand-dark relative overflow-hidden">
+      <section className="section-primary relative overflow-hidden bg-gradient-to-tr from-[#060B18] via-brand-dark to-[#0B1223]">
         <BlueprintBackdrop tone="dark" />
         <div className="relative mx-auto max-w-5xl px-6 lg:px-8">
           <div className="text-center mb-12">

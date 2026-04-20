@@ -32,7 +32,7 @@ export default function ProblemFrame() {
   ];
 
   return (
-    <section className="relative section-primary bg-gradient-to-b from-gray-50 via-white to-gray-50 overflow-hidden">
+    <section className="relative section-primary bg-gradient-to-b from-brand-accent-50 via-white to-brand-accent-50/70 overflow-hidden">
       <BlueprintBackdrop tone="light" />
 
       <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
@@ -60,7 +60,7 @@ export default function ProblemFrame() {
                 className="relative flex flex-col pb-10 md:pb-0 border-b border-gray-200/70 md:border-b-0 last:border-b-0"
               >
                 <div className="flex items-baseline gap-5 mb-5">
-                  <span className="font-display font-bold tabular-nums text-gray-200 text-[72px] sm:text-[84px] leading-none tracking-tight">
+                  <span className="font-display font-bold tabular-nums text-brand-accent/20 text-[72px] sm:text-[84px] leading-none tracking-tight">
                     {num}
                   </span>
                   <div className="flex-1 pt-3">

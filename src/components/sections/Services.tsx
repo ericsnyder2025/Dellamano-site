@@ -29,7 +29,7 @@ export default function Services({
   eyebrow = "Our Services",
 }: ServicesProps) {
   return (
-    <section className="relative section-primary bg-gradient-to-b from-white via-gray-50/60 to-white overflow-hidden">
+    <section className="relative section-primary bg-gradient-to-b from-brand-accent-50/60 via-white to-brand-accent-50/40 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Drafting title-block line */}
         <div className="flex items-center gap-4 mb-10 text-[10px] font-mono uppercase tracking-[0.24em] text-gray-400">
