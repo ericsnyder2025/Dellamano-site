@@ -16,9 +16,43 @@ import {
   SITE_URL,
   SOCIAL_LINKS,
   OG_IMAGE_PATH,
-  getServiceCards,
   RECENT_PROJECTS,
 } from "@/../site.config";
+
+const PILLAR_CARDS = [
+  {
+    title: "Exterior Living",
+    description:
+      "Outdoor kitchens, pergolas, pavers, and pools — engineered for South Florida sun, salt, and summer rain.",
+    href: "/services/exterior-living",
+    imageUrl: "/images/outdoor-kitchens.jpg",
+    imageAlt: `Exterior Living — ${BUSINESS_NAME}`,
+  },
+  {
+    title: "Interior Renovation",
+    description:
+      "Kitchen remodels, whole-home renovations, additions, and custom builds — one licensed GC, every trade in-house.",
+    href: "/services/interior-renovation",
+    imageUrl: "/images/kitchen-remodeling.jpg",
+    imageAlt: `Interior Renovation — ${BUSINESS_NAME}`,
+  },
+  {
+    title: "Home Systems",
+    description:
+      "Whole-house generators, electrical service, and plumbing — licensed mechanical, electrical, and plumbing in-house.",
+    href: "/services/home-systems",
+    imageUrl: "/images/generator.jpg",
+    imageAlt: `Home Systems — ${BUSINESS_NAME}`,
+  },
+  {
+    title: "General Contractor",
+    description:
+      "Licensed Florida GC self-performing mechanical, electrical, and plumbing — one license holder on your permit.",
+    href: "/services/general-contractor",
+    imageUrl: "/images/general-contractor.jpg",
+    imageAlt: `General Contractor — ${BUSINESS_NAME}`,
+  },
+];
 
 // Homepage canonical: absolute URL with trailing slash. See references/01.
 export const metadata: Metadata = {
@@ -69,7 +103,7 @@ export default async function HomePage() {
         eyebrow="What We Do"
         heading="Construction & Renovation Services"
         subheading="Kitchen remodels, custom homes, outdoor living, and whole-house generators — one licensed team, one point of accountability."
-        cards={getServiceCards()}
+        cards={PILLAR_CARDS}
       />
 
       {/* "Why Dellamano" differentiator — dark rhythm break with blueprint overlay */}

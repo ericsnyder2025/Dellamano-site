@@ -283,7 +283,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "electrical and gas rough-in",
       ],
       image: "/images/outdoor-kitchens.jpg",
-      homepage: true,
+      homepage: false,
       pillar: "exterior-living",
     },
     "kitchen-remodeling": {
@@ -299,7 +299,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "timeline and phasing",
       ],
       image: "/images/kitchen-remodeling.jpg",
-      homepage: true,
+      homepage: false,
       pillar: "interior-renovation",
     },
     "general-contractor": {
@@ -315,7 +315,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "licensed trade oversight",
       ],
       image: "/images/general-contractor.jpg",
-      homepage: true,
+      homepage: false,
     },
     "home-remodeling": {
       name: "Home Remodeling",
@@ -330,7 +330,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "finish selection",
       ],
       image: "/images/home-remodeling.jpg",
-      homepage: true,
+      homepage: false,
       pillar: "interior-renovation",
     },
     "generator-installation": {
@@ -346,7 +346,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "hurricane readiness",
       ],
       image: "/images/generator.jpg",
-      homepage: true,
+      homepage: false,
       pillar: "home-systems",
     },
     "custom-homes": {
@@ -362,7 +362,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "finish and fixture selection",
       ],
       image: "/images/custom-homes.jpg",
-      homepage: true,
+      homepage: false,
       pillar: "interior-renovation",
     },
 
