@@ -106,17 +106,9 @@ export default async function HomePage() {
         cards={PILLAR_CARDS}
       />
 
-      {/* "Why Dellamano" differentiator — dark rhythm break with blueprint overlay */}
+      {/* "Why Dellamano" differentiator — dark rhythm break with architectural overlay */}
       <section className="section-primary bg-brand-dark relative overflow-hidden">
-        <BlueprintBackdrop tone="dark" intensity={1} />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse at 70% 30%, rgba(37,87,191,0.14) 0%, transparent 55%), radial-gradient(ellipse at 20% 80%, rgba(139,30,34,0.1) 0%, transparent 55%)",
-          }}
-          aria-hidden="true"
-        />
+        <BlueprintBackdrop tone="dark" />
         <div className="relative mx-auto max-w-5xl px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="eyebrow-dark mb-3">Why Dellamano</p>
@@ -147,7 +139,7 @@ export default async function HomePage() {
             ].map((item) => (
               <li
                 key={item.title}
-                className="flex items-start gap-4 bg-white/[0.03] rounded-[1.25rem] p-6 border border-white/10 backdrop-blur-sm shadow-[0_30px_50px_-20px_rgba(0,0,0,0.5)]"
+                className="relative flex items-start gap-4 bg-gradient-to-b from-white/[0.04] to-white/[0.015] rounded-[1rem] p-6 border border-white/10 backdrop-blur-[2px] shadow-[0_20px_40px_-20px_rgba(0,0,0,0.6),inset_0_1px_0_0_rgba(255,255,255,0.08)]"
               >
                 <CheckCircle2
                   size={24}

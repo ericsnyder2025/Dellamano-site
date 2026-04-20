@@ -34,7 +34,7 @@ export default function ProblemFrame() {
 
   return (
     <section className="section-primary bg-white relative overflow-hidden">
-      <BlueprintBackdrop tone="light" intensity={1.1} />
+      <BlueprintBackdrop tone="light" />
       <div className="relative mx-auto max-w-5xl px-6 lg:px-8">
         <div className="text-center mb-12">
           <p className="eyebrow mb-3">Why most projects go wrong</p>
