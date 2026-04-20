@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+/**
+ * Design tokens — distilled from Haven.
+ *
+ * The "brand-*" prefix is a namespace you own. To retheme for a new site,
+ * the ONLY file you must edit is this one: swap the 6 brand color values,
+ * optionally the grays, and the fonts. Every component below references
+ * these tokens, so a retheme is a find-nothing / edit-here operation.
+ *
+ * See references/16-ui-design-system.md for the full retheme guide.
+ */
+@theme inline {
+  /* ─── Brand colors — REPLACE THESE 6 for a new site ────────────── */
+  --color-brand-dark: #1A2332;      /* Darkest — header/footer bg */
+  --color-brand-navy: #1F2D3D;      /* Slightly lighter dark */
+  --color-brand-primary-900: #1E3A5F;
+  --color-brand-primary-700: #2D6187;
+  --color-brand-primary: #4A7C9B;   /* Main accent — buttons, links */
+  --color-brand-primary-400: #6BA3C2;
+  --color-brand-primary-200: #A8CDE0;
+  --color-brand-primary-100: #D4E8F2;
+  --color-brand-primary-50: #EBF4F9;
+
+  /* ─── Warm-tinted grays (not lifeless neutral) ──────────────────── */
+  --color-gray-50: #F8F9FA;
+  --color-gray-100: #EFF1F3;
+  --color-gray-200: #DDE1E6;
+  --color-gray-300: #C1C7CF;
+  --color-gray-400: #8D96A0;
+  --color-gray-500: #5D6A82;
+  --color-gray-600: #4A5361;
+  --color-gray-700: #3A4250;
+  --color-gray-800: #2A3141;
+
+  --color-white: #FFFFFF;
+
+  /* ─── Card shadow system — tint with brand-dark for depth ──────── */
+  --shadow-sm: 0 1px 2px rgba(26,35,50,0.05);
+  --shadow-md: 0 2px 4px rgba(26,35,50,0.06), 0 1px 2px rgba(26,35,50,0.04);
+  --shadow-card: 0 10px 40px -10px rgba(26,35,50,0.10), 0 4px 10px -4px rgba(26,35,50,0.05);
+  --shadow-card-hover: 0 20px 40px -10px rgba(26,35,50,0.14), 0 8px 16px -4px rgba(26,35,50,0.07);
+  --shadow-lg: 0 4px 12px rgba(26,35,50,0.08), 0 2px 4px rgba(26,35,50,0.04);
+  --shadow-xl: 0 8px 24px rgba(26,35,50,0.1), 0 4px 8px rgba(26,35,50,0.04);
+  --shadow-2xl: 0 16px 48px rgba(26,35,50,0.12), 0 8px 16px rgba(26,35,50,0.06);
+
+  /* ─── Fonts — REPLACE var names if you swap Google Fonts ───────── */
+  --font-display: var(--font-montserrat), system-ui, sans-serif;
+  --font-heading: var(--font-montserrat), system-ui, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  background-color: #FFFFFF;
+  color: #5D6A82;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  text-wrap: balance;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+p { max-width: 65ch; }
+
+/* ─── Reusable design system classes ──────────────────────────── */
+
+/* Section padding — primary 96px / compact 64px */
+.section-primary {
+  padding-top: clamp(4rem, 8vw, 6rem);
+  padding-bottom: clamp(4rem, 8vw, 6rem);
+}
+.section-compact {
+  padding-top: clamp(3rem, 6vw, 4rem);
+  padding-bottom: clamp(3rem, 6vw, 4rem);
+}
+
+/* Eyebrow pill — above section h2 */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.9375rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #1E3A5F;
+  background: rgba(74, 124, 155, 0.14);
+  border: 1px solid rgba(74, 124, 155, 0.35);
+  border-radius: 9999px;
+  padding: 0.625rem 1.25rem;
+  line-height: 1;
+  margin-bottom: 1.25rem;
+}
+.eyebrow-dark {
+  display: inline-block;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.9375rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: rgba(168, 205, 224, 0.18);
+  border: 1px solid rgba(168, 205, 224, 0.45);
+  border-radius: 9999px;
+  padding: 0.625rem 1.25rem;
+  line-height: 1;
+  margin-bottom: 1.25rem;
+}
+
+/* Section heading */
+.section-h2 {
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  line-height: 1.1;
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.section-lead {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-gray-500);
+}
+
+/* Card — white surface with elevated shadow + hover lift */
+.card {
+  background: #FFFFFF;
+  border: 1px solid rgba(221, 225, 235, 0.7);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Card — dark variant */
+.card-dark {
+  background: var(--color-brand-navy);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  transition: transform 0.2s, background 0.2s;
+}
+.card-dark:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.05);
+}
