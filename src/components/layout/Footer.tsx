@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone, MapPin, Mail, ArrowRight } from "lucide-react";
+import { Phone, MapPin, Mail } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import SocialLinks from "@/components/ui/SocialLinks";
 import {
@@ -35,34 +35,6 @@ export default function Footer() {
       />
 
       <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-10 pt-20 lg:pt-24 pb-10">
-        {/* Top CTA strip */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-14 mb-16 border-b border-white/10">
-          <div className="text-center sm:text-left">
-            <h3 className="font-display text-[22px] sm:text-[26px] font-bold text-white leading-tight tracking-tight mb-1">
-              Ready to start your project?
-            </h3>
-            <p className="text-gray-300 text-[14px]">
-              Free estimates · Licensed &amp; Insured
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-            <a
-              href={`tel:${PHONE_E164}`}
-              className="inline-flex items-center justify-center gap-2 bg-white/10 text-white font-bold text-[14px] tracking-[0.04em] uppercase h-[3rem] px-6 rounded-[0.625rem] hover:bg-white/15 transition-colors border border-white/10"
-            >
-              <Phone size={16} aria-hidden="true" />
-              {PHONE_NUMBER}
-            </a>
-            <Link
-              href="#free-estimate"
-              className="inline-flex items-center justify-center gap-2 bg-brand-primary text-white font-bold text-[14px] tracking-[0.04em] uppercase h-[3rem] px-6 rounded-[0.625rem] hover:bg-brand-primary-700 transition-colors shadow-[0_4px_16px_rgba(139,30,34,0.35)]"
-            >
-              Free Estimate
-              <ArrowRight size={16} aria-hidden="true" />
-            </Link>
-          </div>
-        </div>
-
         {/* Main grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10 mb-16">
           {/* Brand block */}

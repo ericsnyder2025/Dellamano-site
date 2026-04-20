@@ -36,7 +36,7 @@
   --color-gray-100: #EEEEEF;
   --color-gray-200: #DCDCDE;
   --color-gray-300: #BDBDC0;
-  --color-gray-400: #8A8A90;
+  --color-gray-400: #B5B5BA;  /* brighter than default — muted body text on dark bg */
   --color-gray-500: #5B5B61;
   --color-gray-600: #454548;
   --color-gray-700: #333336;
