@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 interface ServiceCard {
   title: string;
@@ -8,6 +8,7 @@ interface ServiceCard {
   href: string;
   imageUrl: string;
   imageAlt: string;
+  tagline?: string;
   bullets?: string[];
   ctaLabel?: string;
 }
@@ -20,90 +21,102 @@ interface ServicesProps {
 }
 
 /**
- * Services — 2-up (or 2x2) big-card service grid. Full-bleed photography,
- * clear title, optional bullet callouts, explicit CTA button. Clean
- * sans-serif throughout, restrained section padding with generous
- * whitespace.
+ * Services — dark-card vertical-style grid with full-bleed photography,
+ * gradient overlay, and content overlaid on the image (desktop). Mobile
+ * stacks content below the image. Ported from Haven's Verticals component.
  */
 export default function Services({
   cards,
   heading = "Our Services",
-  subheading = "Professional work across every service we offer.",
+  subheading,
   eyebrow = "What we do",
 }: ServicesProps) {
   return (
-    <section className="section-primary bg-gray-50">
+    <section className="section-primary bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="text-center mb-14 max-w-2xl mx-auto">
+        <div className="text-center mb-12 max-w-2xl mx-auto">
           <p className="eyebrow mb-3">{eyebrow}</p>
           <h2 className="section-h2">{heading}</h2>
-          <p className="section-lead mt-4">{subheading}</p>
+          {subheading && <p className="section-lead mt-4">{subheading}</p>}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {cards.map((card) => (
-            <article
+            <Link
               key={card.href}
-              className="group relative flex flex-col rounded-[1rem] overflow-hidden bg-white border border-gray-200 shadow-[0_6px_20px_-10px_rgba(0,0,0,0.1)] hover:shadow-[0_16px_40px_-12px_rgba(0,0,0,0.16)] hover:-translate-y-0.5 transition-all duration-300"
+              href={card.href}
+              className="group relative block rounded-[1.25rem] overflow-hidden bg-brand-dark border border-brand-dark/10 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-0.5 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2"
             >
-              <Link
-                href={card.href}
-                className="relative aspect-[16/9] overflow-hidden bg-gray-100 focus-visible:outline-none"
-                aria-label={card.title}
-              >
+              <div className="aspect-[16/10] relative overflow-hidden">
                 <Image
                   src={card.imageUrl}
                   alt={card.imageAlt}
                   fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover object-center motion-safe:group-hover:scale-[1.04] transition-transform duration-500"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 640px"
+                  quality={80}
+                  className="object-cover object-center motion-safe:group-hover:scale-105 transition-transform duration-500"
                 />
-              </Link>
-
-              <div className="p-7 sm:p-8 flex-1 flex flex-col">
-                <h3 className="font-display text-[24px] sm:text-[26px] font-bold text-brand-dark leading-[1.15] mb-3 tracking-[-0.01em]">
-                  <Link
-                    href={card.href}
-                    className="hover:text-brand-accent-700 transition-colors"
-                  >
+                {/* Desktop gradient overlay + content */}
+                <div
+                  className="hidden lg:block absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(to top, rgba(15,15,16,0.95) 0%, rgba(15,15,16,0.75) 40%, rgba(15,15,16,0.15) 70%, transparent 100%)",
+                  }}
+                  aria-hidden="true"
+                />
+                <div className="hidden lg:flex absolute inset-0 flex-col justify-end p-8">
+                  {card.tagline && (
+                    <p className="eyebrow-dark mb-2">{card.tagline}</p>
+                  )}
+                  <h3 className="font-display text-[28px] font-bold text-white leading-tight mb-3 tracking-tight">
                     {card.title}
-                  </Link>
-                </h3>
+                  </h3>
+                  <p className="text-gray-300 text-[14px] leading-[1.6] mb-4 max-w-md">
+                    {card.description}
+                  </p>
+                  {card.bullets && card.bullets.length > 0 && (
+                    <ul className="flex flex-wrap gap-x-4 gap-y-1 mb-5">
+                      {card.bullets.map((b, i) => (
+                        <li key={i} className="text-gray-400 text-[12px]">
+                          · {b}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <span className="inline-flex items-center gap-2 text-brand-accent-200 text-[14px] font-bold group-hover:gap-3 transition-[gap] duration-300">
+                    {card.ctaLabel ?? "Explore services"}
+                    <ArrowRight size={14} aria-hidden="true" />
+                  </span>
+                </div>
+              </div>
 
-                <p className="text-gray-600 text-[15px] leading-[1.75] mb-5">
+              {/* Mobile content — stacked below image */}
+              <div className="lg:hidden p-6">
+                {card.tagline && (
+                  <p className="eyebrow-dark mb-2">{card.tagline}</p>
+                )}
+                <h3 className="font-display text-[24px] font-bold text-white leading-tight mb-3 tracking-tight">
+                  {card.title}
+                </h3>
+                <p className="text-gray-300 text-[14px] leading-[1.6] mb-4">
                   {card.description}
                 </p>
-
                 {card.bullets && card.bullets.length > 0 && (
-                  <ul className="space-y-2.5 mb-7">
-                    {card.bullets.map((bullet) => (
-                      <li
-                        key={bullet}
-                        className="flex items-start gap-2.5 text-gray-700 text-[14.5px] leading-[1.55]"
-                      >
-                        <Check
-                          size={15}
-                          className="text-brand-accent flex-shrink-0 mt-[3px]"
-                          aria-hidden="true"
-                          strokeWidth={2.5}
-                        />
-                        <span>{bullet}</span>
+                  <ul className="flex flex-wrap gap-x-4 gap-y-1 mb-4">
+                    {card.bullets.map((b, i) => (
+                      <li key={i} className="text-gray-400 text-[12px]">
+                        · {b}
                       </li>
                     ))}
                   </ul>
                 )}
-
-                <div className="mt-auto">
-                  <Link
-                    href={card.href}
-                    className="inline-flex items-center gap-2 bg-brand-dark text-white font-semibold text-[13px] tracking-[0.04em] uppercase h-11 px-5 rounded-[0.625rem] hover:bg-gray-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2"
-                  >
-                    {card.ctaLabel ?? "Explore services"}
-                    <ArrowRight size={14} aria-hidden="true" />
-                  </Link>
-                </div>
+                <span className="inline-flex items-center gap-2 text-brand-accent-200 text-[14px] font-bold group-hover:gap-3 transition-[gap] duration-300">
+                  {card.ctaLabel ?? "Explore services"}
+                  <ArrowRight size={14} aria-hidden="true" />
+                </span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>
