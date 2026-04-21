@@ -155,7 +155,7 @@ export default function ContactForm() {
         Or call{" "}
         <a
           href={`tel:${PHONE_E164}`}
-          className="text-brand-accent hover:text-brand-accent-700 hover:underline font-semibold"
+          className="text-brand-link hover:text-brand-link-700 hover:underline font-semibold"
         >
           {PHONE_NUMBER}
         </a>

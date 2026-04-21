@@ -30,7 +30,7 @@ export default function ReviewedBy({
           Reviewed by{" "}
           <Link
             href={AUTHOR_URL}
-            className="font-semibold text-brand-accent hover:text-brand-accent-700 hover:underline transition-colors"
+            className="font-semibold text-brand-link hover:text-brand-link-700 hover:underline transition-colors"
           >
             {AUTHOR.name}
           </Link>
@@ -69,10 +69,10 @@ export default function ReviewedBy({
                     href={license.verificationUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-brand-accent hover:text-brand-accent-700 hover:underline transition-colors"
+                    className="text-brand-link hover:text-brand-link-700 hover:underline transition-colors"
                   >
                     FL #{license.number}
-                    <span className="text-brand-accent/70"> ({short})</span>
+                    <span className="text-brand-link/70"> ({short})</span>
                   </a>
                 </li>
               );
@@ -84,7 +84,7 @@ export default function ReviewedBy({
           <p className="mt-3 text-[12px] text-gray-500 text-center">
             <Link
               href={EDITORIAL_POLICY_URL}
-              className="text-brand-accent hover:text-brand-accent-700 hover:underline transition-colors"
+              className="text-brand-link hover:text-brand-link-700 hover:underline transition-colors"
             >
               Editorial policy →
             </Link>

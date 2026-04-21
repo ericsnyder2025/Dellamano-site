@@ -24,14 +24,22 @@
   --color-brand-primary-100: #EBCBCC;
   --color-brand-primary-50: #F7EEEE;
 
-  /* Warm amber = supporting accent (license badges, trust elements, links).
-     Aged brass / warm amber pairs with deep brick red for a rich warm
-     palette — craftsman-premium, not corporate-blue. */
+  /* Warm amber = supporting accent (icon tiles, eyebrow pills, section
+     washes, decorative accents, non-link accent text). Aged brass palette
+     pairs with deep brick red for a craftsman-premium warm look. */
   --color-brand-accent-900: #3E2A12;   /* umber — near-black warm */
   --color-brand-accent-700: #754F1E;   /* dark bronze — hover state */
-  --color-brand-accent: #B8873C;       /* primary warm amber — icons, filled tiles, links */
+  --color-brand-accent: #B8873C;       /* primary warm amber — icons, filled tiles */
   --color-brand-accent-200: #E8D1A3;   /* pale tan, for dark-bg accents */
   --color-brand-accent-50: #F7EFDE;    /* cream wash for section backgrounds */
+
+  /* Link blue = ALL text links (internal + external). Independent of the
+     amber accent so we can re-theme the accent without losing the
+     conventional blue-link affordance users expect. */
+  --color-brand-link-900: #0F2B66;
+  --color-brand-link-700: #1D4A9E;   /* link hover */
+  --color-brand-link: #2557BF;       /* default link color on light bg */
+  --color-brand-link-200: #9FB9E8;   /* link on dark bg */
 
   /* ─── Warm editorial palette — for magazine-style sections ─────
      Architectural-magazine feel. Cream + warm charcoal + aged brass.

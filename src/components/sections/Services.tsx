@@ -84,7 +84,7 @@ export default function Services({
                       ))}
                     </ul>
                   )}
-                  <span className="inline-flex items-center gap-2 text-brand-accent-200 text-[14px] font-bold group-hover:gap-3 transition-[gap] duration-300">
+                  <span className="inline-flex items-center gap-2 text-brand-link-200 text-[14px] font-bold group-hover:gap-3 transition-[gap] duration-300">
                     {card.ctaLabel ?? "Explore services"}
                     <ArrowRight size={14} aria-hidden="true" />
                   </span>

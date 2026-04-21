@@ -67,7 +67,7 @@ export default function ProfessionalDisclosure({
                 href={verificationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-brand-accent hover:text-brand-accent-700 hover:underline transition-colors"
+                className="text-brand-link hover:text-brand-link-700 hover:underline transition-colors"
               >
                 {new URL(verificationUrl).host}
               </a>

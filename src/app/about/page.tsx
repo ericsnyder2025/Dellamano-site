@@ -238,7 +238,7 @@ export default function AboutPage() {
                       href={license.verificationUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-brand-accent hover:text-brand-accent-700 font-semibold text-[14px] hover:underline transition-colors"
+                      className="inline-flex items-center gap-1.5 text-brand-link hover:text-brand-link-700 font-semibold text-[14px] hover:underline transition-colors"
                     >
                       {license.number}
                       <ExternalLink size={13} aria-hidden="true" />
@@ -255,7 +255,7 @@ export default function AboutPage() {
               href="https://www.myfloridalicense.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-brand-accent hover:text-brand-accent-700 hover:underline transition-colors"
+              className="text-brand-link hover:text-brand-link-700 hover:underline transition-colors"
             >
               myfloridalicense.com
             </a>
@@ -347,7 +347,7 @@ export default function AboutPage() {
                   href={SOCIAL_LINKS.gbp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-accent hover:text-brand-accent-700 hover:underline transition-colors"
+                  className="text-brand-link hover:text-brand-link-700 hover:underline transition-colors"
                 >
                   Google Business Profile
                 </a>
@@ -358,12 +358,12 @@ export default function AboutPage() {
               href="https://www.facebook.com/aldo.dellamano"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-brand-accent hover:text-brand-accent-700 hover:underline transition-colors"
+              className="text-brand-link hover:text-brand-link-700 hover:underline transition-colors"
             >
               Aldo on Facebook
             </a>
             {" · "}
-            <Link href="/editorial-policy" className="text-brand-accent hover:text-brand-accent-700 hover:underline transition-colors">
+            <Link href="/editorial-policy" className="text-brand-link hover:text-brand-link-700 hover:underline transition-colors">
               Editorial policy
             </Link>
           </p>

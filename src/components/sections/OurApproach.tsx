@@ -107,11 +107,11 @@ export default function OurApproach() {
 
               <p>
                 Our{" "}
-                <Link href="/services/interior-renovation" className="text-brand-accent hover:text-brand-accent-700 font-semibold hover:underline">
+                <Link href="/services/interior-renovation" className="text-brand-link hover:text-brand-link-700 font-semibold hover:underline">
                   interior renovation
                 </Link>{" "}
                 and{" "}
-                <Link href="/services/exterior-living" className="text-brand-accent hover:text-brand-accent-700 font-semibold hover:underline">
+                <Link href="/services/exterior-living" className="text-brand-link hover:text-brand-link-700 font-semibold hover:underline">
                   exterior living
                 </Link>{" "}
                 work runs through a single licensed GC from demo through

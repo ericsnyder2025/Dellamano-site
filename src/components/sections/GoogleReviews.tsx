@@ -165,7 +165,7 @@ export default function GoogleReviews({
               href={data.googleMapsUri}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-brand-accent-200 hover:text-white hover:underline transition-colors text-[14px] font-semibold"
+              className="inline-flex items-center gap-2 text-brand-link-200 hover:text-white hover:underline transition-colors text-[14px] font-semibold"
             >
               Read all reviews on Google
               <ExternalLink size={14} aria-hidden="true" />
