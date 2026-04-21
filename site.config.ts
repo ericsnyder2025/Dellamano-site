@@ -224,7 +224,7 @@ export const EDITORIAL_POLICY_URL = `${SITE_URL}editorial-policy`;
 // ─────────────────────────────────────────────────────────────────
 // BRAND
 // ─────────────────────────────────────────────────────────────────
-export const BUSINESS_TAGLINE = "Every Project. One Signature. Every Trade.";
+export const BUSINESS_TAGLINE = "Every Project. Every Trade. One Signature.";
 
 // ─────────────────────────────────────────────────────────────────
 // NAVIGATION
