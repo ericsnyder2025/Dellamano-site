@@ -3,6 +3,7 @@ import { Inter, Montserrat, Fraunces } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobileStickyBar from "@/components/layout/MobileStickyBar";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 import {
   BUSINESS_NAME,
   BUSINESS_LEGAL_NAME,
@@ -129,6 +130,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+        <ScrollToTop />
         <Header />
         <main id="main-content" className="flex-1">
           {children}
