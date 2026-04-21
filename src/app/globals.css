@@ -24,14 +24,14 @@
   --color-brand-primary-100: #EBCBCC;
   --color-brand-primary-50: #F7EEEE;
 
-  /* Teal = supporting accent (license badges, trust elements, subtle links)
-     Oxidized-copper / architectural teal pairs with deep brick red without
-     reading corporate-blue. Keeps the palette unique but still cool-toned. */
-  --color-brand-accent-900: #08383A;   /* deep teal, near-black */
-  --color-brand-accent-700: #0F5D60;   /* hover state on links */
-  --color-brand-accent: #128085;       /* primary teal — icons, filled tiles */
-  --color-brand-accent-200: #8FCBCD;   /* light teal, for dark-bg accents */
-  --color-brand-accent-50: #E6F3F3;    /* subtle wash for section backgrounds */
+  /* Warm amber = supporting accent (license badges, trust elements, links).
+     Aged brass / warm amber pairs with deep brick red for a rich warm
+     palette — craftsman-premium, not corporate-blue. */
+  --color-brand-accent-900: #3E2A12;   /* umber — near-black warm */
+  --color-brand-accent-700: #754F1E;   /* dark bronze — hover state */
+  --color-brand-accent: #B8873C;       /* primary warm amber — icons, filled tiles, links */
+  --color-brand-accent-200: #E8D1A3;   /* pale tan, for dark-bg accents */
+  --color-brand-accent-50: #F7EFDE;    /* cream wash for section backgrounds */
 
   /* ─── Warm editorial palette — for magazine-style sections ─────
      Architectural-magazine feel. Cream + warm charcoal + aged brass.
@@ -118,7 +118,7 @@ p { max-width: 65ch; }
   font-weight: 800;
   color: var(--color-brand-accent-700);
   background: var(--color-brand-accent-50);
-  border: 1px solid rgba(18, 128, 133, 0.22);
+  border: 1px solid rgba(184, 135, 60, 0.22);
   border-radius: 9999px;
   padding: 0.625rem 1.25rem;
   line-height: 1;
@@ -132,7 +132,7 @@ p { max-width: 65ch; }
   text-transform: uppercase;
   font-weight: 800;
   color: var(--color-brand-accent-200);
-  background: rgba(18, 128, 133, 0.14);
+  background: rgba(184, 135, 60, 0.14);
   border: 1px solid rgba(143, 203, 205, 0.28);
   border-radius: 9999px;
   padding: 0.625rem 1.25rem;

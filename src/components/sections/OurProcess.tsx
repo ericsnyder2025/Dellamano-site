@@ -41,7 +41,7 @@ export default function OurProcess() {
         className="absolute inset-0 opacity-40 pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle at 20% 20%, rgba(18,128,133,0.07) 0%, transparent 40%), radial-gradient(circle at 80% 80%, rgba(18,128,133,0.07) 0%, transparent 40%)",
+            "radial-gradient(circle at 20% 20%, rgba(184,135,60,0.07) 0%, transparent 40%), radial-gradient(circle at 80% 80%, rgba(184,135,60,0.07) 0%, transparent 40%)",
         }}
       />
 
@@ -61,7 +61,7 @@ export default function OurProcess() {
             className="hidden lg:block absolute top-[88px] left-[12.5%] right-[12.5%] h-[2px]"
             style={{
               background:
-                "linear-gradient(90deg, transparent 0%, rgba(18,128,133,0.35) 10%, rgba(18,128,133,0.35) 90%, transparent 100%)",
+                "linear-gradient(90deg, transparent 0%, rgba(184,135,60,0.35) 10%, rgba(184,135,60,0.35) 90%, transparent 100%)",
             }}
           />
 
@@ -77,7 +77,7 @@ export default function OurProcess() {
                 >
                   <div className="relative w-full flex flex-col items-center">
                     {/* Floating icon badge */}
-                    <div className="relative w-[72px] h-[72px] rounded-full bg-white border-2 border-brand-accent flex items-center justify-center shadow-[0_8px_24px_rgba(18,128,133,0.25)] group-hover:scale-110 group-hover:shadow-[0_12px_32px_rgba(18,128,133,0.35)] transition-all duration-300 mb-6 z-10">
+                    <div className="relative w-[72px] h-[72px] rounded-full bg-white border-2 border-brand-accent flex items-center justify-center shadow-[0_8px_24px_rgba(184,135,60,0.25)] group-hover:scale-110 group-hover:shadow-[0_12px_32px_rgba(184,135,60,0.35)] transition-all duration-300 mb-6 z-10">
                       <Icon size={26} className="text-brand-accent" aria-hidden="true" />
                       {/* Pulse ring on hover */}
                       <span
@@ -100,7 +100,7 @@ export default function OurProcess() {
                   {i < steps.length - 1 && (
                     <div
                       aria-hidden="true"
-                      className="hidden lg:flex absolute top-[24px] -right-5 w-8 h-8 rounded-full bg-brand-accent items-center justify-center shadow-[0_4px_12px_rgba(18,128,133,0.4)] z-20"
+                      className="hidden lg:flex absolute top-[24px] -right-5 w-8 h-8 rounded-full bg-brand-accent items-center justify-center shadow-[0_4px_12px_rgba(184,135,60,0.4)] z-20"
                     >
                       <ArrowRight size={14} className="text-white" />
                     </div>

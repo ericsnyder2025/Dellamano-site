@@ -41,7 +41,7 @@ export default function OurApproach() {
         className="absolute inset-0 opacity-50 pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle at 15% 10%, rgba(18,128,133,0.06) 0%, transparent 35%), radial-gradient(circle at 85% 90%, rgba(18,128,133,0.06) 0%, transparent 35%)",
+            "radial-gradient(circle at 15% 10%, rgba(184,135,60,0.06) 0%, transparent 35%), radial-gradient(circle at 85% 90%, rgba(184,135,60,0.06) 0%, transparent 35%)",
         }}
       />
       {/* Top + bottom hairline gradient edges */}
@@ -140,7 +140,7 @@ export default function OurApproach() {
                 key={b.title}
                 className="bg-brand-accent-50 rounded-[1.25rem] p-8 border border-brand-accent/15 hover:border-brand-accent/30 transition-colors"
               >
-                <div className="w-12 h-12 rounded-xl bg-brand-accent flex items-center justify-center mb-5 shadow-[0_4px_12px_rgba(18,128,133,0.3)]">
+                <div className="w-12 h-12 rounded-xl bg-brand-accent flex items-center justify-center mb-5 shadow-[0_4px_12px_rgba(184,135,60,0.3)]">
                   <Icon size={22} className="text-white" aria-hidden="true" />
                 </div>
                 <h4 className="font-display text-[19px] font-bold text-brand-dark leading-[1.25] mb-3 tracking-tight">
@@ -158,7 +158,7 @@ export default function OurApproach() {
             className="absolute inset-0 opacity-30"
             style={{
               background:
-                "radial-gradient(ellipse at top right, rgba(18,128,133,0.4) 0%, transparent 60%)",
+                "radial-gradient(ellipse at top right, rgba(184,135,60,0.4) 0%, transparent 60%)",
             }}
             aria-hidden="true"
           />
