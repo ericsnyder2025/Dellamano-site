@@ -33,7 +33,7 @@ export default function ExteriorLivingPillar() {
       <Hero
         eyebrow="Exterior Living"
         heading="Outdoor kitchens, pergolas, and exterior construction"
-        subheading="Custom outdoor spaces built for South Florida sun, salt, and summer rain — engineered and installed by a licensed GC with in-house MEP."
+        subheading="Custom outdoor spaces built for South Florida sun, salt, and summer rain — engineered by a licensed GC who personally holds the mechanical and plumbing credentials on every permit."
         ctaLabel="Request a Free Estimate"
         ctaHref="/contact"
       />
@@ -60,7 +60,7 @@ export default function ExteriorLivingPillar() {
       <CTABanner
         eyebrow="Free Estimate"
         heading="Planning an outdoor living project?"
-        subheading="Licensed general contractor covering Broward and Palm Beach Counties. Mechanical, electrical, and plumbing handled in-house."
+        subheading="Licensed general contractor covering Broward and Palm Beach Counties. One GC signing every permit — every trade on your project answers to the same license holder."
         ctaLabel="Request a Free Estimate"
         ctaHref="/contact"
       />

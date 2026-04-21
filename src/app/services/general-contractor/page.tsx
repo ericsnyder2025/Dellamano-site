@@ -7,7 +7,7 @@ import { BUSINESS_NAME, SITE_URL, OG_IMAGE_PATH } from "@/../site.config";
 const URL = `${SITE_URL}services/general-contractor`;
 const TITLE = `General Contractor — ${BUSINESS_NAME}`;
 const DESCRIPTION =
-  "Licensed Florida general contractor self-performing mechanical, electrical, and plumbing work across Broward and Palm Beach Counties.";
+  "Licensed Florida general contractor coordinating general, roofing, mechanical, and plumbing under one permit across Broward and Palm Beach Counties.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -28,8 +28,8 @@ export default function GeneralContractorPillar() {
     <>
       <Hero
         eyebrow="General Contractor"
-        heading="Licensed Florida GC — one license holder on your permit"
-        subheading="Self-performing mechanical, electrical, and plumbing work in-house across Broward and Palm Beach Counties. One point of accountability from permit through final walkthrough."
+        heading="Licensed Florida GC — one company signing every permit"
+        subheading="Single-source general contractor across Broward and Palm Beach Counties. General, roofing, mechanical, and plumbing licenses all held by the same GC — so every trade on your job answers to one accountable contractor."
         ctaLabel="Request a Free Estimate"
         ctaHref="/contact"
       />
@@ -41,7 +41,7 @@ export default function GeneralContractorPillar() {
           <p className="eyebrow mb-3">Pillar page — content in progress</p>
           <h2 className="section-h2 mb-4">Full guide coming soon</h2>
           <p className="text-gray-600 text-[16px] leading-[1.75]">
-            Our detailed guide to hiring a licensed general contractor in South Florida — including how self-performed MEP changes the permit path, schedule, and cost — is being written. In the meantime, call us directly or request a free estimate.
+            Our detailed guide to hiring a licensed general contractor in South Florida — including why the license-holder relationship matters more than who swings the hammer, and how it changes the permit path, schedule, and cost — is being written. In the meantime, call us directly or request a free estimate.
           </p>
         </div>
       </section>
@@ -49,7 +49,7 @@ export default function GeneralContractorPillar() {
       <CTABanner
         eyebrow="Free Estimate"
         heading="Planning a construction project?"
-        subheading="Licensed general contractor covering Broward and Palm Beach Counties. Mechanical, electrical, and plumbing handled in-house — no subs, no hand-offs."
+        subheading="Licensed general contractor covering Broward and Palm Beach Counties. One GC signing every permit, one accountable contractor on every trade."
         ctaLabel="Request a Free Estimate"
         ctaHref="/contact"
       />

@@ -71,7 +71,7 @@ export default function ProblemFrame() {
 
         <div className="mt-14 text-center max-w-2xl mx-auto">
           <p className="font-display text-[20px] sm:text-[22px] font-bold text-brand-dark leading-[1.4]">
-            Dellamano removes the layer where every one of these problems lives.
+            Dellamano puts one licensed GC in charge of every trade — so none of these problems compound on your job.
           </p>
         </div>
       </div>

@@ -20,8 +20,8 @@ const steps = [
     num: "03",
     icon: Hammer,
     title: "Permit & Build",
-    short: "In-house MEP from demo to punch",
-    body: "Permits pulled under one license. Our in-house crew handles demolition, framing, MEP rough-in, drywall, and finishes — same faces from start to finish. We pull paperwork, schedule inspections, meet code the first time.",
+    short: "One GC coordinating every trade",
+    body: "Permits pulled under one license. Our team handles demolition, framing, drywall, and finishes directly, and coordinates every other trade — whether performed by our crew or a trusted specialist. One contract, one schedule, one accountable contractor walking the job.",
   },
   {
     num: "04",

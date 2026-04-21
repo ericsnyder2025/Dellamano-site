@@ -11,13 +11,13 @@ const credentials = [
   },
   {
     icon: Users,
-    label: "In-House MEP Crew",
-    sub: "No subcontractors",
+    label: "Single-Source Contractor",
+    sub: "One GC, one contract",
   },
   {
     icon: Wrench,
-    label: "Mechanical & Plumbing Licensed",
-    sub: "CMC1251666 · CFC1434398",
+    label: "Roofing, Mechanical & Plumbing",
+    sub: "Licensed by the GC himself",
   },
   {
     icon: MapPin,
@@ -48,15 +48,18 @@ export default function AboutDellamano() {
               <p className="text-gray-700 text-[17px] leading-[1.75]">
                 Dellamano Construction is a licensed Florida general
                 contractor serving homeowners across Broward and Palm Beach
-                Counties. Aldo Dellamano personally holds the state credentials
-                for general, mechanical, and plumbing work — so every trade
-                running on your project answers to one license holder.
+                Counties. Aldo Dellamano personally holds the state
+                credentials for general, roofing, mechanical, and plumbing
+                work — so every trade on your project answers to one license
+                holder, whether that trade is performed by our own team or by a
+                specialist crew we bring in and manage.
               </p>
               <p className="text-gray-700 text-[17px] leading-[1.75]">
                 Our work is built around fixed-bid proposals, written scope,
-                and in-house MEP coordination. We pull every permit, schedule
-                every inspection, and walk every project from estimate through
-                final walkthrough.
+                and single-source contractor accountability. We pull every
+                permit, schedule every inspection, and walk every project from
+                estimate through final walkthrough — one company, start to
+                finish.
               </p>
             </div>
           </div>

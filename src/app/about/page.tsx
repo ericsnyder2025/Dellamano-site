@@ -130,16 +130,16 @@ export default function AboutPage() {
             <div>
               <p className="eyebrow mb-3">The founder</p>
               <h2 className="section-h2 mb-6">
-                Four trade licenses, one signature
+                Five trade licenses, one accountable contractor
               </h2>
               <p className="text-gray-700 text-[17px] leading-[1.75] mb-5">
-                Aldo Dellamano spent years watching the same breakdown repeat on South Florida job sites: a homeowner hires a general contractor, the GC subcontracts the mechanical, electrical, and plumbing to three different license holders, and three weeks of the schedule vanish into calendar conflicts between subs who barely knew each other. {BUSINESS_NAME} exists to remove that layer.
+                Aldo Dellamano spent years watching the same breakdown repeat on South Florida job sites: a homeowner hires a general contractor, the GC hands the mechanical, electrical, plumbing, and roofing scopes to four different license holders, and the schedule disappears into calendar conflicts between teams that barely coordinate. {BUSINESS_NAME} exists to put one accountable contractor back in charge of all of it.
               </p>
               <p className="text-gray-700 text-[17px] leading-[1.75] mb-5">
-                Aldo holds Florida DBPR licenses as a Certified General Contractor, Certified Mechanical Contractor, and Certified Plumbing Contractor, with an active electrical credential rounding out the trades a typical renovation actually requires. That combination is unusual. Most GCs hold a CGC and hire out everything else. It means the name on your building permit is the same name running the trade work — not three different license holders and a project manager in the middle.
+                Aldo personally holds Florida DBPR licenses as a Certified General Contractor, Certified Roofing Contractor, Certified Mechanical Contractor, and Certified Plumbing Contractor, with an electrical contractor credential rounding out the trades that a typical renovation actually requires. Most GCs hold only the CGC and hire the rest out under unrelated license holders. For our clients, that combination means the name on your building permit is the same name answering for every trade running on your job — whether the work is performed by our own team or by a specialist crew we bring in and manage.
               </p>
               <p className="text-gray-700 text-[17px] leading-[1.75]">
-                The company is based in Parkland and works exclusively across {SERVICE_AREA_COUNTIES.join(" and ")} — a deliberately tight radius that keeps crews on one or two active jobs at a time instead of spreading thin across the state.
+                The company is based in Parkland and works exclusively across {SERVICE_AREA_COUNTIES.join(" and ")} — a deliberately tight radius that keeps the team on one or two active jobs at a time instead of spreading thin across the state.
               </p>
             </div>
           </div>
@@ -151,9 +151,9 @@ export default function AboutPage() {
         <div className="mx-auto max-w-5xl px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="eyebrow mb-3">What that changes</p>
-            <h2 className="section-h2">Why one license holder matters on a remodel</h2>
+            <h2 className="section-h2">Why one accountable license holder matters</h2>
             <p className="section-lead mt-3 max-w-2xl mx-auto">
-              The in-house MEP model sounds like a technicality. On a real job, it changes the week-to-week experience in four specific ways.
+              Coordinated trades sound like a technicality. On a real job, they change the week-to-week experience in four specific ways.
             </p>
           </div>
 
@@ -161,7 +161,7 @@ export default function AboutPage() {
             {[
               {
                 title: "One number to call when something shifts",
-                body: "If an electrical rough-in needs to move two feet to clear a soffit, that decision happens on-site in five minutes — not in a three-way text thread between a GC, an electrician's office, and a drywall crew already scheduled for Monday.",
+                body: "If an electrical rough-in needs to move two feet to clear a soffit, that decision goes through the same GC running the rest of your job — not a three-way text thread between the electrician's office, the drywall crew, and a project manager chasing answers.",
               },
               {
                 title: "Your permit pulls faster",
@@ -209,35 +209,44 @@ export default function AboutPage() {
           </div>
 
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {AUTHOR.licenses.map((license) => (
-              <li
-                key={license.number}
-                className="relative bg-white rounded-[1rem] border border-[rgba(221,225,235,0.9)] p-5 shadow-[var(--shadow-card)]"
-              >
-                <div className="flex items-start gap-3 mb-3">
-                  <ShieldCheck
-                    size={22}
-                    className="text-brand-primary flex-shrink-0 mt-0.5"
-                    aria-hidden="true"
-                  />
-                  <div className="min-w-0">
-                    <p className="font-display font-bold text-brand-dark text-[15px] leading-snug">
-                      {license.name}
-                    </p>
-                    <p className="text-gray-500 text-[12px] mt-0.5">{license.body}</p>
-                  </div>
-                </div>
-                <a
-                  href={license.verificationUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-brand-accent hover:text-brand-accent-700 font-semibold text-[14px] hover:underline transition-colors"
+            {AUTHOR.licenses.map((license) => {
+              const isPending = !license.verificationUrl;
+              return (
+                <li
+                  key={`${license.name}-${license.number}`}
+                  className={`relative bg-white rounded-[1rem] border border-[rgba(221,225,235,0.9)] p-5 shadow-[var(--shadow-card)] ${isPending ? "opacity-70" : ""}`}
                 >
-                  {license.number}
-                  <ExternalLink size={13} aria-hidden="true" />
-                </a>
-              </li>
-            ))}
+                  <div className="flex items-start gap-3 mb-3">
+                    <ShieldCheck
+                      size={22}
+                      className={`flex-shrink-0 mt-0.5 ${isPending ? "text-gray-400" : "text-brand-primary"}`}
+                      aria-hidden="true"
+                    />
+                    <div className="min-w-0">
+                      <p className="font-display font-bold text-brand-dark text-[15px] leading-snug">
+                        {license.name}
+                      </p>
+                      <p className="text-gray-500 text-[12px] mt-0.5">{license.body}</p>
+                    </div>
+                  </div>
+                  {isPending ? (
+                    <span className="inline-flex items-center gap-1.5 text-gray-500 italic text-[14px]">
+                      Pending — number to be posted here
+                    </span>
+                  ) : (
+                    <a
+                      href={license.verificationUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-brand-accent hover:text-brand-accent-700 font-semibold text-[14px] hover:underline transition-colors"
+                    >
+                      {license.number}
+                      <ExternalLink size={13} aria-hidden="true" />
+                    </a>
+                  )}
+                </li>
+              );
+            })}
           </ul>
 
           <p className="text-gray-500 text-[13px] leading-[1.7] mt-6 max-w-2xl">
@@ -364,7 +373,7 @@ export default function AboutPage() {
       <CTABanner
         eyebrow="Free Estimate"
         heading={`Start your project with ${BUSINESS_LEGAL_NAME}`}
-        subheading="Licensed GC covering mechanical, electrical, and plumbing in-house. Broward and Palm Beach Counties."
+        subheading="Licensed GC personally holding the general, roofing, mechanical, and plumbing credentials on every permit. Broward and Palm Beach Counties."
         ctaLabel="Request a Free Estimate"
         ctaHref="/contact"
       />

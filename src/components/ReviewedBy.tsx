@@ -50,6 +50,19 @@ export default function ReviewedBy({
                 .replace(/^Certified\s+/i, "")
                 .replace(/\s+Contractor$/i, "")
                 .trim();
+              const isPending = !license.verificationUrl;
+
+              if (isPending) {
+                return (
+                  <li key={`${license.name}-pending`}>
+                    <span className="text-gray-400 italic">
+                      FL {short}
+                      <span className="text-gray-400/70"> (pending)</span>
+                    </span>
+                  </li>
+                );
+              }
+
               return (
                 <li key={license.number}>
                   <a

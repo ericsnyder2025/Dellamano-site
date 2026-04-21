@@ -44,7 +44,7 @@ export default function HomeSystemsPillar() {
         pillar="home-systems"
         eyebrow="Home Systems services"
         heading="The trades running inside your walls"
-        subheading="Generators, electrical, and plumbing — self-performed by a GC who personally holds every license on your permit."
+        subheading="Generators, electrical, and plumbing — coordinated by a GC who personally holds the mechanical, plumbing, and general credentials on your permit."
       />
 
       <section className="section-primary bg-white">
@@ -52,7 +52,7 @@ export default function HomeSystemsPillar() {
           <p className="eyebrow mb-3">Pillar page — content in progress</p>
           <h2 className="section-h2 mb-4">Full guide coming soon</h2>
           <p className="text-gray-600 text-[16px] leading-[1.75]">
-            Our detailed guide to generator sizing, installation, and the home-systems work we self-perform is being written. In the meantime, call us or request a free estimate to discuss your project.
+            Our detailed guide to generator sizing, installation, and how our GC coordinates the mechanical and electrical trades on your project is being written. In the meantime, call us or request a free estimate to discuss your project.
           </p>
         </div>
       </section>

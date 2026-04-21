@@ -4,13 +4,13 @@ import { ShieldCheck, ClipboardCheck, Wrench, Handshake, Sparkles } from "lucide
 const benefits = [
   {
     icon: ShieldCheck,
-    title: "One licensed trade holder on your permit",
-    body: "Aldo Dellamano personally signs your permit as the license holder for the general, mechanical, and plumbing scopes. There aren't three master licenses stapled to the application. One name, one accountable party — from the initial submittal through the final Certificate of Completion.",
+    title: "One licensed contractor on your permit",
+    body: "Aldo Dellamano personally signs your building permit as the qualifier for the general, roofing, mechanical, and plumbing scopes. There aren't four master licenses stapled to the application under unrelated companies. One name, one accountable party — from the initial submittal through the final Certificate of Completion.",
   },
   {
     icon: Wrench,
-    title: "In-house mechanical, electrical & plumbing",
-    body: "MEP work gets self-performed by the same crew running the rest of the project. That means the person installing the hood vent is coordinating with the person framing the soffit — not a sub fitting you in between other jobs. Rough-ins sequence cleanly with framing and drywall, not weeks after.",
+    title: "Direct trade coordination",
+    body: "Every trade on your project — whether performed by our team or by a specialist crew we bring in — runs through the same GC. No three-way text threads between the plumber's office, the electrician's scheduler, and the framer already moving on to the next job. One dispatcher, one schedule.",
   },
   {
     icon: ClipboardCheck,
@@ -27,7 +27,7 @@ const benefits = [
 const whoItsFor = [
   "Want a single point of accountability on their build",
   "Expect a licensed contractor to personally sign their permit",
-  "Need mechanical, electrical, and plumbing coordinated cleanly",
+  "Need every trade on the job coordinated under one GC",
   "Value written scope and fixed pricing over hourly guesswork",
   "See the renovation as a relationship, not a transaction",
 ];
@@ -59,15 +59,16 @@ export default function OurApproach() {
         <div className="text-center mb-16">
           <p className="eyebrow mb-4">The Dellamano approach</p>
           <h2 className="section-h2 mb-6">
-            One GC, every trade.
+            One GC.
             <br />
-            No coordination gaps.
+            Every trade, one permit.
           </h2>
           <p className="text-gray-500 text-[18px] sm:text-[20px] leading-[1.7] max-w-2xl mx-auto">
-            Most general contractors hand the MEP work to three different
-            subcontractors. We self-perform all of it under one license holder —
-            and the difference shows up on your timeline, your budget, and your
-            inspection log.
+            Most general contractors hand the mechanical, electrical, and
+            plumbing scopes to separate subcontractors under unrelated license
+            holders. We run every trade under one GC who personally holds the
+            credentials — so the contract, the permit, and the accountability
+            all sit with one company.
           </p>
         </div>
 
@@ -86,20 +87,22 @@ export default function OurApproach() {
               <p>
                 A renovation isn&apos;t a construction problem — it&apos;s a{" "}
                 <strong className="text-brand-dark">coordination problem</strong>.
-                Four to six subcontractors, each on their own schedule, each
-                pointing at the previous trade when something fails inspection.
-                The delays aren&apos;t because pipe-bending or drywall-hanging is
-                slow. They&apos;re because nobody owns the handoffs.
+                Four to six trades, each on their own schedule, each pointing
+                at the previous one when something fails inspection. The delays
+                aren&apos;t because pipe-bending or drywall-hanging is slow.
+                They&apos;re because nobody owns the handoffs.
               </p>
 
               <p>
                 Aldo built Dellamano Construction around a different model:
-                the same person who signs your permit also holds the mechanical
-                and plumbing licenses. When an electrical rough-in needs to
-                shift two feet to clear a soffit, that decision happens on-site
-                in five minutes — not in a three-way text between a GC, an
-                electrician&apos;s office, and a drywall crew already scheduled
-                for Monday.
+                the same person who signs your permit also holds the roofing,
+                mechanical, and plumbing licenses. Whether a given trade is
+                performed by our own crew or a specialist team we bring in,
+                the dispatching, scheduling, and accountability all run
+                through one GC. When an electrical rough-in needs to shift
+                two feet to clear a soffit, that decision goes through the
+                same person coordinating the framing — not a three-way text
+                between three unrelated offices.
               </p>
 
               <p>
@@ -111,11 +114,11 @@ export default function OurApproach() {
                 <Link href="/services/exterior-living" className="text-brand-accent hover:text-brand-accent-700 font-semibold hover:underline">
                   exterior living
                 </Link>{" "}
-                work is handled by a single licensed team from demo through
+                work runs through a single licensed GC from demo through
                 final walkthrough — serving{" "}
                 <strong className="text-brand-dark">Broward and Palm Beach Counties</strong>.
-                One GC. One license holder on your permit. One point of
-                accountability for every phase of the job.
+                One company. One license holder on your permit. One accountable
+                contractor for every phase of the job.
               </p>
             </div>
           </div>
@@ -166,11 +169,12 @@ export default function OurApproach() {
             </h3>
             <p className="text-gray-300 text-[16px] leading-[1.75] mb-8 max-w-2xl">
               Dellamano was built to deliver the level of coordination most
-              homeowners never get from a contractor — because most contractors
-              don&apos;t hold the licenses themselves. When the person signing
-              your permit is also the person running the job, the entire
+              homeowners never get — because most contractors don&apos;t hold
+              the trade licenses themselves. When the person signing your
+              permit is also the GC running every trade on your job, the
               timeline gets tighter, the finger-pointing goes away, and your
-              renovation becomes a relationship instead of a scramble.
+              renovation becomes a relationship with one company instead of a
+              scramble between four.
             </p>
             <ul className="space-y-3">
               {whoItsFor.map((item) => (

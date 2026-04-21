@@ -13,7 +13,7 @@ export const BUSINESS_LEGAL_NAME: string = "Dellamano Construction Inc.";
 export const BUSINESS_SHORT_DESCRIPTION =
   "Licensed Florida general contractor in Broward & Palm Beach Counties. Kitchen remodels, home renovations, outdoor kitchens, generators, custom homes.";
 export const BUSINESS_LONG_DESCRIPTION =
-  "Dellamano Construction Inc. is a licensed Florida general contractor serving Broward and Palm Beach Counties. Led by Aldo Dellamano, a state-certified GC with additional licenses in mechanical, electrical, and plumbing trades, Dellamano self-performs the MEP work most GCs sub out — cutting weeks off renovation timelines and eliminating multi-sub coordination failures. Services include whole-home renovations, kitchen remodels, custom home builds, home additions, commercial buildouts with MEP, whole-house generator installations, outdoor kitchens, pergolas, and hardscape design. Every project is managed by a licensed trade holder. Licensed by the Florida DBPR; all license numbers verifiable at myfloridalicense.com.";
+  "Dellamano Construction Inc. is a licensed Florida general contractor serving Broward and Palm Beach Counties. Led by Aldo Dellamano, a state-certified GC who personally holds licenses in roofing, mechanical, electrical, and plumbing trades. Every trade running on a Dellamano project answers to the same license holder who signs the permit — whether performed by our own team or by a trusted specialist crew we bring in and manage. Services include whole-home renovations, kitchen remodels, custom home builds, home additions, commercial buildouts, whole-house generator installations, outdoor kitchens, pergolas, hardscape design, and roofing. One company, one contract, one accountable contractor from estimate through final walkthrough. Licensed by the Florida DBPR; all license numbers verifiable at myfloridalicense.com.";
 
 // ─────────────────────────────────────────────────────────────────
 // URL / HOST
@@ -53,7 +53,7 @@ export const AUTHOR = {
   name: "Aldo Dellamano",
   slug: "aldo-dellamano",
   jobTitle: "Licensed Florida General Contractor",
-  bio: "Aldo Dellamano is the licensed general contractor and founder of Dellamano Construction Inc. He holds active Florida DBPR licenses as a Certified General Contractor, Certified Mechanical Contractor, and Certified Plumbing Contractor, letting Dellamano self-perform the trade work most GCs subcontract. His team builds and renovates homes across Broward and Palm Beach Counties.",
+  bio: "Aldo Dellamano is the licensed general contractor and founder of Dellamano Construction Inc. He personally holds active Florida DBPR licenses as a Certified General Contractor, Certified Roofing Contractor, Certified Mechanical Contractor, and Certified Plumbing Contractor — so every trade running on a Dellamano project answers to one license holder, whether performed by our own team or a specialist crew we bring in and manage. His company builds and renovates homes across Broward and Palm Beach Counties.",
   headshot: "/images/aldo-dellamano.webp",
   linkedin: "",
   expertiseAreas: [
@@ -75,6 +75,13 @@ export const AUTHOR = {
         "https://www.myfloridalicense.com/LicenseDetail.asp?SID=&id=6ABCAD00ABE46152930AAC25DB4D35F0",
     },
     {
+      name: "Certified Roofing Contractor",
+      number: "CCC1335157",
+      body: "Florida DBPR",
+      bodyUrl: "https://www.myfloridalicense.com",
+      verificationUrl: "https://www.myfloridalicense.com",
+    },
+    {
       name: "Certified Mechanical Contractor",
       number: "CMC1251666",
       body: "Florida DBPR",
@@ -90,7 +97,17 @@ export const AUTHOR = {
       verificationUrl:
         "https://www.myfloridalicense.com/LicenseDetail.asp?SID=&id=39DD85916742B987C251349976F7D728",
     },
-    // Electrical license — pending number from user
+    {
+      // Electrical — number pending from user. Empty verificationUrl
+      // tells the ReviewedBy + About license panels to render this
+      // entry as a non-clickable "Pending" chip until the real number
+      // is provided.
+      name: "Certified Electrical Contractor",
+      number: "Pending",
+      body: "Florida DBPR",
+      bodyUrl: "https://www.myfloridalicense.com",
+      verificationUrl: "",
+    },
     // Pool license — pending state approval
   ] as Array<{
     name: string;
@@ -207,7 +224,7 @@ export const EDITORIAL_POLICY_URL = `${SITE_URL}editorial-policy`;
 // ─────────────────────────────────────────────────────────────────
 // BRAND
 // ─────────────────────────────────────────────────────────────────
-export const BUSINESS_TAGLINE = "One GC. Every Trade. Built In-House.";
+export const BUSINESS_TAGLINE = "One GC. Every Trade. One Permit.";
 
 // ─────────────────────────────────────────────────────────────────
 // NAVIGATION
@@ -307,9 +324,9 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
       short_name: "General Contractor",
       primary_keyword: "general contractor",
       tagline:
-        "Licensed Florida GC self-performing mechanical, electrical, and plumbing work in-house.",
+        "Licensed Florida GC coordinating general, roofing, mechanical, and plumbing under one permit.",
       key_topics: [
-        "self-performed MEP advantage",
+        "single-source contractor accountability",
         "permit coordination",
         "project management",
         "licensed trade oversight",
@@ -338,7 +355,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
       short_name: "Whole-House Generator",
       primary_keyword: "whole house generator",
       tagline:
-        "Standby generator sales, sizing, permit, and installation — licensed electrical and mechanical in-house.",
+        "Standby generator sales, sizing, permit, and installation — coordinated by a GC who personally holds the mechanical and plumbing licenses.",
       key_topics: [
         "generator sizing",
         "transfer switch installation",
@@ -474,7 +491,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
 //   - title: scope line in contractor-speak ("10,000 SF medical office buildout")
 //   - summary: one sentence covering the unusual/hard part of the job
 //   - location: "City, County" — keeps it local-SEO relevant
-//   - trades: visible chips of what was self-performed
+//   - trades: visible chips of the trades we coordinated on the job
 //   - image: /images/projects/{slug}.jpg — real photo, not stock
 // ─────────────────────────────────────────────────────────────────
 export type RecentProject = {

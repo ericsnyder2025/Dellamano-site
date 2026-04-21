@@ -34,7 +34,7 @@ const PILLAR_CARDS = [
   },
   {
     title: "Interior Renovation",
-    tagline: "Whole-trade work under one GC",
+    tagline: "One GC, every trade on one permit",
     description:
       "Kitchens, whole-home remodels, additions, and ground-up custom homes — managed by one licensed GC from demo through final walkthrough.",
     href: "/services/interior-renovation",
@@ -45,9 +45,9 @@ const PILLAR_CARDS = [
   },
   {
     title: "Home Systems",
-    tagline: "Self-performed MEP",
+    tagline: "Licensed by your GC",
     description:
-      "Generators, panel upgrades, and plumbing performed by the same GC who personally holds the mechanical and plumbing licenses on the permit.",
+      "Generators, panel upgrades, and plumbing — coordinated by the same GC who personally holds the mechanical and plumbing licenses on the permit.",
     href: "/services/home-systems",
     imageUrl: "/images/generator.jpg",
     imageAlt: `Home Systems — ${BUSINESS_NAME}`,
@@ -56,9 +56,9 @@ const PILLAR_CARDS = [
   },
   {
     title: "General Contractor",
-    tagline: "One license holder, every trade",
+    tagline: "One company signing every permit",
     description:
-      "Licensed Florida GC self-performing mechanical, electrical, and plumbing — one license holder on your permit, one point of accountability.",
+      "Licensed Florida GC coordinating general, roofing, mechanical, and plumbing under one permit — one company, one contract, one accountable contractor.",
     href: "/services/general-contractor",
     imageUrl: "/images/general-contractor.jpg",
     imageAlt: `General Contractor — ${BUSINESS_NAME}`,
@@ -99,8 +99,8 @@ export default async function HomePage() {
     <>
       <Hero
         eyebrow="Broward + Palm Beach County"
-        heading="South Florida General Contractor. Every Trade, One License Holder."
-        subheading="Full-service renovations, custom homes, and outdoor living across Broward and Palm Beach Counties. Mechanical, electrical, and plumbing handled by the same licensed team running your project — not three different subs on three different schedules."
+        heading="South Florida General Contractor. Every Trade, One Permit."
+        subheading="Full-service renovations, custom homes, roofing, and outdoor living across Broward and Palm Beach Counties. One GC who personally holds the general, roofing, mechanical, and plumbing licenses on your permit — so every trade on your job answers to one accountable contractor."
         ctaLabel="Request a Free Estimate"
         ctaHref="#free-estimate"
         backgroundImageUrl="/images/hero.webp"
@@ -131,7 +131,7 @@ export default async function HomePage() {
       <CTABanner
         eyebrow="Free Estimate"
         heading="Ready to start your project?"
-        subheading="Licensed general contractor serving Broward and Palm Beach Counties. Mechanical, electrical, and plumbing handled in-house — no subs, no hand-offs."
+        subheading="Licensed general contractor serving Broward and Palm Beach Counties. One GC signing every permit — general, roofing, mechanical, and plumbing all coordinated under one contract."
         ctaLabel="Request a Free Estimate"
         ctaHref="/contact"
       />

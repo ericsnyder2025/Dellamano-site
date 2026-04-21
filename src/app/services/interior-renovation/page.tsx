@@ -33,7 +33,7 @@ export default function InteriorRenovationPillar() {
       <Hero
         eyebrow="Interior Renovation"
         heading="Whole-home renovations, kitchens, additions"
-        subheading="From single-room remodels to ground-up custom builds — managed by one licensed contractor with every trade in-house."
+        subheading="From single-room remodels to ground-up custom builds — managed by one licensed contractor who personally holds the trade credentials that keep every phase of the job under one permit."
         ctaLabel="Request a Free Estimate"
         ctaHref="/contact"
       />
@@ -60,7 +60,7 @@ export default function InteriorRenovationPillar() {
       <CTABanner
         eyebrow="Free Estimate"
         heading="Ready to start your renovation?"
-        subheading="Licensed general contractor covering Broward and Palm Beach Counties. Mechanical, electrical, and plumbing handled in-house — one point of contact from demo through final walkthrough."
+        subheading="Licensed general contractor covering Broward and Palm Beach Counties. One GC signing every permit — one point of contact from demo through final walkthrough."
         ctaLabel="Request a Free Estimate"
         ctaHref="/contact"
       />

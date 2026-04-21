@@ -21,7 +21,7 @@ export default function RecentProjects({
   projects,
   eyebrow = "Recent projects",
   heading = "What a Dellamano job actually looks like",
-  subheading = "A few recent jobs — the scope, the trades we self-performed, and where the project was.",
+  subheading = "A few recent jobs — the scope, the trades we coordinated, and where the project was.",
 }: RecentProjectsProps) {
   if (!projects || projects.length === 0) return null;
 
