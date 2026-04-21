@@ -88,7 +88,7 @@ export default function AboutPage() {
       <Hero
         eyebrow="About"
         heading="Meet the contractor signing your permit"
-        subheading={`${BUSINESS_NAME} is a small, owner-operated general contractor in ${SERVICE_AREA_COUNTIES.join(" and ")}. One license holder — Aldo Dellamano — carries the general, mechanical, and plumbing credentials on every project, so the permits, the schedule, and the finish work all answer to the same person.`}
+        subheading={`${BUSINESS_NAME} is a small, owner-operated general contractor in ${SERVICE_AREA_COUNTIES.join(" and ")}. One license holder — Aldo Dellamano — carries the general, roofing, mechanical, electrical, and plumbing credentials on every project, so the permits, the schedule, and the finish work all answer to the same person.`}
         ctaLabel="Request a Free Estimate"
         ctaHref="/contact"
         backgroundImageUrl="/images/hero.webp"
@@ -373,7 +373,7 @@ export default function AboutPage() {
       <CTABanner
         eyebrow="Free Estimate"
         heading={`Start your project with ${BUSINESS_LEGAL_NAME}`}
-        subheading="Licensed GC personally holding the general, roofing, mechanical, and plumbing credentials on every permit. Broward and Palm Beach Counties."
+        subheading="Licensed GC personally holding the general, roofing, mechanical, electrical, and plumbing credentials on every permit. Broward and Palm Beach Counties."
         ctaLabel="Request a Free Estimate"
         ctaHref="/contact"
       />

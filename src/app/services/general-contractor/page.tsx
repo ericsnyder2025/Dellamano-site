@@ -8,7 +8,7 @@ import { BUSINESS_NAME, SITE_URL, OG_IMAGE_PATH } from "@/../site.config";
 const URL = `${SITE_URL}services/general-contractor`;
 const TITLE = `General Contractor — ${BUSINESS_NAME}`;
 const DESCRIPTION =
-  "Licensed Florida general contractor signing every permit as the qualifier for general, roofing, mechanical, and plumbing work across Broward and Palm Beach Counties.";
+  "Licensed Florida general contractor signing every permit as the qualifier for general, roofing, mechanical, electrical, and plumbing work across Broward and Palm Beach Counties.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -30,7 +30,7 @@ export default function GeneralContractorPillar() {
       <Hero
         eyebrow="General Contractor"
         heading="Licensed Florida GC — one company signing every permit"
-        subheading="Single-source general contractor across Broward and Palm Beach Counties. General, roofing, mechanical, and plumbing licenses all held by the same GC — so every trade on your job answers to one accountable contractor."
+        subheading="Single-source general contractor across Broward and Palm Beach Counties. General, roofing, mechanical, electrical, and plumbing licenses all held by the same GC — so every trade on your job answers to one accountable contractor."
         ctaLabel="Request a Free Estimate"
         ctaHref="/contact"
       />

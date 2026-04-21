@@ -5,7 +5,7 @@ const benefits = [
   {
     icon: ShieldCheck,
     title: "One licensed contractor on your permit",
-    body: "Aldo Dellamano personally signs your building permit as the qualifier for the general, roofing, mechanical, and plumbing scopes. There aren't four master licenses stapled to the application under unrelated companies. One name, one accountable party — from the initial submittal through the final Certificate of Completion.",
+    body: "Aldo Dellamano personally signs your building permits as the qualifier for the general, roofing, mechanical, electrical, and plumbing scopes. There aren't five master licenses stapled to the application under unrelated companies. One name, one accountable party — from the initial submittal through the final Certificate of Completion.",
   },
   {
     icon: Wrench,
@@ -95,9 +95,9 @@ export default function OurApproach() {
 
               <p>
                 Aldo built Dellamano Construction around a different model:
-                the same person who signs your permit also holds the roofing,
-                mechanical, and plumbing licenses. Whether a given trade is
-                performed by our own crew or a specialist team we bring in,
+                the same person who signs your permits also holds the roofing,
+                mechanical, electrical, and plumbing licenses. Whether a given
+                trade is performed by our own crew or a specialist team we bring in,
                 the dispatching, scheduling, and accountability all run
                 through one GC. When an electrical rough-in needs to shift
                 two feet to clear a soffit, that decision goes through the

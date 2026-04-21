@@ -14,7 +14,7 @@ type Stat = {
 };
 
 const STATS: Stat[] = [
-  { value: "04", label: "Active FL DBPR Licenses", sub: "General · Roofing · Mechanical · Plumbing" },
+  { value: "05", label: "FL DBPR Trade Licenses", sub: "General · Roofing · Mechanical · Electrical · Plumbing" },
   { value: "01", label: "GC Signing Every Permit", sub: "One accountable license holder" },
   { value: "00", label: "Subs on Your Contract", sub: "One contract with Dellamano" },
   { value: "02", label: "Counties Served", sub: "Broward + Palm Beach" },

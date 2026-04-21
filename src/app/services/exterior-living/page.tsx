@@ -33,7 +33,7 @@ export default function ExteriorLivingPillar() {
       <Hero
         eyebrow="Exterior Living"
         heading="Outdoor kitchens, pergolas, and exterior construction"
-        subheading="Custom outdoor spaces built for South Florida sun, salt, and summer rain — engineered by a licensed GC who personally holds the mechanical and plumbing credentials on every permit."
+        subheading="Custom outdoor spaces built for South Florida sun, salt, and summer rain — engineered by a licensed GC who personally holds the mechanical, electrical, and plumbing credentials on every permit."
         ctaLabel="Request a Free Estimate"
         ctaHref="/contact"
       />

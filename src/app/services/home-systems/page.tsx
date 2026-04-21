@@ -33,7 +33,7 @@ export default function HomeSystemsPillar() {
       <Hero
         eyebrow="Home Systems"
         heading="Whole-house generators, electrical, mechanical"
-        subheading="Standby generator sales and installation, panel upgrades, and mechanical work — performed by a GC who personally holds the mechanical and plumbing licenses."
+        subheading="Standby generator sales and installation, panel upgrades, and mechanical work — performed by a GC who personally holds the mechanical, electrical, and plumbing licenses."
         ctaLabel="Request a Free Estimate"
         ctaHref="/contact"
       />
@@ -60,7 +60,7 @@ export default function HomeSystemsPillar() {
       <CTABanner
         eyebrow="Free Estimate"
         heading="Planning a generator or systems upgrade?"
-        subheading="Licensed general, mechanical, and plumbing contractor covering Broward and Palm Beach Counties."
+        subheading="Licensed general, roofing, mechanical, electrical, and plumbing contractor covering Broward and Palm Beach Counties."
         ctaLabel="Request a Free Estimate"
         ctaHref="/contact"
       />

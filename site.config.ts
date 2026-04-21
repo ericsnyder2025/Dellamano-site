@@ -336,7 +336,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
       short_name: "General Contractor",
       primary_keyword: "general contractor",
       tagline:
-        "Licensed Florida GC coordinating general, roofing, mechanical, and plumbing across every permit.",
+        "Licensed Florida GC coordinating general, roofing, mechanical, electrical, and plumbing across every permit.",
       key_topics: [
         "single-source contractor accountability",
         "permit coordination",
@@ -369,7 +369,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
       short_name: "Whole-House Generator",
       primary_keyword: "whole house generator",
       tagline:
-        "Standby generator sales, sizing, permit, and installation — coordinated by a GC who personally holds the mechanical and plumbing licenses.",
+        "Standby generator sales, sizing, permit, and installation — coordinated by a GC who personally holds the mechanical, electrical, and plumbing licenses.",
       key_topics: [
         "generator sizing",
         "transfer switch installation",
@@ -578,7 +578,7 @@ export const PILLARS: PillarEntry[] = [
     short_name: "Interior Renovation",
     primary_keyword: "home renovation contractor",
     tagline:
-      "Kitchen remodels, whole-home renovations, additions, and custom builds — one licensed GC, every trade in-house.",
+      "Kitchen remodels, whole-home renovations, additions, and custom builds — one licensed GC, every trade answering to the same qualifier signature.",
     key_topics: [
       "whole-home scope planning and phasing",
       "kitchen remodel permit path",
@@ -594,7 +594,7 @@ export const PILLARS: PillarEntry[] = [
     short_name: "Home Systems",
     primary_keyword: "residential mechanical contractor",
     tagline:
-      "Whole-house generators, electrical service, and plumbing — licensed mechanical, electrical, and plumbing in-house.",
+      "Whole-house generators, electrical service, and plumbing — coordinated by a GC who personally holds the mechanical, electrical, and plumbing licenses.",
     key_topics: [
       "whole-house generator sizing and install",
       "panel and service upgrades",
@@ -610,11 +610,11 @@ export const PILLARS: PillarEntry[] = [
     short_name: "General Contractor",
     primary_keyword: "licensed general contractor",
     tagline:
-      "Licensed Florida GC self-performing mechanical, electrical, and plumbing — one license holder on your permit.",
+      "Licensed Florida GC signing every permit as the qualifier for general, roofing, mechanical, electrical, and plumbing work.",
     key_topics: [
       "commercial construction permit path",
       "tenant fit-out scope and landlord coordination",
-      "self-performed MEP advantage",
+      "single-qualifier accountability across every trade",
       "single license holder on every trade",
     ],
     image: "/images/general-contractor.jpg",

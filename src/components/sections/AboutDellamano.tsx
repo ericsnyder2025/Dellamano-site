@@ -16,7 +16,7 @@ const credentials = [
   },
   {
     icon: Wrench,
-    label: "Roofing, Mechanical & Plumbing",
+    label: "Roofing, Mechanical, Electrical & Plumbing",
     sub: "Licensed by the GC himself",
   },
   {
@@ -49,8 +49,8 @@ export default function AboutDellamano() {
                 Dellamano Construction is a licensed Florida general
                 contractor serving homeowners across Broward and Palm Beach
                 Counties. Aldo Dellamano personally holds the state
-                credentials for general, roofing, mechanical, and plumbing
-                work — so every trade on your project answers to one license
+                credentials for general, roofing, mechanical, electrical, and
+                plumbing work — so every trade on your project answers to one license
                 holder, whether that trade is performed by our own team or by a
                 specialist crew we bring in and manage.
               </p>

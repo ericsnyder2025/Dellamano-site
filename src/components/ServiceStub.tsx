@@ -91,7 +91,7 @@ export default function ServiceStub({ slug }: { slug: string }) {
       <CTABanner
         eyebrow="Free Estimate"
         heading={`Planning a ${svc.short_name.toLowerCase()} project?`}
-        subheading="Licensed general contractor covering Broward and Palm Beach Counties. One GC signing every permit — general, roofing, mechanical, and plumbing all coordinated under one contract."
+        subheading="Licensed general contractor covering Broward and Palm Beach Counties. One GC signing every permit — general, roofing, mechanical, electrical, and plumbing all coordinated under one contract."
         ctaLabel="Request a Free Estimate"
         ctaHref="/contact"
       />
