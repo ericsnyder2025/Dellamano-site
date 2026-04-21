@@ -62,8 +62,8 @@ const PILLAR_CARDS = [
     href: "/services/general-contractor",
     imageUrl: "/images/general-contractor.jpg",
     imageAlt: `General Contractor — ${BUSINESS_NAME}`,
-    bullets: ["Fixed-Bid Proposals", "Written Scope", "Broward + Palm Beach"],
-    ctaLabel: "Meet your GC",
+    bullets: ["Commercial Construction", "Tenant Fit-Outs"],
+    ctaLabel: "Explore commercial work",
   },
 ];
 
