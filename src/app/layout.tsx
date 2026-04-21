@@ -116,6 +116,13 @@ export default function RootLayout({
       <head>
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM context" />
         {/* <link rel="preconnect" href="https://{{ SUPABASE_HOST }}" crossOrigin="" /> */}
+        {/* Strip #free-estimate hash on load so refreshes don't jump to the form. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "if(location.hash==='#free-estimate'){history.replaceState(null,'',location.pathname+location.search);}",
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
