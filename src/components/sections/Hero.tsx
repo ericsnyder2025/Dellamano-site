@@ -67,7 +67,7 @@ export default function Hero({
           <div>
             {eyebrow && <p className="eyebrow-dark mb-4">{eyebrow}</p>}
             <h1
-              className="font-display text-[40px] sm:text-[52px] font-bold leading-[1.05] tracking-tight mb-6 text-white"
+              className="font-display text-[40px] sm:text-[52px] font-bold leading-[1.2] sm:leading-[1.05] tracking-tight mb-6 text-white"
             >
               {heading}
             </h1>

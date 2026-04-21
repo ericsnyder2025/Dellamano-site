@@ -47,7 +47,7 @@ const PILLAR_CARDS = [
     title: "Home Systems",
     tagline: "Licensed by your GC",
     description:
-      "Generators, panel upgrades, and plumbing — coordinated by the same GC who personally holds the mechanical and plumbing licenses on the permit.",
+      "Generators, panel upgrades, and plumbing — coordinated by the same GC who personally holds the mechanical, electrical, and plumbing licenses.",
     href: "/services/home-systems",
     imageUrl: "/images/generator.jpg",
     imageAlt: `Home Systems — ${BUSINESS_NAME}`,
@@ -58,7 +58,7 @@ const PILLAR_CARDS = [
     title: "General Contractor",
     tagline: "One company signing every permit",
     description:
-      "Licensed Florida GC coordinating general, roofing, mechanical, and plumbing across every permit — one company, one contract, one accountable contractor.",
+      "Licensed Florida GC coordinating general, roofing, mechanical, electrical, and plumbing across every permit — one company, one contract, one accountable contractor.",
     href: "/services/general-contractor",
     imageUrl: "/images/general-contractor.jpg",
     imageAlt: `General Contractor — ${BUSINESS_NAME}`,
@@ -99,8 +99,8 @@ export default async function HomePage() {
     <>
       <Hero
         eyebrow="South Florida General Contractor"
-        heading="Every Project. Every Trade. One Signature."
-        subheading="Full-service renovations, custom homes, roofing, and outdoor living across Broward and Palm Beach Counties. One GC who personally holds the general, roofing, mechanical, and plumbing licenses — so the name signing every permit on your job is the same accountable contractor from estimate through final walkthrough."
+        heading="Every Project, Every Trade, One Signature"
+        subheading="Full-service renovations, custom homes, roofing, and outdoor living across Broward and Palm Beach Counties. One GC who personally holds the general, roofing, mechanical, electrical, and plumbing licenses — so the name signing every permit on your job is the same accountable contractor from estimate through final walkthrough."
         ctaLabel="Request a Free Estimate"
         ctaHref="#free-estimate"
         backgroundImageUrl="/images/hero.webp"
@@ -131,7 +131,7 @@ export default async function HomePage() {
       <CTABanner
         eyebrow="Free Estimate"
         heading="Ready to start your project?"
-        subheading="Licensed general contractor serving Broward and Palm Beach Counties. One GC signing every permit — general, roofing, mechanical, and plumbing all coordinated under one contract."
+        subheading="Licensed general contractor serving Broward and Palm Beach Counties. One GC signing every permit — general, roofing, mechanical, electrical, and plumbing all coordinated under one contract."
         ctaLabel="Request a Free Estimate"
         ctaHref="/contact"
       />
