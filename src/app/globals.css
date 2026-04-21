@@ -24,12 +24,14 @@
   --color-brand-primary-100: #EBCBCC;
   --color-brand-primary-50: #F7EEEE;
 
-  /* Blue = supporting accent (license badges, trust elements, subtle links) */
-  --color-brand-accent-900: #0F2B66;
-  --color-brand-accent-700: #1D4A9E;
-  --color-brand-accent: #2557BF;
-  --color-brand-accent-200: #9FB9E8;
-  --color-brand-accent-50: #EEF3FC;
+  /* Teal = supporting accent (license badges, trust elements, subtle links)
+     Oxidized-copper / architectural teal pairs with deep brick red without
+     reading corporate-blue. Keeps the palette unique but still cool-toned. */
+  --color-brand-accent-900: #08383A;   /* deep teal, near-black */
+  --color-brand-accent-700: #0F5D60;   /* hover state on links */
+  --color-brand-accent: #128085;       /* primary teal — icons, filled tiles */
+  --color-brand-accent-200: #8FCBCD;   /* light teal, for dark-bg accents */
+  --color-brand-accent-50: #E6F3F3;    /* subtle wash for section backgrounds */
 
   /* ─── Warm editorial palette — for magazine-style sections ─────
      Architectural-magazine feel. Cream + warm charcoal + aged brass.
@@ -106,7 +108,7 @@ p { max-width: 65ch; }
   padding-bottom: clamp(3rem, 6vw, 4rem);
 }
 
-/* Eyebrow pill — above section h2. Grey surface, never red. */
+/* Eyebrow pill — above section h2. Teal-tinted, never red. */
 .eyebrow {
   display: inline-block;
   font-family: var(--font-inter), system-ui, sans-serif;
@@ -114,9 +116,9 @@ p { max-width: 65ch; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 800;
-  color: var(--color-gray-700);
-  background: var(--color-gray-100);
-  border: 1px solid var(--color-gray-200);
+  color: var(--color-brand-accent-700);
+  background: var(--color-brand-accent-50);
+  border: 1px solid rgba(18, 128, 133, 0.22);
   border-radius: 9999px;
   padding: 0.625rem 1.25rem;
   line-height: 1;
@@ -129,9 +131,9 @@ p { max-width: 65ch; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 800;
-  color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--color-brand-accent-200);
+  background: rgba(18, 128, 133, 0.14);
+  border: 1px solid rgba(143, 203, 205, 0.28);
   border-radius: 9999px;
   padding: 0.625rem 1.25rem;
   line-height: 1;

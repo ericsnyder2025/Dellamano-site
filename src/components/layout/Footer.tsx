@@ -146,7 +146,7 @@ export default function Footer() {
             className="absolute -inset-x-6 -inset-y-10 opacity-60 blur-3xl pointer-events-none"
             style={{
               background:
-                "radial-gradient(ellipse at 30% 50%, rgba(37,87,191,0.18) 0%, transparent 55%), radial-gradient(ellipse at 85% 50%, rgba(255,255,255,0.04) 0%, transparent 60%)",
+                "radial-gradient(ellipse at 30% 50%, rgba(18,128,133,0.18) 0%, transparent 55%), radial-gradient(ellipse at 85% 50%, rgba(255,255,255,0.04) 0%, transparent 60%)",
             }}
           />
 
