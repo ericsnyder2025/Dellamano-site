@@ -138,7 +138,7 @@ export default function OurApproach() {
             return (
               <div
                 key={b.title}
-                className="bg-brand-accent-50 rounded-[1.25rem] p-8 border border-brand-accent/15 hover:border-brand-accent/30 transition-colors"
+                className="bg-white rounded-[1.25rem] p-8 border border-brand-accent/20 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-0.5 hover:border-brand-accent/40 transition-all duration-200"
               >
                 <div className="w-12 h-12 rounded-xl bg-brand-accent flex items-center justify-center mb-5 shadow-[0_4px_12px_rgba(184,135,60,0.3)]">
                   <Icon size={22} className="text-white" aria-hidden="true" />

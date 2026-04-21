@@ -31,7 +31,7 @@
   --color-brand-accent-700: #754F1E;   /* dark bronze — hover state */
   --color-brand-accent: #B8873C;       /* primary warm amber — icons, filled tiles */
   --color-brand-accent-200: #E8D1A3;   /* pale tan, for dark-bg accents */
-  --color-brand-accent-50: #F7EFDE;    /* cream wash for section backgrounds */
+  --color-brand-accent-50: #FCF6E8;    /* lighter cream wash for section backgrounds */
 
   /* Link blue = ALL text links (internal + external). Independent of the
      amber accent so we can re-theme the accent without losing the
