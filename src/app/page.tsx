@@ -34,7 +34,7 @@ const PILLAR_CARDS = [
   },
   {
     title: "Interior Renovation",
-    tagline: "One GC, every trade on one permit",
+    tagline: "One GC, every trade, one signature",
     description:
       "Kitchens, whole-home remodels, additions, and ground-up custom homes — managed by one licensed GC from demo through final walkthrough.",
     href: "/services/interior-renovation",
@@ -58,7 +58,7 @@ const PILLAR_CARDS = [
     title: "General Contractor",
     tagline: "One company signing every permit",
     description:
-      "Licensed Florida GC coordinating general, roofing, mechanical, and plumbing under one permit — one company, one contract, one accountable contractor.",
+      "Licensed Florida GC coordinating general, roofing, mechanical, and plumbing across every permit — one company, one contract, one accountable contractor.",
     href: "/services/general-contractor",
     imageUrl: "/images/general-contractor.jpg",
     imageAlt: `General Contractor — ${BUSINESS_NAME}`,
@@ -99,8 +99,8 @@ export default async function HomePage() {
     <>
       <Hero
         eyebrow="Broward + Palm Beach County"
-        heading="South Florida General Contractor. Every Trade, One Permit."
-        subheading="Full-service renovations, custom homes, roofing, and outdoor living across Broward and Palm Beach Counties. One GC who personally holds the general, roofing, mechanical, and plumbing licenses on your permit — so every trade on your job answers to one accountable contractor."
+        heading="South Florida General Contractor. Every Trade, One Signature."
+        subheading="Full-service renovations, custom homes, roofing, and outdoor living across Broward and Palm Beach Counties. One GC who personally holds the general, roofing, mechanical, and plumbing licenses — so the name signing every permit on your job is the same accountable contractor from estimate through final walkthrough."
         ctaLabel="Request a Free Estimate"
         ctaHref="#free-estimate"
         backgroundImageUrl="/images/hero.webp"

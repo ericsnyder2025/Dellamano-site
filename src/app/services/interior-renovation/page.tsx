@@ -33,7 +33,7 @@ export default function InteriorRenovationPillar() {
       <Hero
         eyebrow="Interior Renovation"
         heading="Whole-home renovations, kitchens, additions"
-        subheading="From single-room remodels to ground-up custom builds — managed by one licensed contractor who personally holds the trade credentials that keep every phase of the job under one permit."
+        subheading="From single-room remodels to ground-up custom builds — managed by one licensed contractor who personally holds the trade credentials so every permit on your job carries the same accountable signature."
         ctaLabel="Request a Free Estimate"
         ctaHref="/contact"
       />

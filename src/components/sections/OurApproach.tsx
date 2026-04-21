@@ -61,7 +61,7 @@ export default function OurApproach() {
           <h2 className="section-h2 mb-6">
             One GC.
             <br />
-            Every trade, one permit.
+            Every trade, one signature.
           </h2>
           <p className="text-gray-500 text-[18px] sm:text-[20px] leading-[1.7] max-w-2xl mx-auto">
             Most general contractors hand the mechanical, electrical, and

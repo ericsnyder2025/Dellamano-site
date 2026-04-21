@@ -13,7 +13,7 @@ export const BUSINESS_LEGAL_NAME: string = "Dellamano Construction Inc.";
 export const BUSINESS_SHORT_DESCRIPTION =
   "Licensed Florida general contractor in Broward & Palm Beach Counties. Kitchen remodels, home renovations, outdoor kitchens, generators, custom homes.";
 export const BUSINESS_LONG_DESCRIPTION =
-  "Dellamano Construction Inc. is a licensed Florida general contractor serving Broward and Palm Beach Counties. Led by Aldo Dellamano, a state-certified GC who personally holds licenses in roofing, mechanical, electrical, and plumbing trades. Every trade running on a Dellamano project answers to the same license holder who signs the permit — whether performed by our own team or by a trusted specialist crew we bring in and manage. Services include whole-home renovations, kitchen remodels, custom home builds, home additions, commercial buildouts, whole-house generator installations, outdoor kitchens, pergolas, hardscape design, and roofing. One company, one contract, one accountable contractor from estimate through final walkthrough. Licensed by the Florida DBPR; all license numbers verifiable at myfloridalicense.com.";
+  "Dellamano Construction Inc. is a licensed Florida general contractor serving Broward and Palm Beach Counties. Led by Aldo Dellamano, a state-certified GC who personally holds licenses in roofing, mechanical, electrical, and plumbing trades. Every trade running on a Dellamano project answers to the same license holder whose signature appears on every permit the job requires — whether the work is performed by our own team or by a trusted specialist crew we bring in and manage. Services include whole-home renovations, kitchen remodels, custom home builds, home additions, commercial buildouts, whole-house generator installations, outdoor kitchens, pergolas, hardscape design, and roofing. One company, one contract, one accountable contractor from estimate through final walkthrough. Licensed by the Florida DBPR; all license numbers verifiable at myfloridalicense.com.";
 
 // ─────────────────────────────────────────────────────────────────
 // URL / HOST
@@ -224,7 +224,7 @@ export const EDITORIAL_POLICY_URL = `${SITE_URL}editorial-policy`;
 // ─────────────────────────────────────────────────────────────────
 // BRAND
 // ─────────────────────────────────────────────────────────────────
-export const BUSINESS_TAGLINE = "One GC. Every Trade. One Permit.";
+export const BUSINESS_TAGLINE = "One GC. Every Trade. One Signature.";
 
 // ─────────────────────────────────────────────────────────────────
 // NAVIGATION
@@ -336,7 +336,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
       short_name: "General Contractor",
       primary_keyword: "general contractor",
       tagline:
-        "Licensed Florida GC coordinating general, roofing, mechanical, and plumbing under one permit.",
+        "Licensed Florida GC coordinating general, roofing, mechanical, and plumbing across every permit.",
       key_topics: [
         "single-source contractor accountability",
         "permit coordination",

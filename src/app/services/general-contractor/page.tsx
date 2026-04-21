@@ -8,7 +8,7 @@ import { BUSINESS_NAME, SITE_URL, OG_IMAGE_PATH } from "@/../site.config";
 const URL = `${SITE_URL}services/general-contractor`;
 const TITLE = `General Contractor — ${BUSINESS_NAME}`;
 const DESCRIPTION =
-  "Licensed Florida general contractor coordinating general, roofing, mechanical, and plumbing under one permit across Broward and Palm Beach Counties.";
+  "Licensed Florida general contractor signing every permit as the qualifier for general, roofing, mechanical, and plumbing work across Broward and Palm Beach Counties.";
 
 export const metadata: Metadata = {
   title: TITLE,
