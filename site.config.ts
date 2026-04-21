@@ -282,7 +282,17 @@ export type ServiceEntry = {
   /** Show on the homepage services grid. Defaults to false. */
   homepage?: boolean;
   /** Which pillar this service rolls up to (for NAV grouping + pillar page listings). */
-  pillar?: "exterior-living" | "interior-renovation" | "home-systems";
+  pillar?:
+    | "exterior-living"
+    | "interior-renovation"
+    | "home-systems"
+    | "general-contractor";
+  /**
+   * Page template the content-generation agent should use.
+   * - "service-pillar": individual service deep-dive (default for SERVICES entries)
+   * - "combo": city × service landing page
+   */
+  page_type?: "service-pillar" | "combo";
 };
 
 export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
@@ -301,6 +311,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
       ],
       image: "/images/outdoor-kitchens.jpg",
       homepage: false,
+      page_type: "service-pillar",
       pillar: "exterior-living",
     },
     "kitchen-remodeling": {
@@ -317,6 +328,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
       ],
       image: "/images/kitchen-remodeling.jpg",
       homepage: false,
+      page_type: "service-pillar",
       pillar: "interior-renovation",
     },
     "general-contractor": {
@@ -333,6 +345,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
       ],
       image: "/images/general-contractor.jpg",
       homepage: false,
+      page_type: "service-pillar",
     },
     "home-remodeling": {
       name: "Home Remodeling",
@@ -348,6 +361,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
       ],
       image: "/images/home-remodeling.jpg",
       homepage: false,
+      page_type: "service-pillar",
       pillar: "interior-renovation",
     },
     "generator-installation": {
@@ -364,6 +378,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
       ],
       image: "/images/generator.jpg",
       homepage: false,
+      page_type: "service-pillar",
       pillar: "home-systems",
     },
     "custom-homes": {
@@ -380,6 +395,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
       ],
       image: "/images/custom-homes.jpg",
       homepage: false,
+      page_type: "service-pillar",
       pillar: "interior-renovation",
     },
 
@@ -397,6 +413,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "integrated lighting and fans",
       ],
       homepage: false,
+      page_type: "service-pillar",
       pillar: "exterior-living",
     },
     hardscapes: {
@@ -412,6 +429,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "integration with pool deck and patio",
       ],
       homepage: false,
+      page_type: "service-pillar",
       pillar: "exterior-living",
     },
     "pool-construction": {
@@ -427,6 +445,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "permit and code compliance",
       ],
       homepage: false,
+      page_type: "service-pillar",
       pillar: "exterior-living",
     },
 
@@ -444,6 +463,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "roof tie-in and drainage",
       ],
       homepage: false,
+      page_type: "service-pillar",
       pillar: "interior-renovation",
     },
 
@@ -461,6 +481,7 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "generator and EV integration",
       ],
       homepage: false,
+      page_type: "service-pillar",
       pillar: "home-systems",
     },
     plumbing: {
@@ -476,10 +497,130 @@ export const SERVICES: Record<string, Record<string, ServiceEntry>> = {
         "gas line work",
       ],
       homepage: false,
+      page_type: "service-pillar",
       pillar: "home-systems",
+    },
+
+    // ─── General Contractor additions ──────────────────────────────
+    "commercial-construction": {
+      name: "Commercial Construction",
+      short_name: "Commercial",
+      primary_keyword: "commercial general contractor",
+      tagline:
+        "Ground-up and renovation commercial projects across Broward and Palm Beach — one GC signing every permit.",
+      key_topics: [
+        "commercial permit path",
+        "MEP coordination under one license holder",
+        "phased occupied-tenant work",
+        "code compliance and inspections",
+      ],
+      homepage: false,
+      page_type: "service-pillar",
+      pillar: "general-contractor",
+    },
+    "tenant-fit-outs": {
+      name: "Tenant Fit-Outs",
+      short_name: "Tenant Fit-Outs",
+      primary_keyword: "tenant fit out contractor",
+      tagline:
+        "Office, retail, and medical tenant improvements — fast-track buildouts with MEP coordinated in-house.",
+      key_topics: [
+        "landlord work-letter scope",
+        "fast-track MEP coordination",
+        "medical and retail code requirements",
+        "after-hours phasing for occupied buildings",
+      ],
+      homepage: false,
+      page_type: "service-pillar",
+      pillar: "general-contractor",
     },
   },
 };
+
+// ─────────────────────────────────────────────────────────────────
+// PILLARS (4 umbrella pages — /services/{slug})
+// Each pillar page is an umbrella that lists the services rolling up
+// to it. Agents iterate this list to generate the "main-pillar"
+// template, while SERVICES entries drive the "service-pillar"
+// template. Keep these in sync with the ServiceEntry `pillar` union.
+// ─────────────────────────────────────────────────────────────────
+export type PillarEntry = {
+  slug: "exterior-living" | "interior-renovation" | "home-systems" | "general-contractor";
+  name: string;
+  short_name: string;
+  primary_keyword: string;
+  tagline: string;
+  key_topics: string[];
+  image?: string;
+  page_type: "main-pillar";
+};
+
+export const PILLARS: PillarEntry[] = [
+  {
+    slug: "exterior-living",
+    name: "Exterior Living",
+    short_name: "Exterior Living",
+    primary_keyword: "outdoor living contractor",
+    tagline:
+      "Outdoor kitchens, pergolas, pavers, and pools — engineered for South Florida sun, salt, and summer rain.",
+    key_topics: [
+      "outdoor kitchen planning and code",
+      "pergola wind-load engineering for HVHZ",
+      "paver base prep and drainage",
+      "pool construction and deck integration",
+    ],
+    image: "/images/outdoor-kitchens.jpg",
+    page_type: "main-pillar",
+  },
+  {
+    slug: "interior-renovation",
+    name: "Interior Renovation",
+    short_name: "Interior Renovation",
+    primary_keyword: "home renovation contractor",
+    tagline:
+      "Kitchen remodels, whole-home renovations, additions, and custom builds — one licensed GC, every trade in-house.",
+    key_topics: [
+      "whole-home scope planning and phasing",
+      "kitchen remodel permit path",
+      "addition foundation and MEP tie-in",
+      "ground-up custom home construction",
+    ],
+    image: "/images/kitchen-remodeling.jpg",
+    page_type: "main-pillar",
+  },
+  {
+    slug: "home-systems",
+    name: "Home Systems",
+    short_name: "Home Systems",
+    primary_keyword: "residential mechanical contractor",
+    tagline:
+      "Whole-house generators, electrical service, and plumbing — licensed mechanical, electrical, and plumbing in-house.",
+    key_topics: [
+      "whole-house generator sizing and install",
+      "panel and service upgrades",
+      "whole-home repipe",
+      "gas line and tankless water heater work",
+    ],
+    image: "/images/generator.jpg",
+    page_type: "main-pillar",
+  },
+  {
+    slug: "general-contractor",
+    name: "General Contractor",
+    short_name: "General Contractor",
+    primary_keyword: "licensed general contractor",
+    tagline:
+      "Licensed Florida GC self-performing mechanical, electrical, and plumbing — one license holder on your permit.",
+    key_topics: [
+      "commercial construction permit path",
+      "tenant fit-out scope and landlord coordination",
+      "self-performed MEP advantage",
+      "single license holder on every trade",
+    ],
+    image: "/images/general-contractor.jpg",
+    page_type: "main-pillar",
+  },
+];
 
 // ─────────────────────────────────────────────────────────────────
 // RECENT PROJECTS (homepage proof section)
@@ -554,8 +695,17 @@ export function getServicesByPillar(pillar: NonNullable<ServiceEntry["pillar"]>)
   name: string;
   tagline: string;
   href: string;
+  imageUrl: string;
+  imageAlt: string;
 }> {
-  const out: Array<{ slug: string; name: string; tagline: string; href: string }> = [];
+  const out: Array<{
+    slug: string;
+    name: string;
+    tagline: string;
+    href: string;
+    imageUrl: string;
+    imageAlt: string;
+  }> = [];
   for (const [vertical, services] of Object.entries(SERVICES)) {
     for (const [slug, svc] of Object.entries(services)) {
       if (svc.pillar === pillar) {
@@ -564,6 +714,8 @@ export function getServicesByPillar(pillar: NonNullable<ServiceEntry["pillar"]>)
           name: svc.name,
           tagline: svc.tagline,
           href: `/${vertical}/${slug}`,
+          imageUrl: svc.image ?? OG_IMAGE_PATH,
+          imageAlt: `${svc.name} — ${BUSINESS_NAME}`,
         });
       }
     }

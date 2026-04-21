@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Hero from "@/components/sections/Hero";
 import CTABanner from "@/components/sections/CTABanner";
 import ReviewedBy from "@/components/ReviewedBy";
+import PillarSubServices from "@/components/sections/PillarSubServices";
 import { BUSINESS_NAME, SITE_URL, OG_IMAGE_PATH } from "@/../site.config";
 
 const URL = `${SITE_URL}services/general-contractor`;
@@ -35,6 +36,13 @@ export default function GeneralContractorPillar() {
       />
 
       <ReviewedBy />
+
+      <PillarSubServices
+        pillar="general-contractor"
+        eyebrow="General Contractor services"
+        heading="What falls under the GC umbrella"
+        subheading="Commercial construction, tenant fit-outs, and other general contracting work — coordinated by a GC who personally holds every trade license on the permit."
+      />
 
       <section className="section-primary bg-white">
         <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
