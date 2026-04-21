@@ -197,7 +197,7 @@ export const HOURS = {
 export const SOCIAL_LINKS = {
   linkedin: "",
   facebook: "https://www.facebook.com/dellamanoconstruction/",
-  instagram: "",
+  instagram: "https://www.instagram.com/dellamano_construction/",
   youtube: "",
   twitter: "",
   gbp: "https://share.google/IuFPaZFHhN0vhNxZb",
