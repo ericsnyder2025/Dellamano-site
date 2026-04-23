@@ -18,9 +18,9 @@ import { buildBreadcrumbList } from "@/lib/schema";
 
 const PAGE_URL = `${SITE_URL}services`;
 const PAGE_TITLE = `Construction Services — ${BUSINESS_NAME}`;
-const PAGE_DESCRIPTION = `Full-service construction in ${SERVICE_AREA_COUNTIES.join(
+const PAGE_DESCRIPTION = `Licensed Florida GC in ${SERVICE_AREA_COUNTIES.join(
   " and ",
-)}. Kitchen remodels, outdoor kitchens, custom homes, generators, electrical, and plumbing — every trade under one license holder.`;
+)}. Remodels, outdoor kitchens, custom homes, generators, electrical, plumbing.`;
 
 const DISCLOSURE_PROPS = {
   vertical: "construction",

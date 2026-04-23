@@ -197,6 +197,10 @@ export function buildArticle(opts: {
     ...(opts.datePublished && { datePublished: opts.datePublished }),
     ...(opts.dateModified && { dateModified: opts.dateModified }),
     inLanguage: "en-US",
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", "h2", "[itemprop='name']"],
+    },
   };
 }
 
@@ -246,6 +250,7 @@ export function buildFAQPage(
     mainEntity: faqs.map((f) => ({
       "@type": "Question",
       name: f.question,  // Do NOT set both name AND text — DataForSEO flags the redundancy
+      answerCount: 1,
       acceptedAnswer: {
         "@type": "Answer",
         text: f.answer,

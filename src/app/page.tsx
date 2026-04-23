@@ -11,6 +11,7 @@ import AboutDellamano from "@/components/sections/AboutDellamano";
 import ReviewedBy from "@/components/ReviewedBy";
 import ContactForm from "@/components/ContactForm";
 import { getGoogleReviews } from "@/lib/google-reviews";
+import { buildBreadcrumbList } from "@/lib/schema";
 import {
   BUSINESS_NAME,
   BUSINESS_SHORT_DESCRIPTION,
@@ -95,8 +96,16 @@ export const revalidate = 3600;
 export default async function HomePage() {
   const reviews = await getGoogleReviews();
 
+  const breadcrumbSchema = buildBreadcrumbList([
+    { name: "Home", url: SITE_URL },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema]) }}
+      />
       <Hero
         eyebrow="South Florida General Contractor"
         heading="Every Project, Every Trade, One Signature"
