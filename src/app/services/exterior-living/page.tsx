@@ -213,6 +213,13 @@ export default async function ExteriorLivingPillar() {
         backgroundImageUrl={heroImage}
         rightColumn={<ContactForm />}
       />
+      <ReviewedBy />
+      <PillarSubServices
+        pillar="exterior-living"
+        eyebrow="Exterior Living services"
+        heading="What we build outside the house"
+        subheading="Outdoor kitchens, pergolas, hardscapes, and pool construction — each has its own detailed guide."
+      />
       <GeneratedContent sections={page.content} photos={photos} />
       <FAQSection faq={faq} />
     </>
