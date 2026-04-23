@@ -56,9 +56,9 @@ export default function ContactForm() {
       >
         <div className="flex flex-col items-center text-center py-6">
           <CheckCircle2 size={48} className="text-brand-accent mb-4" aria-hidden="true" />
-          <h3 className="font-display text-[20px] font-bold text-brand-dark mb-2">
+          <h2 className="font-display text-[20px] font-bold text-brand-dark mb-2">
             Estimate request received
-          </h3>
+          </h2>
           <p className="text-gray-600 text-[14px] leading-[1.7] mb-5 max-w-sm">
             We&apos;ll reach out within one business day. If you&apos;d like to talk sooner, call Aldo directly.
           </p>
@@ -85,9 +85,9 @@ export default function ContactForm() {
         <p className="text-[11px] uppercase tracking-[0.14em] font-bold text-brand-accent mb-1">
           Free Estimate
         </p>
-        <h3 className="font-display text-[22px] font-bold text-brand-dark leading-tight">
+        <h2 className="font-display text-[22px] font-bold text-brand-dark leading-tight">
           Talk to a licensed contractor
-        </h3>
+        </h2>
         <p className="text-gray-500 text-[13px] mt-1.5 leading-[1.6]">
           Not a call center. Aldo responds personally.
         </p>
@@ -101,12 +101,17 @@ export default function ContactForm() {
         </div>
 
         <div>
-          <label className="block text-[12px] font-semibold text-gray-700 mb-1.5 tracking-wide uppercase">
+          <label
+            htmlFor="contact-service"
+            className="block text-[12px] font-semibold text-gray-700 mb-1.5 tracking-wide uppercase"
+          >
             Project
           </label>
           <select
+            id="contact-service"
             name="service"
             defaultValue=""
+            aria-label="Project type"
             className="w-full h-11 px-3 rounded-[0.625rem] bg-gray-50 border border-gray-200 text-[14px] text-brand-dark focus:outline-none focus:border-brand-accent focus:bg-white transition-colors"
           >
             <option value="" disabled>
@@ -177,17 +182,23 @@ function Field({
   required?: boolean;
   autoComplete?: string;
 }) {
+  const id = `contact-${name}`;
   return (
     <div>
-      <label className="block text-[12px] font-semibold text-gray-700 mb-1.5 tracking-wide uppercase">
+      <label
+        htmlFor={id}
+        className="block text-[12px] font-semibold text-gray-700 mb-1.5 tracking-wide uppercase"
+      >
         {label}
         {required && <span className="text-brand-primary ml-0.5">*</span>}
       </label>
       <input
+        id={id}
         type={type}
         name={name}
         required={required}
         autoComplete={autoComplete}
+        aria-label={label}
         className="w-full h-11 px-3 rounded-[0.625rem] bg-gray-50 border border-gray-200 text-[14px] text-brand-dark focus:outline-none focus:border-brand-accent focus:bg-white transition-colors"
       />
     </div>

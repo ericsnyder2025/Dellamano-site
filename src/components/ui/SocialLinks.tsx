@@ -99,6 +99,7 @@ export default function SocialLinks({
                 className={`${commonClass} ${styles.active}`}
               >
                 {iconSvg}
+                <span className="sr-only">{BUSINESS_NAME} on {label}</span>
               </a>
             </li>
           );
@@ -114,6 +115,7 @@ export default function SocialLinks({
               className={`${commonClass} ${styles.disabled}`}
             >
               {iconSvg}
+              <span className="sr-only">{label} (coming soon)</span>
             </span>
           </li>
         );
