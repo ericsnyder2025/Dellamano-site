@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { SITE_URL, BUSINESS_NAME, OG_IMAGE_PATH } from "@/../site.config";
 import GeneratedContent from "@/components/geo/GeneratedContent";
+import Hero from "@/components/sections/Hero";
+import ContactForm from "@/components/ContactForm";
 import type { ContentSection, PhotoRow } from "@/types/page";
 
 /**
@@ -101,28 +103,24 @@ export async function generateMetadata({
   };
 }
 
-function PageHeader({ h1 }: { h1: string | null }) {
-  if (!h1) return null;
-  return (
-    <header className="bg-brand-dark relative overflow-hidden py-20 sm:py-24 lg:py-28">
-      <div
-        className="absolute inset-0 opacity-40"
-        style={{
-          background:
-            "radial-gradient(ellipse at 30% 40%, rgba(184,135,60,0.35) 0%, transparent 55%)",
-        }}
-        aria-hidden="true"
-      />
-      <div className="relative mx-auto max-w-5xl px-6 lg:px-8 text-center">
-        <h1
-          className="font-display font-bold leading-[1.05] tracking-tight"
-          style={{ color: "#FFFFFF", fontSize: "clamp(36px, 6vw, 64px)" }}
-        >
-          {h1}
-        </h1>
-      </div>
-    </header>
-  );
+function eyebrowFromSlug(slug: string): string {
+  // Take the last non-empty path segment, title-case it, append region.
+  // `/services/exterior-living` -> "Exterior Living · South Florida"
+  // `/blog/kitchen-remodel-cost` -> "Kitchen Remodel Cost · South Florida"
+  const last = slug.split("/").filter(Boolean).pop() || "";
+  const words = last
+    .split("-")
+    .filter(Boolean)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+  return words ? `${words} · South Florida` : "South Florida";
+}
+
+function pickHeroPhoto(photos: PhotoRow[]): string | undefined {
+  // Agent stores the hero as <slug>-hero.webp. Prefer that; fall back to
+  // letting Hero use its component default.
+  const hero = photos.find((p) => p.storage_path?.includes("-hero."));
+  return hero?.public_url;
 }
 
 type FAQItem = { question: string; answer: string };
@@ -193,10 +191,22 @@ export default async function DynamicPage({
   const photos = await fetchPhotos(page.id);
   const sections = Array.isArray(page.content) ? page.content : [];
   const faq = Array.isArray(page.faq) ? (page.faq as FAQItem[]) : [];
+  const heroImage = pickHeroPhoto(photos);
+  const subheading =
+    page.meta_description ||
+    "Licensed South Florida general contractor. Broward and Palm Beach Counties.";
 
   return (
     <>
-      <PageHeader h1={page.h1} />
+      <Hero
+        eyebrow={eyebrowFromSlug(slug)}
+        heading={page.h1 || BUSINESS_NAME}
+        subheading={subheading}
+        ctaLabel="Request a Free Estimate"
+        ctaHref="#free-estimate"
+        backgroundImageUrl={heroImage}
+        rightColumn={<ContactForm />}
+      />
       <GeneratedContent sections={sections} photos={photos} />
       <FAQSection faq={faq} />
     </>

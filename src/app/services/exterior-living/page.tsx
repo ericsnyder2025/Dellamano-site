@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Hero from "@/components/sections/Hero";
 import CTABanner from "@/components/sections/CTABanner";
+import ContactForm from "@/components/ContactForm";
 import ReviewedBy from "@/components/ReviewedBy";
 import PillarSubServices from "@/components/sections/PillarSubServices";
 import GeneratedContent from "@/components/geo/GeneratedContent";
@@ -183,27 +184,9 @@ function PlaceholderBody() {
   );
 }
 
-function PageHeader({ h1 }: { h1: string }) {
-  return (
-    <header className="bg-brand-dark relative overflow-hidden py-20 sm:py-24 lg:py-28">
-      <div
-        className="absolute inset-0 opacity-40"
-        style={{
-          background:
-            "radial-gradient(ellipse at 30% 40%, rgba(184,135,60,0.35) 0%, transparent 55%)",
-        }}
-        aria-hidden="true"
-      />
-      <div className="relative mx-auto max-w-5xl px-6 lg:px-8 text-center">
-        <h1
-          className="font-display font-bold leading-[1.05] tracking-tight"
-          style={{ color: "#FFFFFF", fontSize: "clamp(36px, 6vw, 64px)" }}
-        >
-          {h1}
-        </h1>
-      </div>
-    </header>
-  );
+function pickHeroPhoto(photos: PhotoRow[]): string | undefined {
+  const hero = photos.find((p) => p.storage_path?.includes("-hero."));
+  return hero?.public_url;
 }
 
 export default async function ExteriorLivingPillar() {
@@ -214,10 +197,22 @@ export default async function ExteriorLivingPillar() {
 
   const photos = await fetchPhotos(page.id);
   const faq = Array.isArray(page.faq) ? (page.faq as FAQItem[]) : [];
+  const heroImage = pickHeroPhoto(photos);
+  const subheading =
+    page.meta_description ||
+    "Custom outdoor spaces built for South Florida sun, salt, and summer rain — engineered by a licensed GC.";
 
   return (
     <>
-      <PageHeader h1={page.h1 || "Exterior Living"} />
+      <Hero
+        eyebrow="Exterior Living · South Florida"
+        heading={page.h1 || "South Florida Outdoor Living Contractor"}
+        subheading={subheading}
+        ctaLabel="Request a Free Estimate"
+        ctaHref="#free-estimate"
+        backgroundImageUrl={heroImage}
+        rightColumn={<ContactForm />}
+      />
       <GeneratedContent sections={page.content} photos={photos} />
       <FAQSection faq={faq} />
     </>

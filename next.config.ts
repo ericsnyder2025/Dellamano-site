@@ -9,16 +9,12 @@ const nextConfig: NextConfig = {
   // ─────────────────────────────────────────────────────────────
   images: {
     remotePatterns: [
-      // Uncomment + customize per your stack:
-      // {
-      //   protocol: "https",
-      //   hostname: "*.supabase.co",
-      //   pathname: "/storage/v1/object/public/**",
-      // },
-      // {
-      //   protocol: "https",
-      //   hostname: "images.unsplash.com",
-      // },
+      // Supabase Storage — hero + mid photos written by the agent pipeline.
+      {
+        protocol: "https",
+        hostname: "*.supabase.co",
+        pathname: "/storage/v1/object/public/**",
+      },
     ],
     formats: ["image/avif", "image/webp"],  // AVIF first for best compression
   },
