@@ -8,6 +8,7 @@ import PillarSubServices from "@/components/sections/PillarSubServices";
 import GeneratedContent from "@/components/geo/GeneratedContent";
 import { createClient } from "@/lib/supabase/server";
 import { BUSINESS_NAME, SITE_URL, OG_IMAGE_PATH } from "@/../site.config";
+import { buildPageSchemaBlocks } from "@/lib/schema";
 import type { ContentSection, PhotoRow } from "@/types/page";
 
 export const revalidate = 86400;
@@ -218,8 +219,22 @@ export default async function GeneralContractorPillar() {
     "Licensed Florida GC signing every permit. General, roofing, mechanical, electrical, and plumbing credentials all on the same license holder.";
   const lastUpdated = formatLastUpdated(page.updated_at);
 
+  const schemaBlocks = buildPageSchemaBlocks({
+    slug: SLUG,
+    h1: page.h1,
+    metaDescription: page.meta_description,
+    pageType: "service",
+    faq,
+    image: page.og_image_url,
+    dateModified: page.updated_at,
+  });
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaBlocks) }}
+      />
       <Hero
         eyebrow="General Contractor · South Florida"
         heading={page.h1 || "South Florida General Contractor"}

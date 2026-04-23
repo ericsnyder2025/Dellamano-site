@@ -8,6 +8,7 @@ import ContactForm from "@/components/ContactForm";
 import ReviewedBy from "@/components/ReviewedBy";
 import AuthorBio from "@/components/AuthorBio";
 import ProfessionalDisclosure from "@/components/ProfessionalDisclosure";
+import { buildPageSchemaBlocks } from "@/lib/schema";
 import type { ContentSection, PhotoRow } from "@/types/page";
 
 /**
@@ -221,8 +222,23 @@ export default async function DynamicPage({
   const lastUpdated = formatLastUpdated(page.updated_at);
   const isBlog = page.page_type === "blog";
 
+  const schemaBlocks = buildPageSchemaBlocks({
+    slug,
+    h1: page.h1,
+    metaDescription: page.meta_description,
+    pageType: page.page_type,
+    faq,
+    image: page.og_image_url,
+    datePublished: page.published_at,
+    dateModified: page.updated_at,
+  });
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaBlocks) }}
+      />
       <Hero
         eyebrow={eyebrowFromSlug(slug)}
         heading={page.h1 || BUSINESS_NAME}

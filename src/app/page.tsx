@@ -68,7 +68,7 @@ const PILLAR_CARDS = [
 ];
 
 export const metadata: Metadata = {
-  title: `South Florida General Contractor | ${BUSINESS_NAME}`,
+  title: "South Florida General Contractor · Broward & Palm Beach",
   description: BUSINESS_SHORT_DESCRIPTION,
   alternates: {
     canonical: SITE_URL,

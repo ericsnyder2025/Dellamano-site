@@ -298,6 +298,88 @@ export function buildHowTo(opts: {
 }
 
 // ─────────────────────────────────────────────────────────────────
+// Consolidated page-level schema builder.
+//
+// Returns the JSON-LD array a content page should emit: BreadcrumbList,
+// FAQPage (when FAQ items exist), plus Service (for service pillars) or
+// Article (for blog posts). Used by the catch-all route and the hand-
+// written pillar wrappers so both emit the same structured-data shape.
+// ─────────────────────────────────────────────────────────────────
+export function buildPageSchemaBlocks(opts: {
+  slug: string;                         // e.g. "/services/pergolas"
+  h1?: string | null;
+  metaDescription?: string | null;
+  pageType?: string | null;             // "service" | "blog" | "city" | ...
+  faq?: Array<{ question: string; answer: string }>;
+  image?: string | null;
+  datePublished?: string | null;
+  dateModified?: string | null;
+  serviceAreaCities?: string[];
+}): unknown[] {
+  const canonicalUrl = `${SITE_URL.replace(/\/$/, "")}${opts.slug}`;
+  const segs = opts.slug.split("/").filter(Boolean);
+  const humanize = (s: string) =>
+    s
+      .split("-")
+      .filter(Boolean)
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(" ");
+
+  const breadcrumbs: Array<{ name: string; url: string }> = [
+    { name: "Home", url: SITE_URL.replace(/\/$/, "") + "/" },
+  ];
+  if (segs[0] === "blog") {
+    breadcrumbs.push({
+      name: "Blog",
+      url: `${SITE_URL.replace(/\/$/, "")}/blog`,
+    });
+  } else if (segs[0] === "services") {
+    breadcrumbs.push({
+      name: "Services",
+      url: `${SITE_URL.replace(/\/$/, "")}/services`,
+    });
+  } else if (segs[0]) {
+    breadcrumbs.push({
+      name: humanize(segs[0]),
+      url: `${SITE_URL.replace(/\/$/, "")}/${segs[0]}`,
+    });
+  }
+  breadcrumbs.push({
+    name: opts.h1 || humanize(segs[segs.length - 1] || ""),
+    url: canonicalUrl,
+  });
+
+  const blocks: unknown[] = [buildBreadcrumbList(breadcrumbs)];
+
+  const faqSchema = buildFAQPage(opts.faq || []);
+  if (faqSchema) blocks.push(faqSchema);
+
+  if (opts.pageType === "blog") {
+    blocks.push(
+      buildArticle({
+        url: canonicalUrl,
+        headline: opts.h1 || "",
+        description: opts.metaDescription || "",
+        image: opts.image || undefined,
+        datePublished: toISODate(opts.datePublished || undefined),
+        dateModified: toISODate(opts.dateModified || undefined),
+      }),
+    );
+  } else if (opts.pageType === "service" || segs[0] === "services") {
+    blocks.push(
+      buildService({
+        url: canonicalUrl,
+        serviceType: opts.h1 || humanize(segs[segs.length - 1] || ""),
+        description: opts.metaDescription || "",
+        areaServed: opts.serviceAreaCities,
+      }),
+    );
+  }
+
+  return blocks;
+}
+
+// ─────────────────────────────────────────────────────────────────
 // Helper: truncate at word boundary (for Twitter descriptions etc.)
 // ─────────────────────────────────────────────────────────────────
 export function truncateAtWord(text: string, max: number): string {
