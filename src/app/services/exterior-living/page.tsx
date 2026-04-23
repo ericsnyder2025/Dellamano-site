@@ -3,6 +3,7 @@ import Hero from "@/components/sections/Hero";
 import CTABanner from "@/components/sections/CTABanner";
 import ContactForm from "@/components/ContactForm";
 import ReviewedBy from "@/components/ReviewedBy";
+import ProfessionalDisclosure from "@/components/ProfessionalDisclosure";
 import PillarSubServices from "@/components/sections/PillarSubServices";
 import GeneratedContent from "@/components/geo/GeneratedContent";
 import { createClient } from "@/lib/supabase/server";
@@ -29,13 +30,30 @@ type PageRow = {
   content: ContentSection[] | null;
   faq: unknown;
   og_image_url: string | null;
+  updated_at: string | null;
 };
+
+// Dellamano-wide defaults for the contractor scope-of-practice disclosure.
+const DISCLOSURE_PROPS = {
+  vertical: "construction",
+  codeStandard: "Florida Building Code",
+  threshold: "$1,000",
+  licensingBody: "Florida DBPR",
+  verificationUrl: "https://www.myfloridalicense.com",
+};
+
+function formatLastUpdated(iso: string | null): string | undefined {
+  if (!iso) return undefined;
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return undefined;
+  return d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+}
 
 async function fetchPublishedPage(): Promise<PageRow | null> {
   const supabase = createClient();
   const { data, error } = await supabase
     .from("pages")
-    .select("id, meta_title, meta_description, h1, content, faq, og_image_url")
+    .select("id, meta_title, meta_description, h1, content, faq, og_image_url, updated_at")
     .eq("url_slug", SLUG)
     .eq("status", "published")
     .maybeSingle();
@@ -180,6 +198,7 @@ function PlaceholderBody() {
         ctaLabel="Request a Free Estimate"
         ctaHref="/contact"
       />
+      <ProfessionalDisclosure {...DISCLOSURE_PROPS} />
     </>
   );
 }
@@ -201,6 +220,7 @@ export default async function ExteriorLivingPillar() {
   const subheading =
     page.meta_description ||
     "Custom outdoor spaces built for South Florida sun, salt, and summer rain — engineered by a licensed GC.";
+  const lastUpdated = formatLastUpdated(page.updated_at);
 
   return (
     <>
@@ -213,7 +233,7 @@ export default async function ExteriorLivingPillar() {
         backgroundImageUrl={heroImage}
         rightColumn={<ContactForm />}
       />
-      <ReviewedBy />
+      <ReviewedBy lastUpdated={lastUpdated} />
       <PillarSubServices
         pillar="exterior-living"
         eyebrow="Exterior Living services"
@@ -222,6 +242,7 @@ export default async function ExteriorLivingPillar() {
       />
       <GeneratedContent sections={page.content} photos={photos} />
       <FAQSection faq={faq} />
+      <ProfessionalDisclosure {...DISCLOSURE_PROPS} />
     </>
   );
 }

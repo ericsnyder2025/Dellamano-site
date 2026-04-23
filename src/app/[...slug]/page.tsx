@@ -5,6 +5,9 @@ import { SITE_URL, BUSINESS_NAME, OG_IMAGE_PATH } from "@/../site.config";
 import GeneratedContent from "@/components/geo/GeneratedContent";
 import Hero from "@/components/sections/Hero";
 import ContactForm from "@/components/ContactForm";
+import ReviewedBy from "@/components/ReviewedBy";
+import AuthorBio from "@/components/AuthorBio";
+import ProfessionalDisclosure from "@/components/ProfessionalDisclosure";
 import type { ContentSection, PhotoRow } from "@/types/page";
 
 /**
@@ -123,6 +126,24 @@ function pickHeroPhoto(photos: PhotoRow[]): string | undefined {
   return hero?.public_url;
 }
 
+function formatLastUpdated(iso: string | null): string | undefined {
+  if (!iso) return undefined;
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return undefined;
+  return d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+}
+
+// Dellamano-wide defaults for the contractor scope-of-practice disclosure.
+// Every /services/* and /blog/* page gets the same disclaimer; tighten
+// per-vertical here if different work categories ever need different text.
+const DISCLOSURE_PROPS = {
+  vertical: "construction",
+  codeStandard: "Florida Building Code",
+  threshold: "$1,000",
+  licensingBody: "Florida DBPR",
+  verificationUrl: "https://www.myfloridalicense.com",
+};
+
 type FAQItem = { question: string; answer: string };
 
 function FAQSection({ faq }: { faq: FAQItem[] }) {
@@ -195,6 +216,8 @@ export default async function DynamicPage({
   const subheading =
     page.meta_description ||
     "Licensed South Florida general contractor. Broward and Palm Beach Counties.";
+  const lastUpdated = formatLastUpdated(page.updated_at);
+  const isBlog = page.page_type === "blog";
 
   return (
     <>
@@ -207,8 +230,11 @@ export default async function DynamicPage({
         backgroundImageUrl={heroImage}
         rightColumn={<ContactForm />}
       />
+      <ReviewedBy lastUpdated={lastUpdated} showEditorialLink={isBlog} />
       <GeneratedContent sections={sections} photos={photos} />
+      {isBlog && <AuthorBio />}
       <FAQSection faq={faq} />
+      <ProfessionalDisclosure {...DISCLOSURE_PROPS} />
     </>
   );
 }
