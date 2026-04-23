@@ -43,9 +43,10 @@ export default function PillarSubServices({
                   <Image
                     src={svc.imageUrl}
                     alt={svc.imageAlt}
-                    fill
+                    width={1600}
+                    height={1000}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover object-center motion-safe:group-hover:scale-105 transition-transform duration-500"
+                    className="absolute inset-0 w-full h-full object-cover object-center motion-safe:group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <div className="p-6">

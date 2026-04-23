@@ -34,12 +34,13 @@ export default function Hero({
       <Image
         src={backgroundImageUrl}
         alt=""
-        fill
+        width={1920}
+        height={1080}
         priority
         fetchPriority="high"
         quality={85}
         sizes="100vw"
-        className="object-cover object-center"
+        className="absolute inset-0 w-full h-full object-cover object-center"
         aria-hidden="true"
       />
 

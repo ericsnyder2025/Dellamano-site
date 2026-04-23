@@ -506,9 +506,10 @@ function ImageBlock({
                 src={photo.public_url}
                 alt={photo.alt_text || heading || "Project photo"}
                 title={heading || photo.alt_text || "Project photo"}
-                fill
+                width={photo.width || 1920}
+                height={photo.height || 1080}
                 sizes="(max-width: 1024px) 100vw, 60vw"
-                className="object-cover"
+                className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
             <figcaption className="text-gray-500 text-[13px] mt-3 text-center">
