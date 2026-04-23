@@ -76,9 +76,10 @@ function slugFromParams(slugParts: string[] | undefined): string {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug?: string[] };
+  params: Promise<{ slug?: string[] }>;
 }): Promise<Metadata> {
-  const slug = slugFromParams(params.slug);
+  const { slug: slugParts } = await params;
+  const slug = slugFromParams(slugParts);
   const page = await fetchPage(slug);
   if (!page) return {};
 
@@ -203,9 +204,10 @@ function FAQSection({ faq }: { faq: FAQItem[] }) {
 export default async function DynamicPage({
   params,
 }: {
-  params: { slug?: string[] };
+  params: Promise<{ slug?: string[] }>;
 }) {
-  const slug = slugFromParams(params.slug);
+  const { slug: slugParts } = await params;
+  const slug = slugFromParams(slugParts);
   const page = await fetchPage(slug);
   if (!page) notFound();
 
