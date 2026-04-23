@@ -745,6 +745,6 @@ export const NAV_PRIMARY: NavItem[] = [
   },
   {
     label: "Service Areas",
-    href: "/locations",
+    href: "/service-areas",
   },
 ];
