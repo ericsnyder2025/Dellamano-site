@@ -22,7 +22,7 @@ import { buildBreadcrumbList } from "@/lib/schema";
 
 const PAGE_URL = `${SITE_URL}about`;
 const PAGE_TITLE = `About — ${BUSINESS_NAME}`;
-const PAGE_DESCRIPTION = `Meet Aldo Dellamano, the licensed Florida general contractor behind ${BUSINESS_NAME}. Four trade licenses under one roof, serving ${SERVICE_AREA_COUNTIES.join(" and ")}.`;
+const PAGE_DESCRIPTION = `Meet Aldo Dellamano, the licensed GC behind ${BUSINESS_NAME}. Four trade licenses under one signature, serving ${SERVICE_AREA_COUNTIES.join(" and ")}.`;
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,

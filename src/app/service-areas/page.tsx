@@ -17,9 +17,9 @@ import { buildBreadcrumbList, buildLocalBusiness } from "@/lib/schema";
 
 const PAGE_URL = `${SITE_URL}service-areas`;
 const PAGE_TITLE = `Service Areas — ${BUSINESS_NAME}`;
-const PAGE_DESCRIPTION = `${BUSINESS_NAME} covers ${SERVICE_AREA_COUNTIES.join(
+const PAGE_DESCRIPTION = `${BUSINESS_NAME} is a licensed Florida GC serving ${SERVICE_AREA_CITIES.length} cities across ${SERVICE_AREA_COUNTIES.join(
   " and ",
-)} — ${SERVICE_AREA_CITIES.length} cities across South Florida.`;
+)}. See every community we build in.`;
 
 const DISCLOSURE_PROPS = {
   vertical: "construction",
