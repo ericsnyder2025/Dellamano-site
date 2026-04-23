@@ -4,14 +4,32 @@ import { useState } from "react";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
-import { PHONE_NUMBER, PHONE_E164, NAV_PRIMARY, NAV_SIMPLE } from "@/../site.config";
+import {
+  PHONE_NUMBER,
+  PHONE_E164,
+  NAV_PRIMARY,
+  NAV_SIMPLE,
+  type NavItem,
+} from "@/../site.config";
 
 export default function MobileMenuToggle() {
   const [isOpen, setIsOpen] = useState(false);
-  const [expanded, setExpanded] = useState<string | null>(null);
+  // Set of section paths (by href) currently expanded. Using hrefs
+  // makes nested sections addressable — the top "Services" menu and an
+  // inner "Exterior Living" pillar can each be expanded independently.
+  const [expanded, setExpanded] = useState<Set<string>>(new Set());
 
-  function toggleSection(label: string) {
-    setExpanded(expanded === label ? null : label);
+  function toggleSection(key: string) {
+    setExpanded((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+  }
+
+  function close() {
+    setIsOpen(false);
   }
 
   return (
@@ -25,47 +43,17 @@ export default function MobileMenuToggle() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-[72px] left-0 right-0 bg-brand-dark border-t border-white/10 lg:hidden z-50 shadow-xl">
+        <div className="absolute top-[72px] left-0 right-0 bg-brand-dark border-t border-white/10 lg:hidden z-50 shadow-xl max-h-[calc(100vh-72px)] overflow-y-auto">
           <nav className="flex flex-col px-6 py-4 gap-1">
             {NAV_PRIMARY.map((menu) => (
-              <div key={menu.href}>
-                <div className="flex items-center justify-between border-b border-white/5">
-                  <Link
-                    href={menu.href}
-                    className="text-gray-300 hover:text-white text-base py-3 transition-colors flex-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded px-1"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {menu.label}
-                  </Link>
-                  {menu.items && menu.items.length > 0 && (
-                    <button
-                      onClick={() => toggleSection(menu.label)}
-                      className="p-2 text-gray-300 hover:text-white transition-colors touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded"
-                      aria-label={`${expanded === menu.label ? "Collapse" : "Expand"} ${menu.label} submenu`}
-                    >
-                      <ChevronDown
-                        size={18}
-                        aria-hidden="true"
-                        className={`transition-transform duration-200 ${expanded === menu.label ? "rotate-180" : ""}`}
-                      />
-                    </button>
-                  )}
-                </div>
-                {expanded === menu.label && menu.items && (
-                  <div className="pl-4 pb-2">
-                    {menu.items.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="block text-gray-500 hover:text-white text-sm py-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded px-1"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
+              <MobileNavSection
+                key={menu.href}
+                item={menu}
+                depth={0}
+                expanded={expanded}
+                toggle={toggleSection}
+                onNavigate={close}
+              />
             ))}
             {NAV_SIMPLE.map((link) => (
               <Link
@@ -93,5 +81,79 @@ export default function MobileMenuToggle() {
         </div>
       )}
     </>
+  );
+}
+
+// Recursive nav row. Depth 0 is a pillar/top-level section; depth 1+
+// is a nested sub-section (indented + slightly muted). Each level with
+// children renders a chevron button that toggles expansion via the
+// shared expanded set keyed on href.
+function MobileNavSection({
+  item,
+  depth,
+  expanded,
+  toggle,
+  onNavigate,
+}: {
+  item: NavItem;
+  depth: number;
+  expanded: Set<string>;
+  toggle: (key: string) => void;
+  onNavigate: () => void;
+}) {
+  const hasChildren = !!item.items && item.items.length > 0;
+  const isOpen = expanded.has(item.href);
+  const labelClass =
+    depth === 0
+      ? "text-gray-300 hover:text-white text-base py-3 font-medium"
+      : depth === 1
+      ? "text-white hover:text-brand-accent text-[15px] py-2.5 font-semibold"
+      : "text-gray-400 hover:text-white text-[14px] py-1.5";
+  const rowClass =
+    depth === 0
+      ? "flex items-center justify-between border-b border-white/5"
+      : "flex items-center justify-between";
+  const indent = depth === 0 ? "" : depth === 1 ? "pl-4" : "pl-8";
+
+  return (
+    <div className={indent}>
+      <div className={rowClass}>
+        <Link
+          href={item.href}
+          onClick={onNavigate}
+          className={`${labelClass} flex-1 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded px-1`}
+        >
+          {item.label}
+        </Link>
+        {hasChildren && (
+          <button
+            onClick={() => toggle(item.href)}
+            className="p-2 text-gray-300 hover:text-white transition-colors touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded"
+            aria-label={`${isOpen ? "Collapse" : "Expand"} ${item.label} submenu`}
+            aria-expanded={isOpen}
+          >
+            <ChevronDown
+              size={18}
+              aria-hidden="true"
+              className={`transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+            />
+          </button>
+        )}
+      </div>
+      {hasChildren && isOpen && (
+        <div className="pb-2">
+          {item.items!.map((child) => (
+            <MobileNavSection
+              key={child.href}
+              item={child}
+              depth={depth + 1}
+              expanded={expanded}
+              toggle={toggle}
+              onNavigate={onNavigate}
+            />
+          ))}
+        </div>
+      )}
+    </div>
   );
 }

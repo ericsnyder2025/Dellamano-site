@@ -228,27 +228,16 @@ export const BUSINESS_TAGLINE = "Every Project. Every Trade. One Signature.";
 
 // ─────────────────────────────────────────────────────────────────
 // NAVIGATION
+// Recursive shape: any item may have its own `items` for mega-menu
+// columns or nested mobile accordions. Actual NAV_PRIMARY is built
+// at the bottom of this file so it can pull sub-services from the
+// SERVICES registry via getServicesByPillar.
 // ─────────────────────────────────────────────────────────────────
-export const NAV_PRIMARY: Array<{
+export interface NavItem {
   label: string;
   href: string;
-  items?: { label: string; href: string }[];
-}> = [
-  {
-    label: "Services",
-    href: "/services",
-    items: [
-      { label: "Exterior Living", href: "/services/exterior-living" },
-      { label: "Interior Renovation", href: "/services/interior-renovation" },
-      { label: "Home Systems", href: "/services/home-systems" },
-      { label: "General Contractor", href: "/services/general-contractor" },
-    ],
-  },
-  {
-    label: "Service Areas",
-    href: "/locations",
-  },
-];
+  items?: NavItem[];
+}
 
 export const NAV_SIMPLE: Array<{ label: string; href: string }> = [
   { label: "About", href: "/about" },
@@ -722,3 +711,40 @@ export function getServicesByPillar(pillar: NonNullable<ServiceEntry["pillar"]>)
   }
   return out;
 }
+
+// ─────────────────────────────────────────────────────────────────
+// NAV_PRIMARY — mega menu. Each pillar inside "Services" carries its
+// own `items` (sub-services) pulled from the SERVICES registry, so
+// this stays in sync as services move between pillars. Header renders
+// this as a mega-menu grid on desktop and a nested accordion on mobile.
+// ─────────────────────────────────────────────────────────────────
+function pillarColumn(
+  label: string,
+  pillar: NonNullable<ServiceEntry["pillar"]>,
+): NavItem {
+  return {
+    label,
+    href: `/services/${pillar}`,
+    items: getServicesByPillar(pillar).map((s) => ({
+      label: s.name,
+      href: s.href,
+    })),
+  };
+}
+
+export const NAV_PRIMARY: NavItem[] = [
+  {
+    label: "Services",
+    href: "/services",
+    items: [
+      pillarColumn("Exterior Living", "exterior-living"),
+      pillarColumn("Interior Renovation", "interior-renovation"),
+      pillarColumn("Home Systems", "home-systems"),
+      pillarColumn("General Contractor", "general-contractor"),
+    ],
+  },
+  {
+    label: "Service Areas",
+    href: "/locations",
+  },
+];
