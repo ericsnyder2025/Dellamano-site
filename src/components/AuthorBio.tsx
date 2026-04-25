@@ -41,19 +41,28 @@ export default function AuthorBio() {
             {AUTHOR.licenses.length > 0 && (
               <p className="text-gray-500 text-xs mb-2">
                 Licenses:{" "}
-                {AUTHOR.licenses.map((l, i) => (
-                  <span key={l.number}>
-                    {i > 0 && ", "}
-                    <a
-                      href={l.verificationUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:underline"
-                    >
-                      {l.name} #{l.number}
-                    </a>
-                  </span>
-                ))}
+                {AUTHOR.licenses.map((l, i) => {
+                  const isPending = !l.verificationUrl;
+                  return (
+                    <span key={`${l.name}-${l.number}`}>
+                      {i > 0 && ", "}
+                      {isPending ? (
+                        <span className="italic text-gray-400">
+                          {l.name} (pending)
+                        </span>
+                      ) : (
+                        <a
+                          href={l.verificationUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:underline"
+                        >
+                          {l.name} #{l.number}
+                        </a>
+                      )}
+                    </span>
+                  );
+                })}
               </p>
             )}
             <Link
