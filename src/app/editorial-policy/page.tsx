@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BUSINESS_NAME, SITE_URL, AUTHOR, AUTHOR_URL } from "@/../site.config";
+import { BUSINESS_NAME, SITE_URL, AUTHOR } from "@/../site.config";
+
+// Internal nav must be relative — AUTHOR_URL is absolute (production
+// domain) for canonical/schema/OG. See AuthorBio.tsx for context.
+const AUTHOR_PATH = `/team/${AUTHOR.slug}`;
 
 export const metadata: Metadata = {
   title: `Editorial Policy — ${BUSINESS_NAME}`,
@@ -29,7 +33,7 @@ export default function EditorialPolicyPage() {
       <h2>Expert Review</h2>
       <p>
         Every article, guide, and service page on this site is reviewed for technical
-        accuracy by <Link href={AUTHOR_URL}>{AUTHOR.name}</Link>, {AUTHOR.jobTitle}.{" "}
+        accuracy by <Link href={AUTHOR_PATH}>{AUTHOR.name}</Link>, {AUTHOR.jobTitle}.{" "}
         {AUTHOR.name} has {/* TODO: years */} years of field experience and holds{" "}
         {AUTHOR.licenses.length > 0
           ? `active ${AUTHOR.licenses.map((l) => l.name).join(", ")} credentials.`

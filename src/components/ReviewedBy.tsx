@@ -1,5 +1,12 @@
 import Link from "next/link";
-import { AUTHOR, AUTHOR_URL, EDITORIAL_POLICY_URL } from "@/../site.config";
+import { AUTHOR } from "@/../site.config";
+
+// Internal nav must be relative — AUTHOR_URL / EDITORIAL_POLICY_URL are
+// absolute (production domain) for canonical/schema/OG; using them as
+// Link hrefs causes off-host nav when the production domain isn't the
+// host serving the response.
+const AUTHOR_PATH = `/team/${AUTHOR.slug}`;
+const EDITORIAL_POLICY_PATH = "/editorial-policy";
 
 /**
  * ReviewedBy — sitewide E-E-A-T trust strip.
@@ -29,7 +36,7 @@ export default function ReviewedBy({
         <p className="text-gray-600 text-[14px] text-center w-full">
           Reviewed by{" "}
           <Link
-            href={AUTHOR_URL}
+            href={AUTHOR_PATH}
             className="font-semibold text-brand-link hover:text-brand-link-700 hover:underline transition-colors"
           >
             {AUTHOR.name}
@@ -83,7 +90,7 @@ export default function ReviewedBy({
         {showEditorialLink && (
           <p className="mt-3 text-[12px] text-gray-500 text-center">
             <Link
-              href={EDITORIAL_POLICY_URL}
+              href={EDITORIAL_POLICY_PATH}
               className="text-brand-link hover:text-brand-link-700 hover:underline transition-colors"
             >
               Editorial policy →

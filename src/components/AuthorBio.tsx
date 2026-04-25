@@ -1,6 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { AUTHOR, AUTHOR_URL } from "@/../site.config";
+import { AUTHOR } from "@/../site.config";
+
+// Internal nav must be relative — AUTHOR_URL is absolute (production domain)
+// for canonical/schema/OG; using it as a Link href causes off-host nav.
+const AUTHOR_PATH = `/team/${AUTHOR.slug}`;
 
 /**
  * AuthorBio — appears at the END of content pages, before the CTA.
@@ -30,7 +34,7 @@ export default function AuthorBio() {
           )}
           <div className="flex-1">
             <h3 className="text-lg font-bold mb-1">
-              <Link href={AUTHOR_URL} className="hover:underline">
+              <Link href={AUTHOR_PATH} className="hover:underline">
                 {AUTHOR.name}
               </Link>
             </h3>
@@ -66,7 +70,7 @@ export default function AuthorBio() {
               </p>
             )}
             <Link
-              href={AUTHOR_URL}
+              href={AUTHOR_PATH}
               className="text-brand-link hover:text-brand-link-700 text-sm font-semibold hover:underline transition-colors"
             >
               View full credentials →
