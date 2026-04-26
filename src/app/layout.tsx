@@ -93,6 +93,7 @@ const organizationSchema = {
   ...(BUSINESS_NAME !== BUSINESS_LEGAL_NAME && { alternateName: BUSINESS_NAME }),
   url: SITE_URL,
   logo: `${SITE_URL}${LOGO_PATH.replace(/^\//, "")}`,
+  image: `${SITE_URL}${OG_IMAGE_PATH.replace(/^\//, "")}`,
   telephone: PHONE_NUMBER,
   email: EMAIL,
   address: {
