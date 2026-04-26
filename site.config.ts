@@ -98,15 +98,15 @@ export const AUTHOR = {
         "https://www.myfloridalicense.com/LicenseDetail.asp?SID=&id=39DD85916742B987C251349976F7D728",
     },
     {
-      // Electrical — number pending from user. Empty verificationUrl
-      // tells the ReviewedBy + About license panels to render this
-      // entry as a non-clickable "Pending" chip until the real number
-      // is provided.
+      // Electrical — license is held by Dellamano Construction with
+      // Khalif Edwin on file as the qualifying agent (QA); Aldo signs
+      // electrical permits under it as the company principal.
       name: "Certified Electrical Contractor",
-      number: "Pending",
+      number: "EC13015530",
       body: "Florida DBPR",
       bodyUrl: "https://www.myfloridalicense.com",
-      verificationUrl: "",
+      verificationUrl:
+        "https://www.myfloridalicense.com/LicenseDetail.asp?SID=&id=E64FF6192DC1EEAE91AE6868923B27BF",
     },
     // Pool license — pending state approval
   ] as Array<{
@@ -213,8 +213,8 @@ export const FAVICON_PATH = "/favicon.ico";
 // ─────────────────────────────────────────────────────────────────
 // ANNUAL METRICS
 // ─────────────────────────────────────────────────────────────────
-export const ANNUAL_PROJECTS = 0;
-export const YEARS_IN_BUSINESS = 0;
+export const ANNUAL_PROJECTS = 50;
+export const YEARS_IN_BUSINESS = 15;
 
 // ─────────────────────────────────────────────────────────────────
 // EDITORIAL
