@@ -79,7 +79,7 @@ export default function ServiceGalleryClient({
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 placeholder="blur"
                 blurDataURL={p.blur}
-                quality={82}
+                quality={70}
                 priority={i < 3}
                 loading={i < 3 ? "eager" : "lazy"}
                 className="object-cover motion-safe:transition-transform motion-safe:duration-300 motion-safe:group-hover:scale-105"
@@ -164,7 +164,7 @@ function Lightbox({
           alt={p.alt}
           fill
           sizes="100vw"
-          quality={90}
+          quality={80}
           placeholder="blur"
           blurDataURL={p.blur}
           className="object-contain"

@@ -508,6 +508,7 @@ function ImageBlock({
                 title={heading || photo.alt_text || "Project photo"}
                 width={photo.width || 1920}
                 height={photo.height || 1080}
+                quality={75}
                 sizes="(max-width: 1024px) 100vw, 60vw"
                 className="absolute inset-0 w-full h-full object-cover"
               />

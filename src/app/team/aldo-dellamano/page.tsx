@@ -93,6 +93,8 @@ export default function AldoDellamanoPage() {
                 alt={`${AUTHOR.name} headshot`}
                 width={200}
                 height={200}
+                quality={75}
+                sizes="200px"
                 className="rounded-full"
               />
             ) : (

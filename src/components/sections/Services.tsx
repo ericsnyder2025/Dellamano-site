@@ -53,7 +53,7 @@ export default function Services({
                   alt={card.imageAlt}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 640px"
-                  quality={80}
+                  quality={75}
                   className="object-cover object-center motion-safe:group-hover:scale-105 transition-transform duration-500"
                 />
                 {/* Desktop gradient overlay + content */}

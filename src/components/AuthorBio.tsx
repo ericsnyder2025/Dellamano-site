@@ -29,6 +29,8 @@ export default function AuthorBio() {
               alt={`${AUTHOR.name} headshot`}
               width={88}
               height={88}
+              quality={75}
+              sizes="88px"
               className="rounded-full flex-shrink-0"
             />
           )}

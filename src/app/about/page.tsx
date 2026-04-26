@@ -108,6 +108,7 @@ export default function AboutPage() {
                     alt={`${AUTHOR.name}, ${AUTHOR.jobTitle}`}
                     fill
                     sizes="(max-width: 768px) 240px, 280px"
+                    quality={75}
                     className="object-cover"
                   />
                 ) : (

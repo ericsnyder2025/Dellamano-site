@@ -38,7 +38,7 @@ export default function Hero({
         height={1080}
         priority
         fetchPriority="high"
-        quality={85}
+        quality={72}
         sizes="100vw"
         className="absolute inset-0 w-full h-full object-cover object-center"
         aria-hidden="true"
