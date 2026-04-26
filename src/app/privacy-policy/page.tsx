@@ -6,7 +6,7 @@ import { BUSINESS_NAME, BUSINESS_LEGAL_NAME, SITE_URL, EMAIL, PHONE_NUMBER } fro
 // next.config.ts so auditors don't flag conflicting directives.
 export const metadata: Metadata = {
   title: `Privacy Policy — ${BUSINESS_NAME}`,
-  description: `How ${BUSINESS_NAME} collects, uses, and protects information submitted through this website.`,
+  description: `How ${BUSINESS_NAME} collects, uses, stores, and protects information submitted through this website. Cookie use, data retention, third-party providers, and your rights.`,
   alternates: { canonical: `${SITE_URL}privacy-policy` },
   robots: { index: false, follow: true },
 };

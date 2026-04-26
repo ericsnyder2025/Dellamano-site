@@ -22,6 +22,7 @@ import {
   SITE_URL,
   SOCIAL_LINKS,
   LOGO_PATH,
+  OG_IMAGE_PATH,
   PHONE_NUMBER,
   EMAIL,
   ADDRESS,
@@ -51,8 +52,27 @@ export function buildWebSite() {
 
 // ─────────────────────────────────────────────────────────────────
 // Organization (emit once site-wide in root layout)
+//
+// `sameAs` is the strongest signal Google's Knowledge Graph uses to
+// disambiguate one entity from another with a similar name. Beyond
+// social profiles we include unique deep links to the FL DBPR license
+// verification pages — those URLs unambiguously identify this exact
+// business under FL contractor licensing. The generic
+// myfloridalicense.com homepage is filtered out because it doesn't
+// identify a specific entity.
 // ─────────────────────────────────────────────────────────────────
 export function buildOrganization() {
+  const credentialUrls = AUTHOR.licenses
+    .map((l) => l.verificationUrl)
+    .filter((u): u is string => typeof u === "string" && /\?SID=.*&id=/i.test(u));
+
+  const sameAs = [
+    ...Object.values(SOCIAL_LINKS).filter(
+      (v): v is string => typeof v === "string" && v.startsWith("http")
+    ),
+    ...credentialUrls,
+  ];
+
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -61,11 +81,22 @@ export function buildOrganization() {
     ...(BUSINESS_NAME !== BUSINESS_LEGAL_NAME && { alternateName: BUSINESS_NAME }),
     url: SITE_URL,
     logo: `${SITE_URL}${LOGO_PATH.replace(/^\//, "")}`,
+    image: `${SITE_URL}${OG_IMAGE_PATH.replace(/^\//, "")}`,
     telephone: PHONE_NUMBER,
     email: EMAIL,
-    sameAs: Object.values(SOCIAL_LINKS).filter(
-      (v): v is string => typeof v === "string" && v.startsWith("http")
-    ),
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: ADDRESS.street,
+      addressLocality: ADDRESS.city,
+      addressRegion: ADDRESS.state,
+      postalCode: ADDRESS.zip,
+      addressCountry: ADDRESS.country,
+    },
+    areaServed: SERVICE_AREA_COUNTIES.map((name) => ({
+      "@type": "AdministrativeArea",
+      name,
+    })),
+    sameAs: Array.from(new Set(sameAs)),
     ...(PARENT_COMPANY.isDba && {
       parentOrganization: {
         "@type": "Organization",
@@ -78,8 +109,28 @@ export function buildOrganization() {
 
 // ─────────────────────────────────────────────────────────────────
 // LocalBusiness (emit once on home/about OR per-city-hub)
+//
+// Optional `aggregateRating`, `reviews`, and `hasOfferCatalog` plug in
+// rich-result signals when callers have the data: the home page passes
+// Google Reviews data so AggregateRating + a few Review entries ride
+// along, and an OfferCatalog of pillar Services links the business to
+// its canonical service pages without duplicating Service entities.
 // ─────────────────────────────────────────────────────────────────
-export function buildLocalBusiness() {
+type LocalBusinessOpts = {
+  aggregateRating?: { ratingValue: number; reviewCount: number };
+  reviews?: Array<{
+    rating: number;
+    authorName: string;
+    text: string;
+    publishTime?: string;
+  }>;
+  hasOfferCatalog?: {
+    name: string;
+    items: Array<{ name: string; url: string; description?: string }>;
+  };
+};
+
+export function buildLocalBusiness(opts: LocalBusinessOpts = {}) {
   const hoursSpec: object[] = [];
   if (HOURS.weekdays) {
     hoursSpec.push({
@@ -106,29 +157,47 @@ export function buildLocalBusiness() {
     });
   }
 
+  const credentialUrls = AUTHOR.licenses
+    .map((l) => l.verificationUrl)
+    .filter((u): u is string => typeof u === "string" && /\?SID=.*&id=/i.test(u));
+
+  const sameAs = Array.from(
+    new Set([
+      ...[SOCIAL_LINKS.gbp, SOCIAL_LINKS.linkedin, SOCIAL_LINKS.facebook].filter(
+        (v): v is string => typeof v === "string" && v.startsWith("http")
+      ),
+      ...credentialUrls,
+    ])
+  );
+
   return {
     "@context": "https://schema.org",
     "@type": SCHEMA_BUSINESS_TYPE,
     "@id": `${SITE_URL}#localbusiness`,
     name: BUSINESS_NAME,
     url: SITE_URL,
+    image: `${SITE_URL}${OG_IMAGE_PATH.replace(/^\//, "")}`,
+    logo: `${SITE_URL}${LOGO_PATH.replace(/^\//, "")}`,
     telephone: PHONE_NUMBER,
+    email: EMAIL,
     priceRange: "$$-$$$",
-    ...(ADDRESS.hasStorefront && {
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: ADDRESS.street,
-        addressLocality: ADDRESS.city,
-        addressRegion: ADDRESS.state,
-        postalCode: ADDRESS.zip,
-        addressCountry: ADDRESS.country,
-      },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: ADDRESS.lat,
-        longitude: ADDRESS.lng,
-      },
-    }),
+    // Address + geo ride along regardless of `hasStorefront` — the flag
+    // governs UI display (SAB doesn't show a storefront), not whether
+    // the address is included in structured data. Google specifically
+    // wants address for local entity verification.
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: ADDRESS.street,
+      addressLocality: ADDRESS.city,
+      addressRegion: ADDRESS.state,
+      postalCode: ADDRESS.zip,
+      addressCountry: ADDRESS.country,
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: ADDRESS.lat,
+      longitude: ADDRESS.lng,
+    },
     areaServed: [
       ...SERVICE_AREA_CITIES.map((name) => ({ "@type": "City", name })),
       ...SERVICE_AREA_COUNTIES.map((name) => ({
@@ -137,16 +206,76 @@ export function buildLocalBusiness() {
       })),
     ],
     openingHoursSpecification: hoursSpec,
-    sameAs: [SOCIAL_LINKS.gbp, SOCIAL_LINKS.linkedin, SOCIAL_LINKS.facebook].filter(
-      (v): v is string => typeof v === "string" && v.startsWith("http")
-    ),
+    sameAs,
+    ...(opts.aggregateRating && opts.aggregateRating.reviewCount > 0 && {
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: opts.aggregateRating.ratingValue.toFixed(1),
+        reviewCount: opts.aggregateRating.reviewCount,
+        bestRating: 5,
+        worstRating: 1,
+      },
+    }),
+    ...(opts.reviews?.length && {
+      review: opts.reviews.slice(0, 5).map((r) => ({
+        "@type": "Review",
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: r.rating,
+          bestRating: 5,
+          worstRating: 1,
+        },
+        author: { "@type": "Person", name: r.authorName },
+        reviewBody: r.text,
+        ...(r.publishTime && { datePublished: r.publishTime }),
+      })),
+    }),
+    ...(opts.hasOfferCatalog && {
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: opts.hasOfferCatalog.name,
+        itemListElement: opts.hasOfferCatalog.items.map((item) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: item.name,
+            url: item.url,
+            ...(item.description && { description: item.description }),
+            provider: { "@id": `${SITE_URL}#localbusiness` },
+            areaServed: SERVICE_AREA_COUNTIES.map((name) => ({
+              "@type": "AdministrativeArea",
+              name,
+            })),
+          },
+        })),
+      },
+    }),
   };
 }
 
 // ─────────────────────────────────────────────────────────────────
 // Person (canonical emission on /team/{slug} page)
+//
+// `sameAs` carries identity links — official profile pages or deep
+// links to authoritative records that name this person. We include FL
+// DBPR license verification URLs (which name Aldo as the qualifier on
+// each credential) to give Knowledge Graph cross-references when the
+// LinkedIn slot is empty. Generic license-body homepages are filtered
+// out — only deep links with a specific record ID count.
 // ─────────────────────────────────────────────────────────────────
 export function buildPerson() {
+  const credentialUrls = AUTHOR.licenses
+    .map((l) => l.verificationUrl)
+    .filter((u): u is string => typeof u === "string" && /\?SID=.*&id=/i.test(u));
+
+  const sameAs = Array.from(
+    new Set(
+      [AUTHOR.linkedin, ...credentialUrls].filter(
+        (v): v is string => typeof v === "string" && v.startsWith("http")
+      )
+    )
+  );
+
   return {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -155,8 +284,10 @@ export function buildPerson() {
     jobTitle: AUTHOR.jobTitle,
     worksFor: { "@id": `${SITE_URL}#organization` },
     url: AUTHOR_URL,
-    image: AUTHOR.headshot,
-    sameAs: [AUTHOR.linkedin].filter(Boolean),
+    image: AUTHOR.headshot.startsWith("http")
+      ? AUTHOR.headshot
+      : `${SITE_URL.replace(/\/$/, "")}${AUTHOR.headshot.startsWith("/") ? AUTHOR.headshot : `/${AUTHOR.headshot}`}`,
+    sameAs,
     knowsAbout: AUTHOR.expertiseAreas,
     hasCredential: AUTHOR.licenses.map((l) => ({
       "@type": "EducationalOccupationalCredential",
@@ -270,15 +401,23 @@ export function buildImageObjects(
   photos: Array<{ src: string; alt: string; w?: number; h?: number }>,
 ) {
   const origin = SITE_URL.replace(/\/$/, "");
-  return photos.map((p) => ({
-    "@type": "ImageObject",
-    contentUrl: p.src.startsWith("http") ? p.src : `${origin}${p.src}`,
-    name: p.alt,
-    description: p.alt,
-    creditText: BUSINESS_NAME,
-    ...(p.w && { width: p.w }),
-    ...(p.h && { height: p.h }),
-  }));
+  return photos.map((p) => {
+    const absoluteUrl = p.src.startsWith("http") ? p.src : `${origin}${p.src}`;
+    // ImageObject MUST carry both `url` and `contentUrl` for strict
+    // Schema.org validators — `url` is the document-level reference,
+    // `contentUrl` is the media file. Some auditors flag ImageObjects
+    // that have only one or the other.
+    return {
+      "@type": "ImageObject",
+      url: absoluteUrl,
+      contentUrl: absoluteUrl,
+      name: p.alt,
+      description: p.alt,
+      creditText: BUSINESS_NAME,
+      ...(p.w && { width: p.w }),
+      ...(p.h && { height: p.h }),
+    };
+  });
 }
 
 export function buildImageGallery(opts: {
@@ -287,6 +426,15 @@ export function buildImageGallery(opts: {
   description: string;
   photos: Array<{ src: string; alt: string; w?: number; h?: number }>;
 }) {
+  const origin = SITE_URL.replace(/\/$/, "");
+  // ImageGallery itself needs an `image` (top-level cover) — without
+  // it, strict validators flag the schema as missing a required image
+  // reference even though associatedMedia carries the full list.
+  const cover = opts.photos[0]
+    ? opts.photos[0].src.startsWith("http")
+      ? opts.photos[0].src
+      : `${origin}${opts.photos[0].src}`
+    : `${origin}${OG_IMAGE_PATH}`;
   return {
     "@context": "https://schema.org",
     "@type": "ImageGallery",
@@ -294,6 +442,9 @@ export function buildImageGallery(opts: {
     url: opts.url,
     name: opts.name,
     description: opts.description,
+    image: cover,
+    isPartOf: { "@id": `${SITE_URL}#website` },
+    publisher: { "@id": `${SITE_URL}#organization` },
     numberOfItems: opts.photos.length,
     associatedMedia: buildImageObjects(opts.photos),
   };

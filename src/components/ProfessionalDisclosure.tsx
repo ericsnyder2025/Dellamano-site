@@ -22,7 +22,7 @@ interface DisclosureProps {
   codeStandard?: string;  // e.g., "Florida Building Code"
   threshold?: string;  // e.g., "$1,000"
   licensingBody?: string;  // e.g., "Florida DBPR"
-  verificationUrl?: string;  // e.g., "https://www.myfloridalicense.com"
+  verificationUrl?: string;  // e.g., "https://www2.myfloridalicense.com"
 }
 
 export default function ProfessionalDisclosure({

@@ -27,7 +27,7 @@ const DISCLOSURE_PROPS = {
   codeStandard: "Florida Building Code",
   threshold: "$1,000",
   licensingBody: "Florida DBPR",
-  verificationUrl: "https://www.myfloridalicense.com",
+  verificationUrl: "https://www2.myfloridalicense.com",
 };
 
 export const metadata: Metadata = {

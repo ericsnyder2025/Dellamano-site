@@ -6,18 +6,12 @@ import MobileStickyBar from "@/components/layout/MobileStickyBar";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 import {
   BUSINESS_NAME,
-  BUSINESS_LEGAL_NAME,
   BUSINESS_SHORT_DESCRIPTION,
   SITE_URL,
   SOCIAL_LINKS,
   OG_IMAGE_PATH,
-  LOGO_PATH,
-  PHONE_NUMBER,
-  EMAIL,
-  PARENT_COMPANY,
-  ADDRESS,
-  SERVICE_AREA_COUNTIES,
 } from "@/../site.config";
+import { buildOrganization } from "@/lib/schema";
 import "./globals.css";
 
 const inter = Inter({
@@ -85,38 +79,7 @@ const websiteSchema = {
   inLanguage: "en-US",
 };
 
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": `${SITE_URL}#organization`,
-  name: BUSINESS_LEGAL_NAME,
-  ...(BUSINESS_NAME !== BUSINESS_LEGAL_NAME && { alternateName: BUSINESS_NAME }),
-  url: SITE_URL,
-  logo: `${SITE_URL}${LOGO_PATH.replace(/^\//, "")}`,
-  image: `${SITE_URL}${OG_IMAGE_PATH.replace(/^\//, "")}`,
-  telephone: PHONE_NUMBER,
-  email: EMAIL,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: ADDRESS.street,
-    addressLocality: ADDRESS.city,
-    addressRegion: ADDRESS.state,
-    postalCode: ADDRESS.zip,
-    addressCountry: ADDRESS.country,
-  },
-  areaServed: SERVICE_AREA_COUNTIES.map((name) => ({
-    "@type": "AdministrativeArea",
-    name,
-  })),
-  sameAs: Object.values(SOCIAL_LINKS).filter((v) => v && v.startsWith("http")),
-  ...(PARENT_COMPANY.isDba && {
-    parentOrganization: {
-      "@type": "Organization",
-      name: PARENT_COMPANY.legalName,
-      url: PARENT_COMPANY.url,
-    },
-  }),
-};
+const organizationSchema = buildOrganization();
 
 export default function RootLayout({
   children,

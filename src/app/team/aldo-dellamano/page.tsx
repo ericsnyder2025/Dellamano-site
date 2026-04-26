@@ -19,8 +19,11 @@ import {
 } from "@/../site.config";
 import { buildPerson, buildBreadcrumbList } from "@/lib/schema";
 
-const PAGE_TITLE = `${AUTHOR.name} — ${AUTHOR.jobTitle} | ${BUSINESS_NAME}`;
-const PAGE_DESCRIPTION = `${AUTHOR.name} is the licensed Florida general contractor behind ${BUSINESS_NAME}. Four DBPR licenses (general, roofing, mechanical, plumbing) under one signature, serving ${SERVICE_AREA_COUNTIES.join(" and ")}.`;
+// Title kept under 60 chars so Google doesn't truncate; full job
+// title and license rundown live in the on-page H1 + license panel.
+const PAGE_TITLE = `${AUTHOR.name} — Florida GC | ${BUSINESS_NAME}`;
+// Description kept ≤ 160 chars to avoid SERP truncation.
+const PAGE_DESCRIPTION = `${AUTHOR.name} — licensed Florida GC behind ${BUSINESS_NAME}. Four DBPR licenses (general, roofing, mechanical, plumbing) serving ${SERVICE_AREA_COUNTIES.join(" and ")}.`;
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -208,7 +211,7 @@ export default function AldoDellamanoPage() {
             <p className="text-xs text-gray-500 mt-6">
               Verify any Florida contractor license at{" "}
               <a
-                href="https://www.myfloridalicense.com"
+                href="https://www2.myfloridalicense.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-brand-link hover:underline"

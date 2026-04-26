@@ -44,3 +44,6 @@ next-env.d.ts
 
 # site.config.ts IS committed — single source of truth the scaffold
 # imports from. Values are public-facing (NAP, services, bio).
+
+# raw photo dropoff — never commit big files
+raw-photos/

@@ -99,7 +99,35 @@ export default async function HomePage() {
   const breadcrumbSchema = buildBreadcrumbList([
     { name: "Home", url: SITE_URL },
   ]);
-  const localBusinessSchema = buildLocalBusiness();
+
+  // Feed live Google Reviews data into AggregateRating + Review schema,
+  // and link the four homepage pillar cards to their canonical Service
+  // pages via an OfferCatalog. Both are conditional — when the API is
+  // missing/down, getGoogleReviews() returns null and the rich-result
+  // signals just get omitted instead of falsifying.
+  const siteOrigin = SITE_URL.replace(/\/$/, "");
+  const localBusinessSchema = buildLocalBusiness({
+    aggregateRating: reviews
+      ? {
+          ratingValue: reviews.rating,
+          reviewCount: reviews.userRatingCount,
+        }
+      : undefined,
+    reviews: reviews?.reviews.map((r) => ({
+      rating: r.rating,
+      authorName: r.authorName,
+      text: r.text,
+      publishTime: r.publishTime || undefined,
+    })),
+    hasOfferCatalog: {
+      name: "Construction Services",
+      items: PILLAR_CARDS.map((c) => ({
+        name: c.title,
+        url: `${siteOrigin}${c.href}`,
+        description: c.description,
+      })),
+    },
+  });
 
   return (
     <>

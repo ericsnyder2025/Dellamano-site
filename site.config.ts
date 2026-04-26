@@ -70,7 +70,7 @@ export const AUTHOR = {
       name: "Certified General Contractor",
       number: "CGC1525289",
       body: "Florida DBPR",
-      bodyUrl: "https://www.myfloridalicense.com",
+      bodyUrl: "https://www2.myfloridalicense.com",
       verificationUrl:
         "https://www.myfloridalicense.com/LicenseDetail.asp?SID=&id=6ABCAD00ABE46152930AAC25DB4D35F0",
     },
@@ -78,14 +78,14 @@ export const AUTHOR = {
       name: "Certified Roofing Contractor",
       number: "CCC1335157",
       body: "Florida DBPR",
-      bodyUrl: "https://www.myfloridalicense.com",
-      verificationUrl: "https://www.myfloridalicense.com",
+      bodyUrl: "https://www2.myfloridalicense.com",
+      verificationUrl: "https://www2.myfloridalicense.com",
     },
     {
       name: "Certified Mechanical Contractor",
       number: "CMC1251666",
       body: "Florida DBPR",
-      bodyUrl: "https://www.myfloridalicense.com",
+      bodyUrl: "https://www2.myfloridalicense.com",
       verificationUrl:
         "https://www.myfloridalicense.com/LicenseDetail.asp?SID=&id=40F4ECFABE0C23584F095F47C68C2161",
     },
@@ -93,7 +93,7 @@ export const AUTHOR = {
       name: "Certified Plumbing Contractor",
       number: "CFC1434398",
       body: "Florida DBPR",
-      bodyUrl: "https://www.myfloridalicense.com",
+      bodyUrl: "https://www2.myfloridalicense.com",
       verificationUrl:
         "https://www.myfloridalicense.com/LicenseDetail.asp?SID=&id=39DD85916742B987C251349976F7D728",
     },
@@ -104,7 +104,7 @@ export const AUTHOR = {
       name: "Certified Electrical Contractor",
       number: "EC13015530",
       body: "Florida DBPR",
-      bodyUrl: "https://www.myfloridalicense.com",
+      bodyUrl: "https://www2.myfloridalicense.com",
       verificationUrl:
         "https://www.myfloridalicense.com/LicenseDetail.asp?SID=&id=E64FF6192DC1EEAE91AE6868923B27BF",
     },
@@ -200,7 +200,11 @@ export const SOCIAL_LINKS = {
   instagram: "https://www.instagram.com/dellamano_construction/",
   youtube: "",
   twitter: "",
-  gbp: "https://share.google/IuFPaZFHhN0vhNxZb",
+  // Resolved Google URL — share.google/IuFPaZFHhN0vhNxZb 302s here.
+  // Using the resolved form skips the redirect that audits flag.
+  // Replace with the canonical Google Maps place URL once GBP is finalized
+  // (https://www.google.com/maps/place/<...>/data=...).
+  gbp: "https://www.google.com/share.google?q=IuFPaZFHhN0vhNxZb",
 };
 
 // ─────────────────────────────────────────────────────────────────

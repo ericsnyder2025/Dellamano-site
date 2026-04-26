@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BUSINESS_NAME, SITE_URL, AUTHOR } from "@/../site.config";
+import { BUSINESS_NAME, SITE_URL, AUTHOR, OG_IMAGE_PATH } from "@/../site.config";
 
 // Internal nav must be relative — AUTHOR_URL is absolute (production
 // domain) for canonical/schema/OG. See AuthorBio.tsx for context.
@@ -16,6 +16,13 @@ export const metadata: Metadata = {
     url: `${SITE_URL}editorial-policy`,
     siteName: BUSINESS_NAME,
     type: "article",
+    images: [OG_IMAGE_PATH],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Editorial Policy — ${BUSINESS_NAME}`,
+    description: "How we review, verify, and maintain content accuracy.",
+    images: [OG_IMAGE_PATH],
   },
 };
 

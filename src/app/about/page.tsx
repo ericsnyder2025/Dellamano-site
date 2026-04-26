@@ -47,6 +47,10 @@ export const metadata: Metadata = {
 export const revalidate = 3600;
 
 export default function AboutPage() {
+  // Schema.org requires absolute URLs for image-bearing properties —
+  // `primaryImageOfPage` here was previously the relative `/images/...`
+  // path, which Ahrefs flagged as a validation error.
+  const headshotAbsoluteUrl = `${SITE_URL.replace(/\/$/, "")}${AUTHOR.headshot.startsWith("/") ? AUTHOR.headshot : `/${AUTHOR.headshot}`}`;
   const aboutPageSchema = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
@@ -54,8 +58,14 @@ export default function AboutPage() {
     url: PAGE_URL,
     name: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
+    isPartOf: { "@id": `${SITE_URL}#website` },
+    about: { "@id": `${SITE_URL}#organization` },
     mainEntity: { "@id": `${SITE_URL}#organization` },
-    primaryImageOfPage: AUTHOR.headshot,
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: headshotAbsoluteUrl,
+      contentUrl: headshotAbsoluteUrl,
+    },
   };
 
   const breadcrumbSchema = buildBreadcrumbList([
@@ -253,7 +263,7 @@ export default function AboutPage() {
           <p className="text-gray-500 text-[13px] leading-[1.7] mt-6 max-w-2xl">
             Verify any Florida contractor at{" "}
             <a
-              href="https://www.myfloridalicense.com"
+              href="https://www2.myfloridalicense.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-brand-link hover:text-brand-link-700 hover:underline transition-colors"

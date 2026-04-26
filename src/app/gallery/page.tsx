@@ -14,7 +14,8 @@ import { GALLERY_PHOTOS, GALLERY_CATEGORIES } from "@/lib/galleryAll";
 
 const PAGE_URL = `${SITE_URL}gallery`;
 const PAGE_TITLE = `Project Gallery — ${BUSINESS_NAME}`;
-const PAGE_DESCRIPTION = `Recent custom homes, commercial buildouts, medical clinics, and outdoor living projects across ${SERVICE_AREA_COUNTIES.join(" and ")}. Every permit signed by the same licensed contractor.`;
+// Kept ≤ 160 chars so Google doesn't truncate the description in SERPs.
+const PAGE_DESCRIPTION = `Custom homes, commercial buildouts, medical clinics, and outdoor living projects across ${SERVICE_AREA_COUNTIES.join(" and ")}. One licensed contractor, every permit.`;
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
