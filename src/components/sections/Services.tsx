@@ -61,7 +61,7 @@ export default function Services({
                   className="hidden lg:block absolute inset-0"
                   style={{
                     background:
-                      "linear-gradient(to top, rgba(15,15,16,0.95) 0%, rgba(15,15,16,0.75) 40%, rgba(15,15,16,0.15) 70%, transparent 100%)",
+                      "linear-gradient(to top, rgba(15,15,16,1) 0%, rgba(15,15,16,0.92) 50%, rgba(15,15,16,0.45) 80%, transparent 100%)",
                   }}
                   aria-hidden="true"
                 />
