@@ -241,12 +241,14 @@ export interface NavItem {
 
 export const NAV_SIMPLE: Array<{ label: string; href: string }> = [
   { label: "About", href: "/about" },
+  { label: "Gallery", href: "/gallery" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
 export const FOOTER_COMPANY_LINKS: Array<{ label: string; href: string }> = [
   { label: "About Us", href: "/about" },
+  { label: "Gallery", href: "/gallery" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
   { label: "Editorial Policy", href: "/editorial-policy" },
@@ -750,6 +752,10 @@ export const NAV_PRIMARY: NavItem[] = [
       pillarColumn("Home Systems", "home-systems"),
       pillarColumn("General Contractor", "general-contractor"),
     ],
+  },
+  {
+    label: "Gallery",
+    href: "/gallery",
   },
   {
     label: "Service Areas",
