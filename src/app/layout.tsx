@@ -15,6 +15,8 @@ import {
   PHONE_NUMBER,
   EMAIL,
   PARENT_COMPANY,
+  ADDRESS,
+  SERVICE_AREA_COUNTIES,
 } from "@/../site.config";
 import "./globals.css";
 
@@ -93,6 +95,18 @@ const organizationSchema = {
   logo: `${SITE_URL}${LOGO_PATH.replace(/^\//, "")}`,
   telephone: PHONE_NUMBER,
   email: EMAIL,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: ADDRESS.street,
+    addressLocality: ADDRESS.city,
+    addressRegion: ADDRESS.state,
+    postalCode: ADDRESS.zip,
+    addressCountry: ADDRESS.country,
+  },
+  areaServed: SERVICE_AREA_COUNTIES.map((name) => ({
+    "@type": "AdministrativeArea",
+    name,
+  })),
   sameAs: Object.values(SOCIAL_LINKS).filter((v) => v && v.startsWith("http")),
   ...(PARENT_COMPANY.isDba && {
     parentOrganization: {

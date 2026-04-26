@@ -11,7 +11,7 @@ import AboutDellamano from "@/components/sections/AboutDellamano";
 import ReviewedBy from "@/components/ReviewedBy";
 import ContactForm from "@/components/ContactForm";
 import { getGoogleReviews } from "@/lib/google-reviews";
-import { buildBreadcrumbList } from "@/lib/schema";
+import { buildBreadcrumbList, buildLocalBusiness } from "@/lib/schema";
 import {
   BUSINESS_NAME,
   BUSINESS_SHORT_DESCRIPTION,
@@ -99,12 +99,15 @@ export default async function HomePage() {
   const breadcrumbSchema = buildBreadcrumbList([
     { name: "Home", url: SITE_URL },
   ]);
+  const localBusinessSchema = buildLocalBusiness();
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema]) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([localBusinessSchema, breadcrumbSchema]),
+        }}
       />
       <Hero
         eyebrow="South Florida General Contractor"

@@ -5,15 +5,17 @@ import { SITE_URL } from "@/../site.config";
  * robots.txt generator.
  *
  * Rules:
- * - Don't block AI crawlers (GPTBot, Claude-Web, PerplexityBot) — they're
- *   how AI search results get populated. Blocking them = invisibility in
- *   ChatGPT, Perplexity, Google AIO, etc.
- * - Always reference the sitemap with an absolute URL.
- * - Don't use crawl-delay — Google ignores it.
- *
- * See references/04-robots-headers.md.
+ * - Wildcard agent allows the site root, disallows server / build paths.
+ * - AI crawlers (GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot,
+ *   Google-Extended, Bingbot) are explicitly allowed — blocking them =
+ *   invisibility in ChatGPT, Perplexity, Google AIO, Bing Chat, etc.
+ * - Sitemap reference uses an absolute URL.
+ * - No crawl-delay — Google ignores it and Bing handles it via webmaster
+ *   tools.
  */
 export default function robots(): MetadataRoute.Robots {
+  const siteOrigin = SITE_URL.replace(/\/$/, "");
+
   return {
     rules: [
       {
@@ -28,8 +30,14 @@ export default function robots(): MetadataRoute.Robots {
           // (see next.config.ts).
         ],
       },
+      { userAgent: "GPTBot", allow: "/" },
+      { userAgent: "ChatGPT-User", allow: "/" },
+      { userAgent: "ClaudeBot", allow: "/" },
+      { userAgent: "PerplexityBot", allow: "/" },
+      { userAgent: "Google-Extended", allow: "/" },
+      { userAgent: "Bingbot", allow: "/" },
     ],
-    sitemap: `${SITE_URL}sitemap.xml`,
-    host: SITE_URL.replace(/\/$/, ""),  // Host without trailing slash
+    sitemap: `${siteOrigin}/sitemap.xml`,
+    host: siteOrigin,
   };
 }

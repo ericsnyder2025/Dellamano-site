@@ -6,8 +6,11 @@ import {
   EMAIL,
   AUTHOR,
   ANNUAL_PROJECTS,
+  YEARS_IN_BUSINESS,
   SERVICE_AREA_CITIES,
   SERVICE_AREA_SUMMARY,
+  SERVICES,
+  PILLARS,
 } from "@/../site.config";
 
 // Serves /llms.txt as text/plain. App Router will NOT serve a bare
@@ -16,34 +19,43 @@ import {
 
 export const dynamic = "force-static";
 
-// TODO: Fill in services, licenses, and the About paragraph below with
-// real values for your business. This handler is a starting point — the
-// identity-level fields (name, phone, email, etc.) pull automatically
-// from site.config.ts so they stay in sync.
-const SERVICES: Array<{ name: string; slug: string; description: string }> = [
-  // { name: "Service One", slug: "service-one", description: "One-line description." },
-];
-
-const LICENSES: Array<{ name: string; number: string; body: string }> = [
-  // { name: "Certified General Contractor", number: "CGC1525289", body: "FL DBPR" },
-];
+const SITE_ORIGIN = SITE_URL.replace(/\/$/, "");
 
 const ABOUT_PARAGRAPH =
   `${BUSINESS_NAME} serves ${SERVICE_AREA_SUMMARY}. ` +
-  (ANNUAL_PROJECTS > 0 ? `${ANNUAL_PROJECTS}+ projects completed per year. ` : "") +
+  (ANNUAL_PROJECTS > 0 ? `${ANNUAL_PROJECTS}+ projects per year. ` : "") +
+  (YEARS_IN_BUSINESS > 0 ? `${YEARS_IN_BUSINESS}+ years in business. ` : "") +
   `Led by ${AUTHOR.name}, ${AUTHOR.jobTitle}.`;
 
+function buildPillarsBlock(): string {
+  return PILLARS.map(
+    (p) => `- [${p.name}](${SITE_ORIGIN}/services/${p.slug}) — ${p.tagline}`
+  ).join("\n");
+}
+
+function buildServicesBlock(): string {
+  const lines: string[] = [];
+  for (const [vertical, services] of Object.entries(SERVICES)) {
+    for (const [slug, svc] of Object.entries(services)) {
+      lines.push(
+        `- [${svc.name}](${SITE_ORIGIN}/${vertical}/${slug}) — ${svc.tagline}`
+      );
+    }
+  }
+  return lines.join("\n");
+}
+
+function buildLicensesBlock(): string {
+  if (!AUTHOR.licenses?.length) return "- (no licenses on file)";
+  return AUTHOR.licenses
+    .map((l) => {
+      const link = l.verificationUrl ? ` — verify: ${l.verificationUrl}` : "";
+      return `- ${l.name} — ${l.number} (${l.body})${link}`;
+    })
+    .join("\n");
+}
+
 function buildLlmsTxt(): string {
-  const servicesBlock = SERVICES.length
-    ? SERVICES.map(
-        (s) => `- [${s.name}](${SITE_URL}${s.slug}) — ${s.description}`
-      ).join("\n")
-    : "- (fill in services in src/app/llms.txt/route.ts)";
-
-  const licensesBlock = LICENSES.length
-    ? LICENSES.map((l) => `- ${l.name} — ${l.number} (${l.body})`).join("\n")
-    : "- (fill in licenses in src/app/llms.txt/route.ts)";
-
   const citiesBlock = SERVICE_AREA_CITIES.length
     ? SERVICE_AREA_CITIES.join(", ")
     : SERVICE_AREA_SUMMARY;
@@ -56,9 +68,13 @@ function buildLlmsTxt(): string {
 
 ${ABOUT_PARAGRAPH}
 
+## Service Pillars
+
+${buildPillarsBlock()}
+
 ## Services
 
-${servicesBlock}
+${buildServicesBlock()}
 
 ## Service Area
 
@@ -66,13 +82,13 @@ ${SERVICE_AREA_SUMMARY} — serving ${citiesBlock}.
 
 ## Licensing & Credentials
 
-${licensesBlock}
+${buildLicensesBlock()}
 
 ## Editorial & Authorship
 
 All content is reviewed for technical accuracy by ${AUTHOR.name}, ${AUTHOR.jobTitle}.
 
-Editorial policy: ${SITE_URL}editorial-policy
+Editorial policy: ${SITE_ORIGIN}/editorial-policy
 
 ## Contact
 
@@ -82,13 +98,14 @@ Editorial policy: ${SITE_URL}editorial-policy
 
 ## Key Pages
 
-- [Home](${SITE_URL})
-- [About](${SITE_URL}about)
-- [Author: ${AUTHOR.name}](${SITE_URL}team/${AUTHOR.slug})
-- [Blog](${SITE_URL}blog)
-- [Service Areas](${SITE_URL}service-areas)
-- [Contact](${SITE_URL}contact)
-- [Editorial Policy](${SITE_URL}editorial-policy)
+- [Home](${SITE_ORIGIN}/)
+- [About](${SITE_ORIGIN}/about)
+- [Author: ${AUTHOR.name}](${SITE_ORIGIN}/team/${AUTHOR.slug})
+- [Services](${SITE_ORIGIN}/services)
+- [Service Areas](${SITE_ORIGIN}/service-areas)
+- [Blog](${SITE_ORIGIN}/blog)
+- [Contact](${SITE_ORIGIN}/contact)
+- [Editorial Policy](${SITE_ORIGIN}/editorial-policy)
 `;
 }
 

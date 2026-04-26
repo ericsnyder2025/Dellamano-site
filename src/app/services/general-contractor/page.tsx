@@ -116,40 +116,28 @@ function FAQSection({ faq }: { faq: FAQItem[] }) {
           <p className="eyebrow">Frequently Asked</p>
           <h2 className="section-h2">Common Questions</h2>
         </div>
-        <div
-          className="space-y-4"
-          itemScope
-          itemType="https://schema.org/FAQPage"
-        >
+        {/*
+          Visual-only markup. Structured data for the FAQ ships as JSON-LD
+          via buildFAQPage() — DO NOT add itemScope/itemType="schema.org/FAQPage"
+          here, that triggers a duplicate-FAQPage rejection in Google Rich
+          Results.
+        */}
+        <div className="space-y-4">
           {faq.map((item, i) => (
             <details
               key={i}
               className="group bg-white border border-[rgba(221,225,235,0.7)] rounded-[1rem] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-card)] transition-shadow"
-              itemScope
-              itemProp="mainEntity"
-              itemType="https://schema.org/Question"
             >
               <summary className="cursor-pointer list-none px-6 py-5 flex items-start justify-between gap-4">
-                <h3
-                  className="font-display text-[17px] sm:text-[18px] font-bold text-brand-dark leading-[1.3] tracking-tight"
-                  itemProp="name"
-                >
+                <h3 className="font-display text-[17px] sm:text-[18px] font-bold text-brand-dark leading-[1.3] tracking-tight">
                   {item.question}
                 </h3>
                 <span className="flex-shrink-0 text-brand-accent text-[22px] leading-none mt-0.5 group-open:rotate-45 transition-transform">
                   +
                 </span>
               </summary>
-              <div
-                className="px-6 pb-6 -mt-1"
-                itemScope
-                itemProp="acceptedAnswer"
-                itemType="https://schema.org/Answer"
-              >
-                <p
-                  className="text-gray-600 text-[15px] leading-[1.75]"
-                  itemProp="text"
-                >
+              <div className="px-6 pb-6 -mt-1">
+                <p className="text-gray-600 text-[15px] leading-[1.75]">
                   {item.answer}
                 </p>
               </div>
