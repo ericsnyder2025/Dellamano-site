@@ -79,7 +79,8 @@ export const AUTHOR = {
       number: "CCC1335157",
       body: "Florida DBPR",
       bodyUrl: "https://www2.myfloridalicense.com",
-      verificationUrl: "https://www2.myfloridalicense.com",
+      verificationUrl:
+        "https://www.myfloridalicense.com/LicenseDetail.asp?SID=&id=5C068BEF7D9E0590AAD5D1D02E245221",
     },
     {
       name: "Certified Mechanical Contractor",
