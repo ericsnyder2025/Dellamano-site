@@ -72,13 +72,13 @@ export default function Services({
                   <h3 className="font-display text-[28px] font-bold text-white leading-tight mb-3 tracking-tight">
                     {card.title}
                   </h3>
-                  <p className="text-gray-300 text-[14px] leading-[1.6] mb-4 max-w-md">
+                  <p className="text-white/90 text-[15px] leading-[1.7] mb-4 max-w-md">
                     {card.description}
                   </p>
                   {card.bullets && card.bullets.length > 0 && (
                     <ul className="flex flex-wrap gap-x-4 gap-y-1 mb-5">
                       {card.bullets.map((b, i) => (
-                        <li key={i} className="text-gray-400 text-[12px]">
+                        <li key={i} className="text-white/75 text-[13px] font-medium">
                           · {b}
                         </li>
                       ))}
@@ -99,13 +99,13 @@ export default function Services({
                 <h3 className="font-display text-[24px] font-bold text-white leading-tight mb-3 tracking-tight">
                   {card.title}
                 </h3>
-                <p className="text-gray-300 text-[14px] leading-[1.6] mb-4">
+                <p className="text-white/90 text-[15px] leading-[1.7] mb-4">
                   {card.description}
                 </p>
                 {card.bullets && card.bullets.length > 0 && (
                   <ul className="flex flex-wrap gap-x-4 gap-y-1 mb-4">
                     {card.bullets.map((b, i) => (
-                      <li key={i} className="text-gray-400 text-[12px]">
+                      <li key={i} className="text-white/75 text-[13px] font-medium">
                         · {b}
                       </li>
                     ))}
