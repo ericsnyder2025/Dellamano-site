@@ -260,6 +260,46 @@ export function buildFAQPage(
 }
 
 // ─────────────────────────────────────────────────────────────────
+// ImageObject + ImageGallery — picks up Google Image Search rich
+// results and (for /gallery) groups them under one ImageGallery node.
+//
+// `name` and `description` should be the same descriptive alt text
+// (Google parses both). `creditText` propagates as the image credit.
+// ─────────────────────────────────────────────────────────────────
+export function buildImageObjects(
+  photos: Array<{ src: string; alt: string; w?: number; h?: number }>,
+) {
+  const origin = SITE_URL.replace(/\/$/, "");
+  return photos.map((p) => ({
+    "@type": "ImageObject",
+    contentUrl: p.src.startsWith("http") ? p.src : `${origin}${p.src}`,
+    name: p.alt,
+    description: p.alt,
+    creditText: BUSINESS_NAME,
+    ...(p.w && { width: p.w }),
+    ...(p.h && { height: p.h }),
+  }));
+}
+
+export function buildImageGallery(opts: {
+  url: string;
+  name: string;
+  description: string;
+  photos: Array<{ src: string; alt: string; w?: number; h?: number }>;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "@id": `${opts.url}#gallery`,
+    url: opts.url,
+    name: opts.name,
+    description: opts.description,
+    numberOfItems: opts.photos.length,
+    associatedMedia: buildImageObjects(opts.photos),
+  };
+}
+
+// ─────────────────────────────────────────────────────────────────
 // BreadcrumbList
 // ─────────────────────────────────────────────────────────────────
 export function buildBreadcrumbList(

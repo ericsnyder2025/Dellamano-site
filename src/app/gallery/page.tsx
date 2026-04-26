@@ -9,7 +9,7 @@ import {
   OG_IMAGE_PATH,
   SERVICE_AREA_COUNTIES,
 } from "@/../site.config";
-import { buildBreadcrumbList } from "@/lib/schema";
+import { buildBreadcrumbList, buildImageGallery } from "@/lib/schema";
 import { GALLERY_PHOTOS, GALLERY_CATEGORIES } from "@/lib/galleryAll";
 
 const PAGE_URL = `${SITE_URL}gallery`;
@@ -43,16 +43,13 @@ export default function GalleryPage() {
     { name: "Home", url: SITE_URL },
     { name: "Gallery", url: PAGE_URL },
   ]);
-  const collectionSchema = {
-    "@context": "https://schema.org",
-    "@type": "ImageGallery",
-    "@id": `${PAGE_URL}#gallery`,
+  const gallerySchema = buildImageGallery({
+    url: PAGE_URL,
     name: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
-    url: PAGE_URL,
-    numberOfItems: GALLERY_PHOTOS.length,
-  };
-  const schema = [collectionSchema, breadcrumbSchema];
+    photos: GALLERY_PHOTOS,
+  });
+  const schema = [gallerySchema, breadcrumbSchema];
 
   return (
     <>
