@@ -111,7 +111,7 @@ export default async function HomePage() {
       />
       <Hero
         eyebrow="South Florida General Contractor"
-        heading="Every Project, Every Trade, One Signature"
+        heading="Every Project, Every Trade, One Contractor"
         subheading="Full-service renovations, custom homes, roofing, and outdoor living across Broward and Palm Beach Counties. One GC who personally holds the general, roofing, mechanical, electrical, and plumbing licenses — so the name signing every permit on your job is the same accountable contractor from estimate through final walkthrough."
         ctaLabel="Request a Free Estimate"
         ctaHref="#free-estimate"
