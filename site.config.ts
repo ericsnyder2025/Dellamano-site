@@ -241,7 +241,6 @@ export interface NavItem {
 
 export const NAV_SIMPLE: Array<{ label: string; href: string }> = [
   { label: "About", href: "/about" },
-  { label: "Gallery", href: "/gallery" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
