@@ -3,6 +3,7 @@ import Hero from "@/components/sections/Hero";
 import CTABanner from "@/components/sections/CTABanner";
 import ContactForm from "@/components/ContactForm";
 import ReviewedBy from "@/components/ReviewedBy";
+import ServiceGallery from "@/components/sections/ServiceGallery";
 import ProfessionalDisclosure from "@/components/ProfessionalDisclosure";
 import PillarSubServices from "@/components/sections/PillarSubServices";
 import GeneratedContent from "@/components/geo/GeneratedContent";
@@ -168,6 +169,8 @@ function PlaceholderBody() {
 
       <ReviewedBy />
 
+      <ServiceGallery slug="interior-renovation" />
+
       <PillarSubServices
         pillar="interior-renovation"
         eyebrow="Interior Renovation services"
@@ -238,6 +241,7 @@ export default async function InteriorRenovationPillar() {
         rightColumn={<ContactForm />}
       />
       <ReviewedBy lastUpdated={lastUpdated} />
+      <ServiceGallery slug="interior-renovation" />
       <PillarSubServices
         pillar="interior-renovation"
         eyebrow="Interior Renovation services"

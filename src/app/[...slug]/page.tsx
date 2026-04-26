@@ -6,6 +6,7 @@ import GeneratedContent from "@/components/geo/GeneratedContent";
 import Hero from "@/components/sections/Hero";
 import ContactForm from "@/components/ContactForm";
 import ReviewedBy from "@/components/ReviewedBy";
+import ServiceGallery from "@/components/sections/ServiceGallery";
 import AuthorBio from "@/components/AuthorBio";
 import ProfessionalDisclosure from "@/components/ProfessionalDisclosure";
 import { buildPageSchemaBlocks } from "@/lib/schema";
@@ -237,6 +238,7 @@ export default async function DynamicPage({
         rightColumn={<ContactForm />}
       />
       <ReviewedBy lastUpdated={lastUpdated} showEditorialLink={isBlog} />
+      <ServiceGallery slug={slug} />
       <GeneratedContent sections={sections} photos={photos} />
       {isBlog && <AuthorBio />}
       <FAQSection faq={faq} />
