@@ -81,5 +81,43 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Could not save lead" }, { status: 500 });
   }
 
+  // Fire to Zapier (or any configured downstream) after the lead is durably
+  // stored. Failures here are logged but don't fail the response — the lead
+  // is already safe in Supabase.
+  await fireLeadWebhook({ name, email, phone, service, message, sourceUrl });
+
   return NextResponse.json({ ok: true });
+}
+
+async function fireLeadWebhook(lead: {
+  name: string;
+  email: string;
+  phone: string;
+  service: string | null;
+  message: string | null;
+  sourceUrl: string | null;
+}) {
+  const url = process.env.LEAD_WEBHOOK_URL;
+  if (!url) return;
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 5000);
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ...lead,
+        submitted_at: new Date().toISOString(),
+      }),
+      signal: controller.signal,
+    });
+    if (!res.ok) {
+      console.warn(`[api/lead] webhook returned ${res.status}`);
+    }
+  } catch (err) {
+    console.warn("[api/lead] webhook failed:", err);
+  } finally {
+    clearTimeout(timeout);
+  }
 }
